@@ -1,8 +1,10 @@
 import express from "express"
 import cookieParser from "cookie-parser"
 import dotenv from "dotenv"
+import mongoose from "mongoose";
 const app = express();
 const port = 9090;
+
 dotenv.config()
 app.use(express.json());
 app.use(cookieParser())
