@@ -27,7 +27,10 @@ const userSchema = new mongoose.Schema({
     type : String,
     default : "default.jpg",
   },
-  create
+  created_at : {
+    type : Date,
+    default : Date.now(),
+  }
 });
 
 const User = mongoose.model("User", userSchema);
