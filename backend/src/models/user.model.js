@@ -19,18 +19,18 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  active : {
-    type : Boolean,
-    default : true,
+  active: {
+    type: Boolean,
+    default: true,
   },
-  profilePicture : {
-    type : String,
-    default : "default.jpg",
+  profilePicture: {
+    type: String,
+    default: "default.jpg",
   },
-  created_at : {
-    type : Date,
-    default : Date.now(),
-  }
+  created_at: {
+    type: Date,
+    default: Date.now(),
+  },
 });
 
 const User = mongoose.model("User", userSchema);
