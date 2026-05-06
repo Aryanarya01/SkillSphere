@@ -29,8 +29,13 @@ const userSchema = new mongoose.Schema({
   },
   created_at: {
     type: Date,
-    default: Date.now(),
+    default: Date.now,
   },
+  role : {
+    type : String,
+    enum : ["client", "freelancer", "admin"],
+    default : "client"
+  }
 });
 
 const User = mongoose.model("User", userSchema);
