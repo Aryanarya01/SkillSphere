@@ -59,6 +59,5 @@ const freelancerSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
-
-const Freelancer = mongoose.model("Freelancer",freelancerSchema);
+const Freelancer = mongoose.model("Freelancer", freelancerSchema);
 export default Freelancer;
