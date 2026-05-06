@@ -29,7 +29,20 @@ const freelancerSchema = new mongoose.Schema({
     ],
     portfolio :[
         {
-            
+            title : String,
+            image : String,
+            description : String,
+            link : String,
         }
-    ]
+    ],
+    hourRate : {
+        type : Number,
+    },
+    location : {
+        type : String
+    },
+    rating : {
+        type : Number,
+        default : 0,
+    }
 })
