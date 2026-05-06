@@ -7,5 +7,7 @@ app.use(cookieParser())
 
 
 const startDB = async()=>{
-    
+    app.listen(port,()=>{
+        console.log(`Server is listining to port ${port}`)
+    })
 }
