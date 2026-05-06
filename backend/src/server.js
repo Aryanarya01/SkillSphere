@@ -7,7 +7,9 @@ app.use(cookieParser())
 
 
 const startDB = async()=>{
+    const connect  = await mongoose.connect("mongodb+srv://aryanarya01:aryan5555@skillsphere.jcqnrhp.mongodb.net/?appName=SkillSphere")
     app.listen(port,()=>{
         console.log(`Server is listining to port ${port}`)
     })
+
 }
