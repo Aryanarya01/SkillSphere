@@ -1,8 +1,9 @@
 import express from "express"
 import cookieParser from "cookie-parser"
+import dotenv from "dotenv"
 const app = express();
 const port = 9090;
-do
+dotenv.config()
 app.use(express.json());
 app.use(cookieParser())
 
