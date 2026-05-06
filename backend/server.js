@@ -2,10 +2,12 @@ import express from "express"
 import cookieParser from "cookie-parser"
 import dotenv from "dotenv"
 import mongoose from "mongoose";
+import cors from "cors"
 const app = express();
 const port = 9090;
 
 dotenv.config()
+app.use(cors())
 app.use(express.json());
 app.use(cookieParser())
 
@@ -17,4 +19,4 @@ const startDB = async()=>{
     })
 
 }
-startDB()
+startDB();
