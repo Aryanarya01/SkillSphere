@@ -1,59 +1,60 @@
 import mongoose from "mongoose";
 
-const freelancerSchema = new mongoose.Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-    required: true,
-  },
-  title: {
-    type: String,
-  },
-  bio: {
-    type: String,
-  },
-  skills: [
-    {
-      name: String,
-      level: String,
+const freelancerSchema = new mongoose.Schema(
+  {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
     },
-  ],
-  experiences: [
-    {
-      company: String,
-      role: String,
-      duration: Number,
-      description: String,
+    title: {
+      type: String,
     },
-  ],
-  portfolio: [
-    {
-      title: String,
-      image: String,
-      description: String,
-      link: String,
+    bio: {
+      type: String,
     },
-  ],
-  availability : {
-    type : String,
+    skills: [
+      {
+        name: String,
+        level: String,
+      },
+    ],
+    experiences: [
+      {
+        company: String,
+        role: String,
+        duration: Number,
+        description: String,
+      },
+    ],
+    portfolio: [
+      {
+        title: String,
+        image: String,
+        description: String,
+        link: String,
+      },
+    ],
+    availability: {
+      type: String,
+    },
+    hourRate: {
+      type: Number,
+    },
+    location: {
+      type: String,
+    },
+    rating: {
+      type: Number,
+      default: 0,
+    },
+    resume: {
+      type: String,
+    },
+    isVerified: {
+      type: Boolean,
+      default: false,
+    },
   },
-  hourRate: {
-    type: Number,
-  },
-  location: {
-    type: String,
-  },
-  rating: {
-    type: Number,
-    default: 0,
-  },
- resume : {
-    type : String,
- },
- isVerified : {
-    type : Boolean,
-    default : false
- },
-},
-    {timestamps : true}
+  { timestamps: true },
 );
