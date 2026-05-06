@@ -34,6 +34,9 @@ const freelancerSchema = new mongoose.Schema({
       link: String,
     },
   ],
+  availability : {
+    type : String,
+  },
   hourRate: {
     type: Number,
   },
@@ -44,4 +47,13 @@ const freelancerSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-});
+ resume : {
+    type : String,
+ },
+ isVerified : {
+    type : Boolean,
+    default : false
+ },
+},
+    {timestamps : true}
+);
