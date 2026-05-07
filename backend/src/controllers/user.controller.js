@@ -24,10 +24,12 @@ export const Register = async (req, res) => {
     })
     if(role === "freelancer"){
         await Freelancer.create({
-            
+            user : user._id
         })
     }
-    return res.status(200).json({message : "User registered successfully"});
+    return res.status(200).json({message : "User registered successfully",
+        user : newUser
+    });
   } catch (err) {
     return res.status(500).json({ message: "Server Error" });
   }
