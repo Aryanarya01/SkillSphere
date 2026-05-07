@@ -1,7 +1,7 @@
 import { use } from "react";
 import User from "../models/user.model";
 import bcrypt from "bcrypt"
-
+import jwt from "jsonwebtoken"
 
 export const Register = async (req, res) => {
   try {
@@ -42,6 +42,7 @@ export const Login = async(req,res)=>{
         if(!isMatch){
             return res.status(403).json({message : "Invalid credientials"})
         }
+
     }catch(err){
         return res.status(500).json({message : "Server Error!"})
     }
