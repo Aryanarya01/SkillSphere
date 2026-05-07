@@ -42,9 +42,13 @@ export const Login = async(req,res)=>{
         if(!isMatch){
             return res.status(403).json({message : "Invalid credientials"})
         }
-        const token = jwt.sign({id : user._id});
-        res.cookies("token",token,{
-            httpOnly : true,
+       jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+  expiresIn: "7d",
+});
+        res.cookie("token",token,{
+           httpOnly: true,
+      secure: false,
+      sameSite: "strict",
             
         })
         res.status(200).json({message : "Login successful"})
