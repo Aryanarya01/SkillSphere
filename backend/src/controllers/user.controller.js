@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken"
 
 export const Register = async (req, res) => {
   try {
-    const { name, username, email, password } = req.body;
+    const { name, username, email, password,role } = req.body;
     if(!name || !username || !email || !password){
         return res.status(400).json({message : "All fields are required!"});
     }
@@ -51,7 +51,9 @@ export const Login = async(req,res)=>{
       sameSite: "strict",
             
         })
-        res.status(200).json({message : "Login successful"})
+        res.status(200).json({message : "Login successful",
+            user
+        })
     }catch(err){
         return res.status(500).json({message : "Server Error!"})
     }
@@ -60,7 +62,7 @@ export const Login = async(req,res)=>{
 
 export const Logout = async(req,res)=>{
     try{
-        res.cookie("token"," ");
+        res.cookie("token");
         return res.status(200).json({message : "Logout successfully"});
     }catch(err){
         return res.status(500).json("Server Error!");
