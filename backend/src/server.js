@@ -3,7 +3,8 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
-import userRouter from "./src/routes/user.routes.js";
+import userRouter from "./routes/user.routes.js";
+ 
 
 const app = express();
 const port = 9090;
