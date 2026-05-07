@@ -58,6 +58,6 @@ export const getSingleFreelancer = async(req,res)=>{
     try{
 
     }catch(err){
-        return
+        return res.status(500).json({message : err.message})
     }
 }
