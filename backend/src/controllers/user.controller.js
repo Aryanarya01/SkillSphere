@@ -20,7 +20,12 @@ export const Register = async (req, res) => {
         email,
         password : hashedPassword,
     })
+    return res.status(200).json({message : "User registered successfully"});
   } catch (err) {
     return res.status(500).json({ message: "Server Error" });
   }
 };
+
+
+
+export 
