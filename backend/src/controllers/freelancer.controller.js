@@ -17,4 +17,10 @@ export const getMyFreelancerProfile = async (req, res) => {
 
 
 
-export const 
+export const updateFreelancerProfile = async(req,res)=>{
+    try{
+
+    }catch(err){
+        reu
+    }
+}
