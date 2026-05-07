@@ -49,8 +49,8 @@ export const updateFreelancerProfile = async (req, res) => {
 
 export const getAllFreelancer = async(req,res)=>{
     try{
-
+        const freelancer = await Freelancer.find().populate("user","-password")
     }catch(err){
-        
+        return res.status(500).json({message : err.message})
     }
 }
