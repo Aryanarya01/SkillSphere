@@ -15,11 +15,10 @@ export const getMyFreelancerProfile = async (req, res) => {
   }
 };
 
-
-
-export const updateFreelancerProfile = async(req,res)=>{
-    try{
-        const {   title,
+export const updateFreelancerProfile = async (req, res) => {
+  try {
+    const {
+      title,
       bio,
       skills,
       experiences,
@@ -29,7 +28,15 @@ export const updateFreelancerProfile = async(req,res)=>{
       location,
       resume,
     } = req.body;
-    }catch(err){
-        return res.status(500).json({message : err.message})
+
+    const freelancer = await Freelancer.findOne({
+        user : req.user._id,
+    })
+    if(!freelancer){
+        return res.status(404).json({message : "Freelancer not found!"})
     }
-}
+
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+};
