@@ -59,5 +59,9 @@ export const Login = async(req,res)=>{
 
 
 export const Logout = async(req,res)=>{
-    
+    try{
+
+    }catch(err){
+        return res.status(500).json("Server Error!");
+    }
 }
