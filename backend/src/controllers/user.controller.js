@@ -2,6 +2,7 @@
 import User from "../models/user.model.js";
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
+import Freelancer from "../models/freelancer.model.js";
 
 export const Register = async (req, res) => {
   try {
@@ -19,7 +20,11 @@ export const Register = async (req, res) => {
         username,
         email,
         password : hashedPassword,
+        role
     })
+    if(role === "freelancer"){
+        await Freelancer.create
+    }
     return res.status(200).json({message : "User registered successfully"});
   } catch (err) {
     return res.status(500).json({ message: "Server Error" });
