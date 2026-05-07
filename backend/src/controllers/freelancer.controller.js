@@ -8,8 +8,10 @@ export const getMyFreelancerProfile = async(req,res)=>{
             user : req.user._id
         }).populate("user","-password");
         if(!freelancer){
-            return 
+            return res.status(404).json({message : "Freelancer not found"})
         }
+
+        return res.status(200).json({freelancer})
     }catch(err){
         return res.status(500).json({message : err.message})
     }
