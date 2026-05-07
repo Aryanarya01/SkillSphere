@@ -44,3 +44,13 @@ export const updateFreelancerProfile = async (req, res) => {
     });
   }
 };
+
+
+
+export const getAllFreelancer = async(req,res)=>{
+    try{
+
+    }catch(err){
+        
+    }
+}
