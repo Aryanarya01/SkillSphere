@@ -42,7 +42,7 @@ export const Login = async(req,res)=>{
         if(!isMatch){
             return res.status(403).json({message : "Invalid credientials"})
         }
-
+        const token = jwt.sign({id : user._id})
     }catch(err){
         return res.status(500).json({message : "Server Error!"})
     }
