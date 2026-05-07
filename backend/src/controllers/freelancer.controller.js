@@ -56,7 +56,13 @@ export const getAllFreelancer = async (req, res) => {
 
 export const getSingleFreelancer = async(req,res)=>{
     try{
-
+        const freelancer = await Freelancer.findById(
+            req.params.id
+        )
+        if(!freelancer){
+            return res.status(404).json({message : "freelancer not found!"});
+        }
+        
     }catch(err){
         return res.status(500).json({message : err.message})
     }
