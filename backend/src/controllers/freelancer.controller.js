@@ -19,7 +19,16 @@ export const getMyFreelancerProfile = async (req, res) => {
 
 export const updateFreelancerProfile = async(req,res)=>{
     try{
-
+        const {   title,
+      bio,
+      skills,
+      experiences,
+      portfolio,
+      availability,
+      hourlyRate,
+      location,
+      resume,
+    } = req.body;
     }catch(err){
         return res.status(500).json({message : err.message})
     }
