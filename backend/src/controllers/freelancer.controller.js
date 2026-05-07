@@ -17,6 +17,7 @@ export const getMyFreelancerProfile = async (req, res) => {
 
 export const updateFreelancerProfile = async (req, res) => {
   try {
+    const {...dataForUbdate} = req.body;
     const {
       title,
       bio,
@@ -27,7 +28,7 @@ export const updateFreelancerProfile = async (req, res) => {
       hourlyRate,
       location,
       resume,
-    } = req.body;
+    } = dataForUbdate;
 
     const freelancer = await Freelancer.findOne({
         user : req.user._id,
@@ -35,7 +36,7 @@ export const updateFreelancerProfile = async (req, res) => {
     if(!freelancer){
         return res.status(404).json({message : "Freelancer not found!"})
     }
-
+    const existingFreelancer = await Freelancer.findOne({$or:[{username},{email}]})
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }
