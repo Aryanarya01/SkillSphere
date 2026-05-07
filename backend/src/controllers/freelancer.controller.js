@@ -62,7 +62,7 @@ export const getSingleFreelancer = async(req,res)=>{
         if(!freelancer){
             return res.status(404).json({message : "freelancer not found!"});
         }
-        
+        return res.status(200).json({freelancer})
     }catch(err){
         return res.status(500).json({message : err.message})
     }
