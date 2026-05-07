@@ -42,7 +42,7 @@ export const Login = async(req,res)=>{
         if(!isMatch){
             return res.status(403).json({message : "Invalid credientials"})
         }
-       jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      const token =  jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
   expiresIn: "7d",
 });
         res.cookie("token",token,{
