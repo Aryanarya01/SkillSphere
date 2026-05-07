@@ -43,7 +43,7 @@ export const Login = async(req,res)=>{
             return res.status(403).json({message : "Invalid credientials"})
         }
         const token = jwt.sign({id : user._id});
-        res
+        res.cookie()
     }catch(err){
         return res.status(500).json({message : "Server Error!"})
     }
