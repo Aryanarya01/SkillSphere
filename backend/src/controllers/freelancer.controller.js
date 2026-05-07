@@ -52,3 +52,12 @@ export const getAllFreelancer = async (req, res) => {
     return res.status(500).json({ message: err.message });
   }
 };
+
+
+export const getSingleFreelancer = async(req,res)=>{
+    try{
+
+    }catch(err){
+        return
+    }
+}
