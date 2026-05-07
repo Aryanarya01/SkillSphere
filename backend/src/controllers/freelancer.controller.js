@@ -21,6 +21,6 @@ export const updateFreelancerProfile = async(req,res)=>{
     try{
 
     }catch(err){
-        reu
+        return res.status(500).json({message : err.message})
     }
 }
