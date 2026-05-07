@@ -36,7 +36,8 @@ export const updateFreelancerProfile = async (req, res) => {
     if(!freelancer){
         return res.status(404).json({message : "Freelancer not found!"})
     }
-    const existingFreelancer = await Freelancer.findOne({$or:[{username},{email}]})
+    const existingFreelancer = await Freelancer.findOne({$or:[{username},{email}]});
+    if(existingFreelancer || String(existingFreelancer._id)!== String(freelancer._id))
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }
