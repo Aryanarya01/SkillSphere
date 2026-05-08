@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 import userRouter from "./routes/user.routes.js";
- 
+ import freelancer from "./routes/freelancer.route.js"
 
 const app = express();
 const port = 9090;
