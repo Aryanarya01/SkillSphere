@@ -15,6 +15,6 @@ router
   .route("freelancers/update-profile")
   .put(Protect, authorizeRoles("freelancer"), UpdateFreelancerProfile);
 router.route("freelancers/all").get(getAllFreelancer);
-router.route("/:id").get(getSingleFreelancer);
+router.route("freelancers/:id").get(getSingleFreelancer);
 
 export default router;
