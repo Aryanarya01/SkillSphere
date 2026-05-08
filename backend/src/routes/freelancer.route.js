@@ -1,4 +1,4 @@
-import express, { Router } from "express";
+import { Router } from "express";
 import { Protect } from "../middleware/protect.js";
 import { authorizedRole } from "../middleware/role.js";
 import {
