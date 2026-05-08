@@ -13,7 +13,7 @@ router
   .route("/freelancers/my-profile")
   .get(Protect, authorizedRole("freelancer"), getMyFreelancerProfile);
 router
-  .route("/freelancers/update-profile")
+  .route("/freelancers/update_profile")
   .put(Protect, authorizedRole("freelancer"), updateFreelancerProfile);
 router.route("/freelancers/all").get(getAllFreelancer);
 router.route("/freelancers/:id").get(getSingleFreelancer);
