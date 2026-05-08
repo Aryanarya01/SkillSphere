@@ -5,6 +5,7 @@ import {
   getAllFreelancer,
   getMyFreelancerProfile,
   getSingleFreelancer,
+  updateFreelancerProfile,
 } from "../controllers/freelancer.controller.js";
 const router = Router();
 
@@ -13,7 +14,7 @@ router
   .get(Protect, authorizedRole("freelancer"), getMyFreelancerProfile);
 router
   .route("freelancers/update-profile")
-  .put(Protect, authorizeRoles("freelancer"), UpdateFreelancerProfile);
+  .put(Protect, authorizedRole("freelancer"), updateFreelancerProfile);
 router.route("freelancers/all").get(getAllFreelancer);
 router.route("freelancers/:id").get(getSingleFreelancer);
 
