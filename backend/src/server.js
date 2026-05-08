@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 import userRouter from "./routes/user.routes.js";
- import freelancer from "./routes/freelancer.route.js"
+import freelancerRouter from "./routes/freelancer.route.js"
 
 const app = express();
 const port = 9090;
@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(userRouter);
-
+app.use(freelancerRouter);
 const startDB = async () => {
   const connect = await mongoose.connect(
     "mongodb+srv://aryanarya01:aryan5555@skillsphere.jcqnrhp.mongodb.net/?appName=SkillSphere",
