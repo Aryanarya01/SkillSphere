@@ -6,7 +6,10 @@ const router = Router();
 
 
 router.route("/my-profile").get(Protect,authorizedRole("freelancer"),getMyFreelancerProfile);
-
+router.route( "/update-profile",
+  Protect,
+  authorizeRoles("freelancer"),
+  UpdateFreelancerProfile)
 
 
 export default router
