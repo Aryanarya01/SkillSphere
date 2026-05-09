@@ -31,8 +31,10 @@ Content-Type: application/json
 
 
 ###
-GET  http://localhost:9090/freelancers/my_profile HTTP/1.1
+GET http://localhost:9090/freelancers/my_profile
 Content-Type: application/json
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmNjZjVhZDE0MGUwYTgwMzc4YTI1MyIsImlhdCI6MTc3ODMyNzc1MiwiZXhwIjoxNzc4OTMyNTUyfQ.nFPB-slruzezBoNiw4M-dOCvm6FNYWbME7Ag-0HF4xo
+
 
 ###
 PUT http://localhost:9090/freelancers/update_profile HTTP/1.1
