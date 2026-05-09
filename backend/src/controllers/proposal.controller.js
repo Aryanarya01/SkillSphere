@@ -70,7 +70,13 @@ export const acceptProposal = async(req,res)=>{
 //rejectProposal
 export const rejectProposal = async(req,res)=>{
     try{
-        const 
+        const proposal = await Proposal.findById(req.params.id);
+        if(!proposal){
+            return res.status(404).json({message : "Proposal not found"});
+        }
+        proposal.status = "rejected";
+        await proposal.save();
+        return res.status(200).json({message : "Proposal rejected",proposal});
     }catch(err){
         return res.status(500).json({message : err.message})
     }
