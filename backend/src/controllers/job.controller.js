@@ -57,7 +57,8 @@ export const getSingleJob = async(req,res)=>{
 
 export const updateJob = async(req,res)=>{
     try{
-
+        const job = await Job.findById(req.params.id);
+        if()
     }catch(err){
         return res.status(500).json({message : err.message})
     }
