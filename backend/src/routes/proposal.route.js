@@ -18,8 +18,8 @@ router
   .get(Protect, authorizedRole("client"), getJobProposals);
 router
   .route("/proposal/accept/:id")
-  .put(Protect,authorizedRole("client"), acceptProposal);
+  .put(Protect, authorizedRole("client"), acceptProposal);
 router
   .route("/proposal/reject/:id")
-  .put(Protect,authorizedRole("client"), rejectProposal);
+  .put(Protect, authorizedRole("client"), rejectProposal);
 export default router;
