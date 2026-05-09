@@ -3,6 +3,8 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
+
+
 import userRouter from "./routes/user.routes.js";
 import freelancerRouter from "./routes/freelancer.route.js"
 import jobRoute from "./routes/job.route.js";
@@ -19,7 +21,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 
-
+//routes
 app.use(userRouter);
 app.use(freelancerRouter);
 app.use(jobRoute);
