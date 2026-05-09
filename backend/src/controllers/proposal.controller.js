@@ -20,11 +20,14 @@ export const applyJob = async(req,res)=>{
         if(existingProposal){
             return res.status(400).json({message : "Already applied to this job"});
         }
-        const Proposal = await Proposal.create({
+        const proposal = await Proposal.create({
             job : JobId,
             freelancer : req.user._id,
             coverLetter,
             bidAmount,
+        });
+        return res.status(201).json({message : "Proposal submitted successfully",
+            proposal
         })
     }catch(err){
         return res.status(500).json({message : err.message})
