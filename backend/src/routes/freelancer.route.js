@@ -10,7 +10,7 @@ import {
 const router = Router();
 
 router
-  .route("/freelancers/my-profile")
+  .route("/freelancers/my_profile")
   .get(Protect, authorizedRole("freelancer"), getMyFreelancerProfile);
 router
   .route("/freelancers/update_profile")
