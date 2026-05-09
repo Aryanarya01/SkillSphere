@@ -58,7 +58,13 @@ export const getSingleJob = async(req,res)=>{
 export const updateJob = async(req,res)=>{
     try{
         const job = await Job.findById(req.params.id);
-        if()
+        if(!job){
+            return res.status(404).json({message : "Job not found"})
+        }
+        if(job.client.toString() !== req.user._id.toString()){
+            return res.status(403).json({message : "Access Denied"});
+        }
+        const 
     }catch(err){
         return res.status(500).json({message : err.message})
     }
