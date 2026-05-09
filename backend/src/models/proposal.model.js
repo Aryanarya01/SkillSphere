@@ -30,6 +30,8 @@ const proposalSchema = new mongoose.Schema({
         ],
         default: "pending",
     }
+},{
+    timestamps : true
 })
 
 const Proposal = mongoose.model("Proposal",proposalSchema);
