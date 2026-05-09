@@ -17,6 +17,7 @@ export const applyJob = async(req,res)=>{
             job : JobId,
             freelancer : req.user._id,
         })
+        
     }catch(err){
         return res.status(500).json({message : err.message})
     }
