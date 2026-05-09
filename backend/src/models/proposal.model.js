@@ -6,4 +6,5 @@ const proposalSchema = new mongoose.Schema({
 
 })
 
-const Proposal = mongoose.model("Proposal",proposalSchema)
+const Proposal = mongoose.model("Proposal",proposalSchema);
+export const Proposal;
