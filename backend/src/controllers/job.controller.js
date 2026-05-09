@@ -16,6 +16,7 @@ export const createJob = async (req, res) => {
       skillsRequired,
       deadline,
     })
+    
 
 
   } catch (err) {
