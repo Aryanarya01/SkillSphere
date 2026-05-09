@@ -46,3 +46,8 @@ Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmNjZjVhZDE0MGUwYTgwMzc4
   "hourRate": 20,
   "location": "India"
 }
+
+###
+GET http://localhost:9090/freelancers/all
+Content-Type: application/json
+ 
