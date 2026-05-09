@@ -26,51 +26,50 @@ export const createJob = async (req, res) => {
   }
 };
 
-
 //getAllJob
 
-export const getAllJobs = async (req,res)=>{
-    try{
-        const jobs = await Job.find().populate("client","-password");
-        return res.status(200).json({jobs})
-    }catch(err){
-        return res.status(500).json({message : err.message})
-    }
-}
+export const getAllJobs = async (req, res) => {
+  try {
+    const jobs = await Job.find().populate("client", "-password");
+    return res.status(200).json({ jobs });
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+};
 
 //getSingleJobs
 
-export const getSingleJob = async(req,res)=>{
-    try{
-        const job = await Job.findById(req.params.id).populate("client","-password");
-        if(!job){
-            return res.status(404).json({ message: "Job not found"})
-        }
-        return res.status(200).json({job})
-    }catch(err){
-        return res.status(500).json({message : err.message})
+export const getSingleJob = async (req, res) => {
+  try {
+    const job = await Job.findById(req.params.id).populate(
+      "client",
+      "-password",
+    );
+    if (!job) {
+      return res.status(404).json({ message: "Job not found" });
     }
-}
+    return res.status(200).json({ job });
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+};
 
+//udpateJob
 
-//udpateJob 
-
-export const updateJob = async(req,res)=>{
-    try{
-        const job = await Job.findById(req.params.id);
-        if(!job){
-            return res.status(404).json({message : "Job not found"})
-        }
-        if(job.client.toString() !== req.user._id.toString()){
-            return res.status(403).json({message : "Access Denied"});
-        }
-        const updatedJob = await Job.findByIdAndUpdate(req.params.id,
-            req.body,{
-                new : true
-            }
-        )
-        return res.status(200).json({message : "Job Updated",updateJob})
-    }catch(err){
-        return res.status(500).json({message : err.message})
+export const updateJob = async (req, res) => {
+  try {
+    const job = await Job.findById(req.params.id);
+    if (!job) {
+      return res.status(404).json({ message: "Job not found" });
     }
-}
+    if (job.client.toString() !== req.user._id.toString()) {
+      return res.status(403).json({ message: "Access Denied" });
+    }
+    const updatedJob = await Job.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    return res.status(200).json({ message: "Job Updated", updateJob });
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+};
