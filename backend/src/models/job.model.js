@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
-
-const jobSchema = new mongoose.Schema({
- client: {
+const jobSchema = new mongoose.Schema(
+  {
+    client: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
@@ -36,16 +36,12 @@ const jobSchema = new mongoose.Schema({
 
     status: {
       type: String,
-      enum: [
-        "open",
-        "in-progress",
-        "completed",
-      ],
+      enum: ["open", "in-progress", "completed"],
       default: "open",
     },
   },
-  { timestamps: true }
-)
+  { timestamps: true },
+);
 
-const Job = mongoose.model("Job",jobSchema);
+const Job = mongoose.model("Job", jobSchema);
 export default Job;
