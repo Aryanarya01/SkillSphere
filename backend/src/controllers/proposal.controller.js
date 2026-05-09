@@ -31,3 +31,14 @@ export const applyJob = async (req, res) => {
     return res.status(500).json({ message: err.message });
   }
 };
+
+
+
+//getProposal
+export const getProposal = async(req,res)=>{
+    try{
+
+    }catch(err){
+        return res.status(500).json({message : err.message})
+    }
+}
