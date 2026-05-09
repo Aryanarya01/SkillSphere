@@ -31,7 +31,8 @@ export const createJob = async (req, res) => {
 
 export const getAllJobs = async (req,res)=>{
     try{
-        const jobs = await Job.find().populate("client","-password")
+        const jobs = await Job.find().populate("client","-password");
+        return res.status(200).json({jobs})
     }catch(err){
         return res.status(500).json({message : err.message})
     }
