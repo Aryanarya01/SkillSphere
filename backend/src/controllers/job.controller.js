@@ -51,3 +51,14 @@ export const getSingleJob = async(req,res)=>{
         return res.status(500).json({message : err.message})
     }
 }
+
+
+//udpateJob 
+
+export const updateJob = async(req,res)=>{
+    try{
+
+    }catch(err){
+        return res.status(500).json({message : err.message})
+    }
+}
