@@ -37,7 +37,9 @@ export const applyJob = async (req, res) => {
 //getProposal
 export const getProposal = async(req,res)=>{
     try{
-
+        const JobId = req.params.id;
+        const job = await Job.findById(JobId);
+        if()
     }catch(err){
         return res.status(500).json({message : err.message})
     }
