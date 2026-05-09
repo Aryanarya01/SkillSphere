@@ -70,7 +70,7 @@ export const acceptProposal = async(req,res)=>{
 //rejectProposal
 export const rejectProposal = async(req,res)=>{
     try{
-
+        const 
     }catch(err){
         return res.status(500).json({message : err.message})
     }
