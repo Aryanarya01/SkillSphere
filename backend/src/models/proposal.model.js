@@ -8,7 +8,16 @@ const proposalSchema = new mongoose.Schema({
         ref : "Job",
         required : true,
     },
-    free
+    freelancer : {
+        type : mongoose.model.Types.ObjectId,
+        ref : "User",
+        required : true,
+    },
+    coverLetter : {
+        type : String,
+        required : true,
+    },
+    
 })
 
 const Proposal = mongoose.model("Proposal",proposalSchema);
