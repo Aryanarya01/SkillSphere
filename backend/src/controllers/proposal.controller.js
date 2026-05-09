@@ -56,7 +56,11 @@ export const acceptProposal = async(req,res)=>{
             return res.status(404).json({message : "Proposal not found"});
         }
         proposal.status = "accepted";
-        
+        await proposal.save();
+
+        return res.status(200).json({message : "Proposal accepted",
+            proposal
+        })
     }catch(err){
         return res.status(500).json({message : err.message})
     }
