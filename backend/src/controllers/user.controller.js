@@ -2,35 +2,55 @@ import User from "../models/user.model.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import Freelancer from "../models/freelancer.model.js";
-
 export const Register = async (req, res) => {
   try {
     const { name, username, email, password, role } = req.body;
+
     if (!name || !username || !email || !password) {
-      return res.status(400).json({ message: "All fields are required!" });
+      return res.status(400).json({
+        message: "All fields are required!",
+      });
     }
-    const user = await User.findOne({ email });
-    if (user) {
-      return res.status(404).json({ message: "User Already exists!" });
+
+    const existingUser = await User.findOne({ email });
+
+    if (existingUser) {
+      return res.status(400).json({
+        message: "User already exists!",
+      });
     }
+
+    const validRole =
+      role === "freelancer" ? "freelancer" : "client";
+
     const hashedPassword = await bcrypt.hash(password, 10);
+
     const newUser = await User.create({
       name,
       username,
       email,
       password: hashedPassword,
-      role,
+      role: validRole,
     });
-    if (role === "freelancer") {
+
+    // create freelancer profile automatically
+    if (validRole === "freelancer") {
       await Freelancer.create({
-        user: user._id,
+        user: newUser._id,
       });
     }
-    return res
-      .status(200)
-      .json({ message: "User registered successfully", user: newUser });
+
+    return res.status(201).json({
+      message: "User registered successfully",
+      user: newUser,
+    });
+
   } catch (err) {
-    return res.status(500).json({ message: "Server Error" });
+
+    return res.status(500).json({
+      message: err.message,
+    });
+
   }
 };
 
