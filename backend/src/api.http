@@ -10,6 +10,18 @@ Content-Type: application/json
 }
     
 ###
+POST http://localhost:9090/register HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "natik",
+  "username": "natik01",
+  "email": "natik@gmail.com",
+  "password": "1234",
+  "role": "client"
+}
+
+###
 
 POST http://localhost:9090/login HTTP/1.1
 Content-Type: application/json
@@ -19,16 +31,7 @@ Content-Type: application/json
    "password":"1234"
 }    
 
-###
-POST http://localhost:9090/register HTTP/1.1
-Content-Type: application/json
-{
-    "name" : "natik",
-    "username" : "natik01",
-   "email":"natik@gmail.com",
-   "password":"1234",
-   "role" : "client"
-}  
+ 
 
 ###
 POST http://localhost:9090/login HTTP/1.1
@@ -64,7 +67,7 @@ Content-Type: application/json
 ###
  POST http://localhost:9090/jobs/create
 Content-Type: application/json
-Cookie:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmYyNTU1OGQzOGIxMzY4MjQ2ZDk2OCIsImlhdCI6MTc3ODM0MzMwOCwiZXhwIjoxNzc4OTQ4MTA4fQ.ckRAtS4kVwQpjSGWifKzoD0WmB05Vq803RgTyP4R8Dg
+Cookie:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmY1ZjE5NWFhNTg1NGFiYzQ5ZGNiMCIsImlhdCI6MTc3ODM0MzcxMSwiZXhwIjoxNzc4OTQ4NTExfQ.Iie14MbWnYB0GZCffBfV1_ixnD2GpwzVwOkYbrOg40g
 
 {
   "title": "MERN Developer",
