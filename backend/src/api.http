@@ -33,7 +33,7 @@ Content-Type: application/json
 ###
 GET http://localhost:9090/freelancers/my_profile
 Content-Type: application/json
-Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmYyNDU1OWI0ZGU5NmFhZjVhYjM2NSIsImlhdCI6MTc3ODMyODY4OSwiZXhwIjoxNzc4OTMzNDg5fQ.YLvUDR6pVhDXD6mN8Py5ERHx7WtopePUcEh9L0jGnFg
+Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmYyNTU1OGQzOGIxMzY4MjQ2ZDk2OCIsImlhdCI6MTc3ODMyODkyNiwiZXhwIjoxNzc4OTMzNzI2fQ.zeCaA1xrwX4CH-zt3osin0vBRUpnYGxEsQf2aGKUHE8
 
 ###
 PUT http://localhost:9090/freelancers/update_profile HTTP/1.1
