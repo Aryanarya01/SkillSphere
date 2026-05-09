@@ -87,7 +87,7 @@ export const deleteJob = async(req,res)=>{
            return res.status(403).json({message : "Access Denied"}) 
         }
         await job_to_delete.deleteOne();
-        return res.status(200)
+        return res.status(200).json({message : "Job deleted successfully"})
     }catch(err){
         return res.status(500).json({message : err.message})
     }
