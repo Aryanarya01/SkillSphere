@@ -32,52 +32,48 @@ export const applyJob = async (req, res) => {
   }
 };
 
-
-
 //getProposal
-export const getProposal = async(req,res)=>{
-    try{
-        const JobId = req.params.id;
-        const proposal = await Proposal.find({
-            job : JobId
-        }).populate("freelancer","-password").populate("job");
-        return res.status(200).json({proposal})
-    }catch(err){
-        return res.status(500).json({message : err.message})
-    }
-}
-
+export const getProposal = async (req, res) => {
+  try {
+    const JobId = req.params.id;
+    const proposal = await Proposal.find({
+      job: JobId,
+    })
+      .populate("freelancer", "-password")
+      .populate("job");
+    return res.status(200).json({ proposal });
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+};
 
 // acceptProposal
-export const acceptProposal = async(req,res)=>{
-    try{
-        const proposal = await Proposal.findById(req.params.id);
-        if(!proposal){
-            return res.status(404).json({message : "Proposal not found"});
-        }
-        proposal.status = "accepted";
-        await proposal.save();
-
-        return res.status(200).json({message : "Proposal accepted",
-            proposal
-        })
-    }catch(err){
-        return res.status(500).json({message : err.message})
+export const acceptProposal = async (req, res) => {
+  try {
+    const proposal = await Proposal.findById(req.params.id);
+    if (!proposal) {
+      return res.status(404).json({ message: "Proposal not found" });
     }
-}
+    proposal.status = "accepted";
+    await proposal.save();
 
+    return res.status(200).json({ message: "Proposal accepted", proposal });
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+};
 
 //rejectProposal
-export const rejectProposal = async(req,res)=>{
-    try{
-        const proposal = await Proposal.findById(req.params.id);
-        if(!proposal){
-            return res.status(404).json({message : "Proposal not found"});
-        }
-        proposal.status = "rejected";
-        await proposal.save();
-        return res.status(200).json({message : "Proposal rejected",proposal});
-    }catch(err){
-        return res.status(500).json({message : err.message})
+export const rejectProposal = async (req, res) => {
+  try {
+    const proposal = await Proposal.findById(req.params.id);
+    if (!proposal) {
+      return res.status(404).json({ message: "Proposal not found" });
     }
-}
+    proposal.status = "rejected";
+    await proposal.save();
+    return res.status(200).json({ message: "Proposal rejected", proposal });
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+};
