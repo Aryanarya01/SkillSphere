@@ -69,6 +69,7 @@ export const updateJob = async(req,res)=>{
                 new : true
             }
         )
+        return res.status(200).json({message : "Job Updated",updateJob})
     }catch(err){
         return res.status(500).json({message : err.message})
     }
