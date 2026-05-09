@@ -15,11 +15,11 @@ router
   .post(Protect, authorizedRole("freelancer"), applyJob);
 router
   .route("/proposal/job/:JobId")
-  .get(Protect, authorizeRole("client"), getJobProposals);
+  .get(Protect, authorizedRole("client"), getJobProposals);
 router
   .route("/proposal/accept/:id")
-  .put(Protect, authorizeRole("client"), acceptProposal);
+  .put(Protect,authorizedRole("client"), acceptProposal);
 router
   .route("/proposal/reject/:id")
-  .put(Protect, authorizedRole("client"), rejectProposal);
+  .put(Protect,authorizedRole("client"), rejectProposal);
 export default router;
