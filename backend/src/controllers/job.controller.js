@@ -68,7 +68,7 @@ export const updateJob = async (req, res) => {
     const updatedJob = await Job.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
     });
-    return res.status(200).json({ message: "Job Updated", updateJob });
+    return res.status(200).json({ message: "Job Updated", updatedJob });
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }
