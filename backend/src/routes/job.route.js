@@ -7,9 +7,10 @@ import { authorizedRole } from "../middleware/role.js";
 const router = Router();
 
 router.route("/jobs/create").post(Protect,authorizedRole("client"),createJob);
-router.route("/jobs/").get(Protect,getAllJobs);
-router.route("/jobs/").get(Protect,getSingleJob);
-router.route("/jobs/").put(Protect,updateJob);
+router.route("/jobs").get(Protect,getAllJobs);
+router.route("/jobs/:id").get(Protect,getSingleJob);
+router.route("/jobs/").put(Protect,
+    authorizedRole("client"),updateJob);
 router.route("/jobs/").delete(Protect,deleteJob)
 
 
