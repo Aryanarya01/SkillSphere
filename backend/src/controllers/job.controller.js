@@ -73,3 +73,15 @@ export const updateJob = async (req, res) => {
     return res.status(500).json({ message: err.message });
   }
 };
+
+
+//DeleteJob
+
+export const deleteJob = async(req,res)=>{
+    try{
+        const job_to_delete = await Job.findById(req.params.id);
+        
+    }catch(err){
+        return res.status(500).json({message : err.message})
+    }
+}
