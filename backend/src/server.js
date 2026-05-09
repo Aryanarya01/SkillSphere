@@ -5,7 +5,11 @@ import mongoose from "mongoose";
 import cors from "cors";
 import userRouter from "./routes/user.routes.js";
 import freelancerRouter from "./routes/freelancer.route.js"
-import jobRoute from "./routes/job.route.js"
+import jobRoute from "./routes/job.route.js";
+import proposalRoute from "./routes/proposal.route.js"
+
+
+
 const app = express();
 const port = 9090;
 
@@ -13,9 +17,17 @@ dotenv.config();
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
+
+
+
 app.use(userRouter);
 app.use(freelancerRouter);
-app.use(jobRoute)
+app.use(jobRoute);
+app.use(proposalRoute);
+
+
+
+
 const startDB = async () => {
   const connect = await mongoose.connect(
     "mongodb+srv://aryanarya01:aryan5555@skillsphere.jcqnrhp.mongodb.net/?appName=SkillSphere",
