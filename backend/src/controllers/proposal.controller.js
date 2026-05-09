@@ -38,8 +38,10 @@ export const applyJob = async (req, res) => {
 export const getProposal = async(req,res)=>{
     try{
         const JobId = req.params.id;
-        const job = await Job.findById(JobId);
-        if()
+        const proposal = await Proposal.find({
+            job : JobId
+        }).populate("freelancer","-password").populate("job");
+        return res.status(200).json({proposal})
     }catch(err){
         return res.status(500).json({message : err.message})
     }
