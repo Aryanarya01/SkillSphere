@@ -32,8 +32,8 @@ export const applyJob = async (req, res) => {
   }
 };
 
-//getProposal
-export const getProposal = async (req, res) => {
+//getJobProposals
+export const getJobProposals = async (req, res) => {
   try {
     const JobId = req.params.id;
     const proposal = await Proposal.find({
