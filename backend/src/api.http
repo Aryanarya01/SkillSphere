@@ -76,3 +76,17 @@ Cookie:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmY1ZjE5NWFhNTg1NGFiYz
   "skillsRequired": ["React", "Node.js"],
   "deadline": "2026-06-01"
 }
+
+###
+GET http://localhost:9090/jobs
+
+###
+GET http://localhost:9090/jobs/?id=69ff5f195aa5854abc49dcb0
+
+PUT http://localhost:9090/jobs/JOB_ID
+Content-Type: application/json
+Cookie: token=YOUR_CLIENT_TOKEN
+
+{
+  "budget": 1000
+}
