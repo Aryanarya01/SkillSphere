@@ -83,9 +83,10 @@ GET http://localhost:9090/jobs
 ###
 GET http://localhost:9090/jobs/?id=69ff5f195aa5854abc49dcb0
 
-PUT http://localhost:9090/jobs/JOB_ID
+###
+PUT http://localhost:9090/jobs/69ff5f9c96ff9a9b45d56901
 Content-Type: application/json
-Cookie: token=YOUR_CLIENT_TOKEN
+Cookie:token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmY1ZjE5NWFhNTg1NGFiYzQ5ZGNiMCIsImlhdCI6MTc3ODM0NDA3MCwiZXhwIjoxNzc4OTQ4ODcwfQ.j157yEynH9PrwsXqjkNUFZVEktsU91sTD0fncikFKdw
 
 {
   "budget": 1000
