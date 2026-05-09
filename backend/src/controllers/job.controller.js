@@ -64,7 +64,11 @@ export const updateJob = async(req,res)=>{
         if(job.client.toString() !== req.user._id.toString()){
             return res.status(403).json({message : "Access Denied"});
         }
-        const 
+        const updatedJob = await Job.findByIdAndUpdate(req.params.id,
+            req.body,{
+                new : true
+            }
+        )
     }catch(err){
         return res.status(500).json({message : err.message})
     }
