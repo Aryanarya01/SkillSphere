@@ -83,7 +83,9 @@ export const deleteJob = async(req,res)=>{
         if(!job_to_delete){
             return res.status(404).json({message : "Job not Found"})
         }
-        
+        if(job_to_delete.client.toString() !== req.user._id.toString()){
+            
+        }
     }catch(err){
         return res.status(500).json({message : err.message})
     }
