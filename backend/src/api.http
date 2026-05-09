@@ -20,7 +20,17 @@ Content-Type: application/json
 }    
 
 ###
+POST http://localhost:9090/register HTTP/1.1
+Content-Type: application/json
+{
+    "name" : "natik",
+    "username" : "natik01",
+   "email":"natik@gmail.com",
+   "password":"1234",
+   "role" : "client"
+}  
 
+###
 POST http://localhost:9090/login HTTP/1.1
 Content-Type: application/json
 
@@ -51,3 +61,15 @@ Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmNjZjVhZDE0MGUwYTgwMzc4
 GET http://localhost:9090/freelancers/all
 Content-Type: application/json
  
+###
+ POST http://localhost:9090/jobs/create
+Content-Type: application/json
+Cookie:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmYyNTU1OGQzOGIxMzY4MjQ2ZDk2OCIsImlhdCI6MTc3ODM0MzMwOCwiZXhwIjoxNzc4OTQ4MTA4fQ.ckRAtS4kVwQpjSGWifKzoD0WmB05Vq803RgTyP4R8Dg
+
+{
+  "title": "MERN Developer",
+  "description": "Need full stack dev",
+  "budget": 500,
+  "skillsRequired": ["React", "Node.js"],
+  "deadline": "2026-06-01"
+}
