@@ -1,3 +1,5 @@
+import Job from "../models/job.model.js";
+
 export const createJob = async (req, res) => {
   try {
     const { title, description, budget, skillsRequired, deadline } = req.body;
@@ -6,6 +8,16 @@ export const createJob = async (req, res) => {
         message: "Required fields missing",
       });
     }
+    const job = await Job.create({
+        client: req.user._id,
+      title,
+      description,
+      budget,
+      skillsRequired,
+      deadline,
+    })
+
+
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }
