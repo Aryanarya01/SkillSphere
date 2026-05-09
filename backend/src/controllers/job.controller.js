@@ -74,21 +74,20 @@ export const updateJob = async (req, res) => {
   }
 };
 
-
 //DeleteJob
 
-export const deleteJob = async(req,res)=>{
-    try{
-        const job_to_delete = await Job.findById(req.params.id);
-        if(!job_to_delete){
-            return res.status(404).json({message : "Job not Found"})
-        }
-        if(job_to_delete.client.toString() !== req.user._id.toString()){
-           return res.status(403).json({message : "Access Denied"}) 
-        }
-        await job_to_delete.deleteOne();
-        return res.status(200).json({message : "Job deleted successfully"})
-    }catch(err){
-        return res.status(500).json({message : err.message})
+export const deleteJob = async (req, res) => {
+  try {
+    const job_to_delete = await Job.findById(req.params.id);
+    if (!job_to_delete) {
+      return res.status(404).json({ message: "Job not Found" });
     }
-}
+    if (job_to_delete.client.toString() !== req.user._id.toString()) {
+      return res.status(403).json({ message: "Access Denied" });
+    }
+    await job_to_delete.deleteOne();
+    return res.status(200).json({ message: "Job deleted successfully" });
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+};
