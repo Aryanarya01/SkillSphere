@@ -42,6 +42,7 @@ export const getAllJobs = async (req,res)=>{
 
 export const getSingleJob = async(req,res)=>{
     try{
+        const job = await Job.findById(req.params.id).populate("client","-password");
         
     }catch(err){
         return res.status(500).json({message : err.message})
