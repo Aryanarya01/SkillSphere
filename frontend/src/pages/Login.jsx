@@ -38,7 +38,7 @@ const Login = () => {
       );
       
     }finally{
-
+      dispatch(setLoading(false))
     }
   }
 
@@ -58,7 +58,7 @@ const Login = () => {
       <form  onSubmit={handleSubmit}
           className="space-y-5">
         <div>
-          <label>Email</label>
+          <label className='block text-sm font-medium text-gray-700 mb-1'>Email</label>
           <input type="email" name='email' placeholder='Enter your email' value={formData.email} onChange={handelChange} />
         </div>
 
