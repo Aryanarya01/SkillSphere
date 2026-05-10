@@ -68,12 +68,12 @@ const Login = () => {
         <input  className="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-black" type="password" name='password' placeholder='Enter your password' value={formData.password} onChange={handelChange}/>
       </div>
 
-      <button type='submit' disabled={isLoading}>{isLoading ? "Logging in..." : "Login"}</button>
+      <button   className="w-full bg-black text-white py-3 rounded-lg font-semibold hover:opacity-90 transition duration-200" type='submit' disabled={isLoading}>{isLoading ? "Logging in..." : "Login"}</button>
 
       </form>
         
 
-        <p> Don’t have an account?{" "} <span>Register</span></p>
+        <p className='text-sm text-center text-gray-500 mt-6'> Don’t have an account?{" "} <span className='text-black font-medium cursor-pointer hover:underline'>Register</span></p>
 
          </div>
       </div>
