@@ -28,9 +28,15 @@ const Login = () => {
       dispatch(setLoading(true));
       const res =   await clientServer.post("/login",formData)
       dispatch(setUser(res.data.user));
-      alert("Login Successful")
+      alert("Login Successful");
     }catch(err){
+      console.log(err);
 
+         alert(
+        err.response?.data?.message ||
+        "Login failed"
+      );
+      
     }finally{
 
     }
