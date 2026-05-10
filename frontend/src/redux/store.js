@@ -1,9 +1,7 @@
-import {configureStore} from "@reduxjs/toolkit"
-
-
+import { configureStore } from "@reduxjs/toolkit";
 
 /**
- * 
+ *
  * Steps for state management
  * Submit Action
  * Handel Action in it's Reducer
@@ -11,7 +9,7 @@ import {configureStore} from "@reduxjs/toolkit"
  */
 
 export const store = configureStore({
-    reducer : {
-        auth : authReducer,
-    }
-})
+  reducer: {
+    auth: authReducer,
+  },
+});
