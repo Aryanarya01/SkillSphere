@@ -13,7 +13,9 @@ export const createReview = async(req,res)=>{
             comment
         })
 
-        return
+        return res.status(201).json({message : "Review added successfully",
+            review
+        })
     }catch(err){
         return res.status(500).json({message : err.message})
     }
