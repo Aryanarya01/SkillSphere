@@ -22,9 +22,14 @@ const auhtSlice = createSlice({
         },
 
 
-        
-
+        //Loading
+        setLoading : (state,action)=>{
+            state.isLoading = action.payload;
+        },
 
 
     }
 })
+
+
+export const 
