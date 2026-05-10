@@ -1,83 +1,98 @@
-import React, { useState } from 'react'
-import {useDispatch, useSelector} from "react-redux";
-import {setLoading, setUser} from "../redux/slices/authSlice.js"
-import clientServer from '../api/client.js';
-
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setLoading, setUser } from "../redux/slices/authSlice.js";
+import clientServer from "../api/client.js";
 
 const Login = () => {
   const dispatch = useDispatch();
 
-  const {setUser, isLoading} = useSelector((state)=>state.auth);
-
+  const { setUser, isLoading } = useSelector((state) => state.auth);
 
   const [formData, setFormData] = useState({
-    email : "",
-    password : "",
-  })
+    email: "",
+    password: "",
+  });
 
-  const handelChange = (e)=>{
+  const handelChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name] : e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
-  const handleSubmit = async(e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
+    try {
       dispatch(setLoading(true));
-      const res =   await clientServer.post("/login",formData)
+      const res = await clientServer.post("/login", formData);
       dispatch(setUser(res.data.user));
       alert("Login Successful");
-    }catch(err){
+    } catch (err) {
       console.log(err);
 
-         alert(
-        err.response?.data?.message ||
-        "Login failed"
-      );
-      
-    }finally{
-      dispatch(setLoading(false))
+      alert(err.response?.data?.message || "Login failed");
+    } finally {
+      dispatch(setLoading(false));
     }
-  }
+  };
 
   return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-         <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
-             <div className="mb-6 text-center">
-          <h1 className="text-3xl font-bold text-gray-800">
-            Welcome Back
-          </h1>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
+        <div className="mb-6 text-center">
+          <h1 className="text-3xl font-bold text-gray-800">Welcome Back</h1>
 
-          <p className="text-gray-500 mt-2">
-            Login to your account
-          </p>
-        </div>  
-
-      <form  onSubmit={handleSubmit}
-          className="space-y-5">
-        <div>
-          <label className='block text-sm font-medium text-gray-700 mb-1'>Email</label>
-          <input  className="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-black" type="email" name='email' placeholder='Enter your email' value={formData.email} onChange={handelChange} />
+          <p className="text-gray-500 mt-2">Login to your account</p>
         </div>
 
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Email
+            </label>
+            <input
+              className="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-black"
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              value={formData.email}
+              onChange={handelChange}
+            />
+          </div>
 
-      <div>
-        <label className='block text-sm font-medium text-gray-700 mb-1'>Password</label>
-        <input  className="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-black" type="password" name='password' placeholder='Enter your password' value={formData.password} onChange={handelChange}/>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Password
+            </label>
+            <input
+              className="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-black"
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+              value={formData.password}
+              onChange={handelChange}
+            />
+          </div>
+
+          <button
+            className="w-full bg-black text-white py-3 rounded-lg font-semibold hover:opacity-90 transition duration-200"
+            type="submit"
+            disabled={isLoading}
+          >
+            {isLoading ? "Logging in..." : "Login"}
+          </button>
+        </form>
+
+        <p className="text-sm text-center text-gray-500 mt-6">
+          {" "}
+          Don’t have an account?{" "}
+          <span className="text-black font-medium cursor-pointer hover:underline">
+            Register
+          </span>
+        </p>
       </div>
+    </div>
+  );
+};
 
-      <button   className="w-full bg-black text-white py-3 rounded-lg font-semibold hover:opacity-90 transition duration-200" type='submit' disabled={isLoading}>{isLoading ? "Logging in..." : "Login"}</button>
-
-      </form>
-        
-
-        <p className='text-sm text-center text-gray-500 mt-6'> Don’t have an account?{" "} <span className='text-black font-medium cursor-pointer hover:underline'>Register</span></p>
-
-         </div>
-      </div>
-  )
-}
-
-export default Login
+export default Login;
