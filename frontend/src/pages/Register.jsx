@@ -16,7 +16,17 @@ const Register = () => {
     password: "",
     role: "client",
   });
-    
+
+  const handleChange = async(e)=>{
+    setFormData({
+        ...formData,
+        [e.target.name] : e.target.value
+    })
+  }
+
+  const handleSubmit = async(e)=>{
+
+  }
 
 
   return (
@@ -29,7 +39,122 @@ const Register = () => {
                  </div>
 
 
-                
+                 <form
+          onSubmit={handleSubmit}
+          className="space-y-5"
+        >
+
+          {/* Name */}
+          <div>
+
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Name
+            </label>
+
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-black"
+            />
+
+          </div>
+
+          {/* Username */}
+          <div>
+
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Username
+            </label>
+
+            <input
+              type="text"
+              name="username"
+              placeholder="Enter username"
+              value={formData.username}
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-black"
+            />
+
+          </div>
+
+          {/* Email */}
+          <div>
+
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Email
+            </label>
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-black"
+            />
+
+          </div>
+
+          {/* Password */}
+          <div>
+
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Password
+            </label>
+
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter password"
+              value={formData.password}
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-black"
+            />
+
+          </div>
+
+          {/* Role */}
+          <div>
+
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Select Role
+            </label>
+
+            <select
+              name="role"
+              value={formData.role}
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-black"
+            >
+              <option value="client">
+                Client
+              </option>
+
+              <option value="freelancer">
+                Freelancer
+              </option>
+            </select>
+
+          </div>
+
+          {/* Button */}
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="w-full bg-black text-white py-3 rounded-lg font-semibold hover:opacity-90 transition duration-200"
+          >
+            {
+              isLoading
+                ? "Creating Account..."
+                : "Register"
+            }
+          </button>
+
+        </form>
+
 
 
             </div>
