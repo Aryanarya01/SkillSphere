@@ -59,12 +59,12 @@ const Login = () => {
           className="space-y-5">
         <div>
           <label className='block text-sm font-medium text-gray-700 mb-1'>Email</label>
-          <input type="email" name='email' placeholder='Enter your email' value={formData.email} onChange={handelChange} />
+          <input  className="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-black" type="email" name='email' placeholder='Enter your email' value={formData.email} onChange={handelChange} />
         </div>
 
 
       <div>
-        <label>Password</label>
+        <label className='block text-sm font-medium text-gray-700 mb-1'>Password</label>
         <input type="password" name='password' placeholder='Enter your password' value={formData.password} onChange={handelChange}/>
       </div>
 
