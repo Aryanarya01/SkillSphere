@@ -2,13 +2,15 @@
 import Login from './pages/Login.jsx'
  import "./index.css";
 import Register from './pages/Register.jsx';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Routes } from 'react-router-dom';
  
 
  const App = () => {
    return (
     <BrowserRouter>
-    
+      <Routes>
+        
+      </Routes>
     </BrowserRouter>
    )
  }
