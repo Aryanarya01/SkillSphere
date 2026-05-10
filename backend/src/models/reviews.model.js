@@ -8,6 +8,9 @@ export const reviewSchema = new mongoose.Schema({
         required : true,
     },
     receiver : {
-
-    }
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "User",
+        required : true,
+    },
+    
 })
