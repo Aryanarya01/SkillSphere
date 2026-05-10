@@ -57,7 +57,7 @@ const Register = () => {
           className="space-y-5"
         >
 
-          {/* Name */}
+        
           <div>
 
             <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -75,7 +75,7 @@ const Register = () => {
 
           </div>
 
-          {/* Username */}
+          
           <div>
 
             <label className="block text-sm font-medium text-gray-700 mb-1">
