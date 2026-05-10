@@ -34,19 +34,20 @@ const Login = () => {
           </p>
         </div>  
 
-      <form>
+      <form  onSubmit={handleSubmit}
+          className="space-y-5">
         <div>
           <label>Email</label>
-          <input type="email" name='email' placeholder='Enter your email' value={formData.email}  />
+          <input type="email" name='email' placeholder='Enter your email' value={formData.email} onChange={handelChange} />
         </div>
 
 
       <div>
         <label>Password</label>
-        <input type="password" name='password' placeholder='Enter your password' value={formData.password} />
+        <input type="password" name='password' placeholder='Enter your password' value={formData.password} onChange={handelChange}/>
       </div>
 
-      <button type='submit'>{isLoading ? "Logging in..." : "Login"}</button>
+      <button type='submit' disabled={isLoading}>{isLoading ? "Logging in..." : "Login"}</button>
 
       </form>
         
