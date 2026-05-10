@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import {useDispatch, useSelector} from "react-redux";
-import {setLoading} from "../redux/slices/authSlice.js"
+import {setLoading, setUser} from "../redux/slices/authSlice.js"
+import clientServer from '../api/client.js';
 
 
 const Login = () => {
   const dispatch = useDispatch();
 
-  const {isLoading} = useSelector((state)=>state.auth);
+  const {setUser, isLoading} = useSelector((state)=>state.auth);
 
 
   const [formData, setFormData] = useState({
@@ -25,7 +26,9 @@ const Login = () => {
     e.preventDefault();
     try{
       dispatch(setLoading(true));
-      const res =   await client
+      const res =   await clientServer.post("/login",formData)
+      dispatch(setUser(res.data.user));
+      alert("Login Successful")
     }catch(err){
 
     }finally{
