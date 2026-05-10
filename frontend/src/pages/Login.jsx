@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading, setUser } from "../redux/slices/authSlice.js";
 import clientServer from "../api/client.js";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate()
   const dispatch = useDispatch();
 
   const {isLoading } = useSelector((state) => state.auth);
