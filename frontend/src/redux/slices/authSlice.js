@@ -32,4 +32,5 @@ const auhtSlice = createSlice({
 })
 
 
-export const 
+export const {setUser, logoutUser, setLoading} = auhtSlice.actions;
+export default
