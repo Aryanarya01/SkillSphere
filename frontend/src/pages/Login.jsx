@@ -6,7 +6,7 @@ import clientServer from "../api/client.js";
 const Login = () => {
   const dispatch = useDispatch();
 
-  const { setUser, isLoading } = useSelector((state) => state.auth);
+  const {isLoading } = useSelector((state) => state.auth);
 
   const [formData, setFormData] = useState({
     email: "",
