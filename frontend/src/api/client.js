@@ -1,8 +1,8 @@
 
 import axios from "axios"
 
-export const BASE_URL = 
+export const BASE_URL = "http://localhost:9090/";
 
-const clientServer = axios.create({
+export const clientServer = axios.create({
 
 })
