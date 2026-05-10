@@ -19,13 +19,14 @@ export const createReview = async (req, res) => {
   }
 };
 
-
-export const getUserReview = async(req,res)=>{
-    try{
-        const reviews = await Review.find({
-            receiver : req.params.userId
-        }).popolate("reviewer","name profilePicture").popolate("job","title")
-    }catch(err){
-        return res.status(500).json({message : err.message})
-    }
-}
+export const getUserReview = async (req, res) => {
+  try {
+    const reviews = await Review.find({
+      receiver: req.params.userId,
+    })
+      .popolate("reviewer", "name profilePicture")
+      .popolate("job", "title");
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+};
