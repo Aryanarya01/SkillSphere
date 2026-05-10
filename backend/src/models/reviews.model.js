@@ -12,5 +12,9 @@ export const reviewSchema = new mongoose.Schema({
         ref : "User",
         required : true,
     },
-    
+    job : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "Job",
+        required : true
+    }
 })
