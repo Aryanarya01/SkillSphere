@@ -28,6 +28,7 @@ const Login = () => {
       dispatch(setLoading(true));
       const res = await clientServer.post("/login", formData);
       dispatch(setUser(res.data.user));
+      navigate("/dashboard")
       alert("Login Successful");
     } catch (err) {
       console.log(err);
