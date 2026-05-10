@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setLoading } from '../redux/slices/authSlice.js';
+import { setLoading, setUser } from '../redux/slices/authSlice.js';
 import clientServer from '../api/client.js';
 
 const Register = () => {
@@ -30,7 +30,9 @@ const Register = () => {
     e.preventDefault();
     try{
         dispatch(setLoading(false));
-        const res = await clientServer
+        const res = await clientServer.post("/register",formData);
+        dispatch(setUser(res.data.user));
+        alert("Registeration Successful")
     }catch(err){
 
     }finally{
