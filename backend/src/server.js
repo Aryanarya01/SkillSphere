@@ -8,6 +8,9 @@ import userRouter from "./routes/user.routes.js";
 import freelancerRouter from "./routes/freelancer.route.js";
 import jobRoute from "./routes/job.route.js";
 import proposalRoute from "./routes/proposal.route.js";
+import reviweRoute from "./routes/review.route.js"
+
+
 
 const app = express();
 const port = 9090;
@@ -22,6 +25,7 @@ app.use(userRouter);
 app.use(freelancerRouter);
 app.use(jobRoute);
 app.use(proposalRoute);
+app.use(reviweRoute);
 
 const startDB = async () => {
   const connect = await mongoose.connect(
