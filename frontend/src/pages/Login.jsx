@@ -29,8 +29,12 @@ const Login = () => {
       <form>
         <div>
           <label>Email</label>
-          <input type="text" />
+          <input type="email" name='email' placeholder='Enter your email' value={formData.email}  />
         </div>
+
+        
+
+
       </form>
         
 
