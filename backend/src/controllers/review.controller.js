@@ -18,3 +18,14 @@ export const createReview = async (req, res) => {
     return res.status(500).json({ message: err.message });
   }
 };
+
+
+export const getUserReview = async(req,res)=>{
+    try{
+        const reviews = await Review.find({
+            receiver : req.params.userId
+        })
+    }catch(err){
+        return res.status(500).json({message : err.message})
+    }
+}
