@@ -26,6 +26,8 @@ export const getUserReview = async (req, res) => {
     })
       .popolate("reviewer", "name profilePicture")
       .popolate("job", "title");
+
+      return res.status(200).json({reviews})
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }
