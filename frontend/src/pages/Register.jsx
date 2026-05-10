@@ -29,7 +29,7 @@ const Register = () => {
   const handleSubmit = async(e)=>{
     e.preventDefault();
     try{
-        dispatch(setLoading(false));
+        dispatch(setLoading(true));
         const res = await clientServer.post("/register",formData);
         dispatch(setUser(res.data.user));
         alert("Registration Successful")
@@ -37,7 +37,7 @@ const Register = () => {
         console.log(err);
         alert("Registration Failed");
     }finally{
-        
+        dispatch(setLoading(false))
     }
   }
 
