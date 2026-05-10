@@ -1,56 +1,41 @@
 import React, { useState } from 'react'
-import {useDispatch} from "react-redux"
+import {useDispatch} from "react-redux";
+
+
+
 const Login = () => {
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
     email : "",
     password : "",
-  });
+  })
+
+
 
   return (
-     <div className="flex justify-center items-center h-screen">
+      <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+         <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
+             <div className="mb-6 text-center">
+          <h1 className="text-3xl font-bold text-gray-800">
+            Welcome Back
+          </h1>
 
-      <form
-       
-        className="flex flex-col gap-4 w-[300px] border p-5 rounded"
-      >
+          <p className="text-gray-500 mt-2">
+            Login to your account
+          </p>
+        </div>  
 
-        <h1 className="text-2xl font-bold text-center">
-          Login
-        </h1>
-
-        {/* EMAIL */}
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter Email"
-          value={formData.email}
-          
-          className="border p-2 rounded"
-        />
-
-        {/* PASSWORD */}
-        <input
-          type="password"
-          name="password"
-          placeholder="Enter Password"
-          value={formData.password}
-        
-          className="border p-2 rounded"
-        />
-
-        {/* BUTTON */}
-        <button
-          type="submit"
-          className="bg-black text-white p-2 rounded"
-        >
-          Login
-        </button>
-
+      <form>
+        <div>
+          <label>Email</label>
+          <input type="text" />
+        </div>
       </form>
+        
 
-    </div>
+         </div>
+      </div>
   )
 }
 
