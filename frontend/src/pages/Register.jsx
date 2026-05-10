@@ -32,11 +32,12 @@ const Register = () => {
         dispatch(setLoading(false));
         const res = await clientServer.post("/register",formData);
         dispatch(setUser(res.data.user));
-        alert("Registeration Successful")
+        alert("Registration Successful")
     }catch(err){
-
+        console.log(err);
+        alert("Registration Failed");
     }finally{
-
+        
     }
   }
 
