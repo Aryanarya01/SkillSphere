@@ -93,7 +93,7 @@ const Register = () => {
 
           </div>
 
-          {/* Email */}
+          
           <div>
 
             <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -111,7 +111,7 @@ const Register = () => {
 
           </div>
 
-          {/* Password */}
+          
           <div>
 
             <label className="block text-sm font-medium text-gray-700 mb-1">
