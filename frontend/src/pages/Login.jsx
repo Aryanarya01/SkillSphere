@@ -6,7 +6,8 @@ import {useDispatch, useSelector} from "react-redux";
 const Login = () => {
   const dispatch = useDispatch();
 
-  const {isLoading} = useSelector((state)=>state.auth)
+  const {isLoading} = useSelector((state)=>state.auth);
+  
 
   const [formData, setFormData] = useState({
     email : "",
