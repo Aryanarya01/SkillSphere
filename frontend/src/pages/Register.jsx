@@ -3,6 +3,8 @@
 
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { setLoading } from '../redux/slices/authSlice.js';
+import clientServer from '../api/client.js';
 
 const Register = () => {
 
@@ -25,7 +27,15 @@ const Register = () => {
   }
 
   const handleSubmit = async(e)=>{
+    e.preventDefault();
+    try{
+        dispatch(setLoading(false));
+        const res = await clientServer
+    }catch(err){
 
+    }finally{
+
+    }
   }
 
 
