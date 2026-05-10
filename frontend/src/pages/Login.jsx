@@ -7,14 +7,19 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const {isLoading} = useSelector((state)=>state.auth);
-  
+
 
   const [formData, setFormData] = useState({
     email : "",
     password : "",
   })
 
-
+  const handelChange = (e)=>{
+    setFormData({
+      ...formData,
+      [e.target.name] : e.target.value
+    })
+  }
 
   return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
@@ -41,7 +46,7 @@ const Login = () => {
         <input type="password" name='password' placeholder='Enter your password' value={formData.password} />
       </div>
 
-      <button type='submit'></button>
+      <button type='submit'>{isLoading ? "Logging in..." : "Login"}</button>
 
       </form>
         
