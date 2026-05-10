@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {useDispatch, useSelector} from "react-redux";
-
+import {setLoading} from "../redux/slices/authSlice.js"
 
 
 const Login = () => {
@@ -19,6 +19,18 @@ const Login = () => {
       ...formData,
       [e.target.name] : e.target.value
     })
+  }
+
+  const handleSubmit = async(e)=>{
+    e.preventDefault();
+    try{
+      dispatch(setLoading(true));
+      const res =   await client
+    }catch(err){
+
+    }finally{
+
+    }
   }
 
   return (
