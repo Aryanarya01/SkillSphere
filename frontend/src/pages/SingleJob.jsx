@@ -33,24 +33,25 @@ const SingleJob = () => {
           <span className="ml-2 text-lg">₹ {job.budget}</span>
         </div>
 
-        <div>
-            <h2>
-                Skills Required
-            </h2>
-            <div>
-                {
-                    job.skillsRequired?.map((skill,index)=>(
-                         <span
-                    key={index}
-                    className="bg-black text-white px-4 py-2 rounded-full text-sm"
-                  >
-                    {skill}
-                  </span>
-                    ))
-                }
-            </div>
+        <div className="mt-6">
+          <h2 className="text-xl font-bold mb-3">Skills Required</h2>
+          <div className="flex gap-3 flex-wrap">
+            {job.skillsRequired?.map((skill, index) => (
+              <span
+                key={index}
+                className="bg-black text-white px-4 py-2 rounded-full text-sm"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
         </div>
-        
+
+            <div className="mt-6">
+                <span className="bg-green-500 text-white px-4 py-2 rounded-full">
+            {job.status}
+          </span>
+            </div>
 
       </div>
     </div>
