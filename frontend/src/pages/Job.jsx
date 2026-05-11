@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import clientServer from '../api/client';
+import clientServer from '../api/client.js';
 
 const Job = () => {
 
@@ -29,7 +29,15 @@ const Job = () => {
         <div>
             {
                 jobs.map((job)=>(
-                    
+                    <div key={job._id}>
+                        <h2>{job.title}</h2>
+                         <p className="text-gray-600 mt-3 line-clamp-3">
+                {job.description}
+              </p>
+              <div>
+                
+              </div>
+                    </div>
                 ))
             }
         </div>
