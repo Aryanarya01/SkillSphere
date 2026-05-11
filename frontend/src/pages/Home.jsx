@@ -11,6 +11,9 @@ const Home = () => {
             <button>
                 Hire Freelancer
             </button>
+            <button>
+                Explore Jobs
+            </button>
           </div>
       </section>
     </div>
