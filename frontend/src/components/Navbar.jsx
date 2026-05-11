@@ -9,7 +9,12 @@ const Navbar = () => {
 
 
 const handelLogout = async()=>{
-    
+    try{
+
+    }catch(err){
+        console.log(err);
+        
+    }
 }
 
   return (
@@ -30,7 +35,7 @@ const handelLogout = async()=>{
                         Dashboard
                     </Link>
                     <p>{user.name}</p>
-                    <button>Logout</button>
+                    <button onClick={handelLogout}>Logout</button>
                     </>
                 ) : (
                     <>
