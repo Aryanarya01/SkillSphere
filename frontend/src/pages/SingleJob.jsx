@@ -47,11 +47,12 @@ const SingleJob = () => {
           </div>
         </div>
 
-        <div className="mt-6">
-          <span className="bg-green-500 text-white px-4 py-2 rounded-full">
+            <div className="mt-6">
+                <span className="bg-green-500 text-white px-4 py-2 rounded-full">
             {job.status}
           </span>
-        </div>
+            </div>
+
       </div>
     </div>
   );
