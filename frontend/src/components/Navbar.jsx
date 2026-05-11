@@ -11,7 +11,7 @@ const Navbar = () => {
 
 const handelLogout = async()=>{
     try{
-        await clientServer.get
+        await clientServer.get("/logout")
     }catch(err){
         console.log(err);
         
