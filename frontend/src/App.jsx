@@ -4,11 +4,13 @@ import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Dashboard from './pages/Dashboard.jsx';
+import Navbar from './components/Navbar.jsx';
  
 
  const App = () => {
    return (
     <BrowserRouter>
+    <Navbar />
       <Routes>
           <Route path='/register' element={<Register/>}/>
           <Route path='/login' element={<Login/>} />
