@@ -1,9 +1,9 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
-
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const {user} = useSelector((state)=>state.auth)
   return (
@@ -20,7 +20,7 @@ const Navbar = () => {
             {
                 user ? (
                     <>
-                    <Link to="dashboard">
+                    <Link to="/dashboard">
                         Dashboard
                     </Link>
                     <p>{user.name}</p>
@@ -28,7 +28,12 @@ const Navbar = () => {
                     </>
                 ) : (
                     <>
-                        
+                        <Link to="/login">
+                            Login
+                        </Link>   
+                        <Link to="/register">
+                            Register
+                        </Link>
                     </>
                 )
             }
