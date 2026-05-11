@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import clientServer from '../api/client';
+import clientServer from '../api/client.js';
+import { useParams } from 'react-router-dom';
 
 const SingleJob = () => {
 
     const [job,setJob] = useState(null);
-
+    const {id} = useParams();
 
     const fetchJob = async()=>{
         try{
@@ -20,7 +21,13 @@ const SingleJob = () => {
         fetchJob();
     },[])
 
-    
+    if(!job){
+        return (
+            <div className='p-10'>
+                Loading...
+            </div>
+        )
+    }
 
   return (
     <div>SingleJob</div>
