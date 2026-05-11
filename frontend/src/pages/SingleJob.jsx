@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import clientServer from '../api/client';
 
 const SingleJob = () => {
@@ -15,6 +15,12 @@ const SingleJob = () => {
             console.log(err);
         }
     }
+
+    useEffect(()=>{
+        fetchJob();
+    },[])
+
+    
 
   return (
     <div>SingleJob</div>
