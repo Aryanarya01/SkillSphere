@@ -30,7 +30,7 @@ const handelLogout = async()=>{
         SkillSphere
       </Link>
 
-        <div>
+        <div className='flex items-center gap-5'>
             {
                 user ? (
                     <>
@@ -45,7 +45,7 @@ const handelLogout = async()=>{
                         <Link to="/login">
                             Login
                         </Link>   
-                         
+
                         <Link  className="bg-white text-black px-4 py-2 rounded-lg" to="/register">
                             Register
                         </Link>
