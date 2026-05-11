@@ -28,7 +28,9 @@ const Job = () => {
 
         <div>
             {
-                
+                jobs.map((job)=>(
+                    
+                ))
             }
         </div>
     </div>
