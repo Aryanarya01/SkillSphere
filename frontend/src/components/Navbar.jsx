@@ -20,7 +20,10 @@ const Navbar = () => {
             {
                 user ? (
                     <>
-                    
+                    <Link to="dashboard">
+                        Dashboard
+                    </Link>
+                    <p>{user.name}</p>
                     </>
                 ) : (
                     <>
