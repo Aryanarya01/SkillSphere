@@ -17,7 +17,6 @@ const handelLogout = async()=>{
         navigate("/login");
     }catch(err){
         console.log(err);
-        
     }
 }
 
