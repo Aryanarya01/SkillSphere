@@ -7,6 +7,11 @@ const Home = () => {
         <h1>Find Top Freelancers & Build Amazing Projects</h1>
         <p>  SkillSphere helps clients connect with
           talented freelancers around the world.</p>
+          <div>
+            <button>
+                Hire Freelancer
+            </button>
+          </div>
       </section>
     </div>
   );
