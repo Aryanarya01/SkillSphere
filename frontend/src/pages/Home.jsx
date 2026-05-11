@@ -11,7 +11,7 @@ const Home = () => {
             <button className="bg-black text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition">
                 Hire Freelancer
             </button>
-            <button>
+            <button className="border border-black px-6 py-3 rounded-xl font-semibold hover:bg-black hover:text-white transition">
                 Explore Jobs
             </button>
           </div>
