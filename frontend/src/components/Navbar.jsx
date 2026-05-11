@@ -5,7 +5,13 @@ import { Link, useNavigate } from 'react-router-dom'
 const Navbar = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {user} = useSelector((state)=>state.auth)
+    const {user} = useSelector((state)=>state.auth);
+
+
+const handelLogout = async()=>{
+    
+}
+
   return (
       <nav className="bg-black text-white px-6 py-4 flex justify-between items-center">
 
