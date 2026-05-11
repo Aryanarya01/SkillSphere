@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Dashboard from './pages/Dashboard.jsx';
 import Navbar from './components/Navbar.jsx';
 import Home from './pages/Home.jsx';
+import Job from './pages/Job.jsx';
  
 
  const App = () => {
@@ -17,6 +18,7 @@ import Home from './pages/Home.jsx';
           <Route path='/login' element={<Login/>} />
           <Route path='/dashboard' element={<Dashboard/>} />
           <Route path='/home' element={<Home/>}/>
+          <Route path='/jobs' element={<Job/>}/>
       </Routes>
     </BrowserRouter>
    )
