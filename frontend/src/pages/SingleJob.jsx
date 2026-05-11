@@ -9,6 +9,8 @@ const SingleJob = () => {
     const fetchJob = async()=>{
         try{
             const res = await clientServer.get("/jobs/:id");
+            setJob(res.data.job);
+            
         }catch(err){
             console.log(err);
         }
