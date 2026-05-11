@@ -38,14 +38,15 @@ const handelLogout = async()=>{
                         Dashboard
                     </Link>
                     <p>{user.name}</p>
-                    <button onClick={handelLogout}>Logout</button>
+                    <button className="bg-white text-black px-4 py-2 rounded-lg" onClick={handelLogout}>Logout</button>
                     </>
                 ) : (
                     <>
                         <Link to="/login">
                             Login
                         </Link>   
-                        <Link to="/register">
+                         
+                        <Link  className="bg-white text-black px-4 py-2 rounded-lg" to="/register">
                             Register
                         </Link>
                     </>
