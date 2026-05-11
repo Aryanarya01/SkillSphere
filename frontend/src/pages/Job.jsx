@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import clientServer from "../api/client.js";
+import { Link } from "react-router-dom";
 
 const Job = () => {
   const [jobs, setJobs] = useState([]);
@@ -26,9 +27,12 @@ const Job = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {jobs.map((job) => (
+        
+            <Link   to={`/jobs/${job._id}`}
+  key={job._id} > 
           <div
             className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition"
-            key={job._id}
+             
           >
             <h2 className="text-2xl font-bold text-gray-800">{job.title}</h2>
             <p className="text-gray-600 mt-3 line-clamp-3">{job.description}</p>
@@ -39,6 +43,8 @@ const Job = () => {
               </span>
             </div>
           </div>
+          </Link>
+           
         ))}
       </div>
     </div>
