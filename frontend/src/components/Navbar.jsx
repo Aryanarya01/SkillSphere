@@ -1,10 +1,11 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
 
     const dispatch = useDispatch();
+    const {user} = useSelector((state)=>state.auth)
   return (
       <nav className="bg-black text-white px-6 py-4 flex justify-between items-center">
 
