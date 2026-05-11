@@ -26,12 +26,17 @@ const Job = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {jobs.map((job) => (
-          <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition" key={job._id}>
+          <div
+            className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition"
+            key={job._id}
+          >
             <h2 className="text-2xl font-bold text-gray-800">{job.title}</h2>
             <p className="text-gray-600 mt-3 line-clamp-3">{job.description}</p>
             <div className="mt-4 flex justify-between items-center">
-                <span className="font-semibold text-center"> ₹ {job.budget}</span>
-                <span className="text-sm bg-black text-white px-3 py-1 rounded-full">{job.status}</span>
+              <span className="font-semibold text-center"> ₹ {job.budget}</span>
+              <span className="text-sm bg-black text-white px-3 py-1 rounded-full">
+                {job.status}
+              </span>
             </div>
           </div>
         ))}
