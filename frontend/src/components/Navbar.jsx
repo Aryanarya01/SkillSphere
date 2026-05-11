@@ -24,10 +24,11 @@ const Navbar = () => {
                         Dashboard
                     </Link>
                     <p>{user.name}</p>
+                    <button>Logout</button>
                     </>
                 ) : (
                     <>
-                    
+                        
                     </>
                 )
             }
