@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
+import clientServer from '../api/client.js';
 
 const Navbar = () => {
     const navigate = useNavigate();
@@ -10,7 +11,7 @@ const Navbar = () => {
 
 const handelLogout = async()=>{
     try{
-
+        await clientServer
     }catch(err){
         console.log(err);
         
