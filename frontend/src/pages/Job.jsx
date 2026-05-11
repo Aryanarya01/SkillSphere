@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import clientServer from '../api/client';
 
 const Job = () => {
 
@@ -6,7 +7,9 @@ const Job = () => {
 
     const fetchJobs = async()=>{
         try{
-
+            const res = await clientServer.get("/jobs");
+            setJobs(res.data.jobs);
+            
         }catch(err){
             console.log(err);
         }
