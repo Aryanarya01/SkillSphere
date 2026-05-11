@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const SingleJob = () => {
+
+    const [job,setJob] = useState(null)
+
   return (
     <div>SingleJob</div>
   )
