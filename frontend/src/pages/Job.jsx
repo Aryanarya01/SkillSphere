@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import clientServer from '../api/client';
 
 const Job = () => {
@@ -9,11 +9,15 @@ const Job = () => {
         try{
             const res = await clientServer.get("/jobs");
             setJobs(res.data.jobs);
-            
+
         }catch(err){
             console.log(err);
         }
     }
+
+    useEffect(()=>{
+        fetchJobs();
+    },[])
 
   return (
     <div className='min-h-screen bg-gray-100 p-6'> 
