@@ -4,7 +4,10 @@ const Home = () => {
   return (
      <div>
         <section>
-            
+                <h1>
+                     Find Top Freelancers &
+          Build Amazing Projects
+                </h1>
         </section>
      </div>
   )
