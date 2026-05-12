@@ -92,14 +92,13 @@ export const deleteJob = async (req, res) => {
   }
 };
 
-
-export const getMyJobs = async(req,res)=>{
-  try{
+export const getMyJobs = async (req, res) => {
+  try {
     const jobs = await Job.find({
-      client : req.user._id,
-    })
-    return res.status(200).json({jobs})
-  }catch(err){
-    return res.status(500).json({message :err.message})
+      client: req.user._id,
+    });
+    return res.status(200).json({ jobs });
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
   }
-}
+};
