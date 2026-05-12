@@ -6,6 +6,14 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 const SingleJob = () => {
   const [job, setJob] = useState(null);
+
+
+  const [proposalData, setProposalData] = useState({
+     coverLetter : "",
+      bidAmount : "",
+  })
+
+
   const { id } = useParams();
   const {user} = useSelector((state)=>state.auth)
   const fetchJob = async () => {
