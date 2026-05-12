@@ -78,7 +78,7 @@ const handelSubmit = async(e)=>{
             <input name='deadline' value={formData.deadline} onChange={handelChange} type="date"  />
       </div>
 
-      <button>Create Job</button>
+      <button type='submit'>Create Job</button>
 
       </form>
 
