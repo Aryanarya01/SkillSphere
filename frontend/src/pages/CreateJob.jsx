@@ -27,31 +27,31 @@ const [formData, setFormData] = useState({
         {/* title */}
       <div>
         <label>Job Title</label>
-        <input name='title' onChange={} type="text" placeholder="Enter job title" />
+        <input name='title' onChange={formData.title} type="text" placeholder="Enter job title" />
       </div>
 
       {/* description */}
       <div>
         <label>Description</label>
-        <textarea name='description' placeholder='Enten job description' />
+        <textarea name='description' onChange={formData.description} placeholder='Enten job description' />
       </div>
 
       {/* budget */}
       <div>
         <label>Budget</label>
-        <input name='budget' type="number" placeholder='Enter budget' />
+        <input name='budget' type="number" onChange={formData.budget} placeholder='Enter budget' />
       </div>
 
       {/* Skills */}
       <div>
         <label>Skills Required</label>
-        <input type="text"  placeholder="React, Node.js, MongoDB" />
+        <input name='skillsRequired' type="text" onChange={formData.skillsRequired}  placeholder="React, Node.js, MongoDB" />
       </div>
 
       {/* Deadline */}
       <div>
         <label>Deadline</label>
-            <input type="date"  />
+            <input name='deadline' onChange={formData.deadline} type="date"  />
       </div>
 
       <button>Create Job</button>
