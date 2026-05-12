@@ -8,6 +8,7 @@ import Navbar from './components/Navbar.jsx';
 import Home from './pages/Home.jsx';
 import Job from './pages/Job.jsx';
 import SingleJob from './pages/SingleJob.jsx';
+import CreateJob from './pages/CreateJob.jsx';
  
 
  const App = () => {
@@ -21,6 +22,7 @@ import SingleJob from './pages/SingleJob.jsx';
           <Route path='/home' element={<Home/>}/>
           <Route path='/jobs' element={<Job/>}/>
           <Route path='/jobs/:id' element={<SingleJob/>} />
+          <Route path='/jobs/create' element={<CreateJob/>}/>
       </Routes>
     </BrowserRouter>
    )
