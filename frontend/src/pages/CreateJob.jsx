@@ -4,7 +4,15 @@ import React from 'react'
 
 const CreateJob = () => {
   return (
-    <div>CreateJob</div>
+    <div> 
+      <div>
+
+        {/* heading */}
+        <div>
+          
+        </div>
+      </div>
+    </div>
   )
 }
 
