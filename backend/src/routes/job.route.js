@@ -3,6 +3,7 @@ import {
   createJob,
   deleteJob,
   getAllJobs,
+  getMyJobs,
   getSingleJob,
   updateJob,
 } from "../controllers/job.controller.js";
@@ -16,5 +17,6 @@ router.route("/jobs").get(Protect, getAllJobs);
 router.route("/jobs/:id").get(Protect, getSingleJob);
 router.route("/jobs/:id").put(Protect, authorizedRole("client"), updateJob);
 router.route("/jobs/:id").delete(Protect, authorizedRole("client"), deleteJob);
+router.route("/my_jobs").get(Protect,authorizedRole("client"),getMyJobs);
 
 export default router;
