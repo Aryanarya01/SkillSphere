@@ -14,6 +14,7 @@ const SingleJob = () => {
   })
 
 
+
   const { id } = useParams();
   const {user} = useSelector((state)=>state.auth)
   const fetchJob = async () => {
@@ -24,6 +25,13 @@ const SingleJob = () => {
       console.log(err);
     }
   };
+
+  const handelChange = (e)=>{
+    setProposalData({
+      ...proposalData,
+      [e.target.name] : e.target.value
+    })
+  }
 
   useEffect(() => {
     fetchJob();
