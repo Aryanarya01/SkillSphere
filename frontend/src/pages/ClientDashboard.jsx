@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
  
-import clientServer from "../api/client";
+import clientServer from "../api/client.js";
 
 const ClientDashboard = () => {
 
@@ -16,7 +16,7 @@ const ClientDashboard = () => {
     try {
 
       const res = await clientServer.get(
-        "/jobs/my_jobs"
+        "/jobs/my-jobs"
       );
 
       setJobs(res.data.jobs);
