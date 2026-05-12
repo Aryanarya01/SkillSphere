@@ -20,8 +20,7 @@ export const Register = async (req, res) => {
       });
     }
 
-    const validRole =
-      role === "freelancer" ? "freelancer" : "client";
+    const validRole = role === "freelancer" ? "freelancer" : "client";
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -44,13 +43,10 @@ export const Register = async (req, res) => {
       message: "User registered successfully",
       user: newUser,
     });
-
   } catch (err) {
-
     return res.status(500).json({
       message: err.message,
     });
-
   }
 };
 
@@ -72,10 +68,10 @@ export const Login = async (req, res) => {
       expiresIn: "7d",
     });
     res.cookie("token", token, {
-       httpOnly: true,
-  secure: false,
-  sameSite: "lax",
-  maxAge: 7 * 24 * 60 * 60 * 1000,  
+      httpOnly: true,
+      secure: false,
+      sameSite: "lax",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     res.status(200).json({ message: "Login successful", user });
   } catch (err) {
