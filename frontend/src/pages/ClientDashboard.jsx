@@ -17,7 +17,7 @@ const ClientDashboard = () => {
   };
 
 
-  const deleteJob = (id)=>{
+  const deleteJob = async(id)=>{
     try{
      await clientServer.delete(`/jobs/${id}`) ;
      alert("Job Deleted!")
