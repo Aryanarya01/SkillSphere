@@ -10,6 +10,7 @@ import Job from './pages/Job.jsx';
 import SingleJob from './pages/SingleJob.jsx';
 import CreateJob from './pages/CreateJob.jsx';
 import ClientDashboard from './pages/ClientDashboard.jsx';
+import ViewProposals from './pages/ViewProposals.jsx';
  
 
  const App = () => {
@@ -24,7 +25,8 @@ import ClientDashboard from './pages/ClientDashboard.jsx';
           <Route path='/jobs' element={<Job/>}/>
           <Route path='/jobs/:id' element={<SingleJob/>} />
           <Route path='/jobs/create' element={<CreateJob/>}/>
-          <Route path='client-dashboard' element={<ClientDashboard/>}/>
+          <Route path='/client-dashboard' element={<ClientDashboard/>}/>
+          <Route path='/proposals/:JobId' element={<ViewProposals/>}/>
       </Routes>
     </BrowserRouter>
    )
