@@ -73,7 +73,7 @@ const SingleJob = () => {
                     {/* coverLetter */}
                     <div>
                       <label>Cover Letter</label>
-                      <textarea  placeholder="Write your proposal..."/>
+                      <textarea value={proposalData.coverLetter}  placeholder="Write your proposal..."/>
                     </div>
 
                       {/* bidAmount */}
