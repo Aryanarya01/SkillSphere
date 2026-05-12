@@ -17,9 +17,10 @@ const ClientDashboard = () => {
   };
 
 
-  const deleteJob = ()=>{
+  const deleteJob = (id)=>{
     try{
-
+     await clientServer.delete(`/jobs/${id}`) ;
+     alert("Job Deleted!")
     }catch(err){
       console.log(err);
       
@@ -70,7 +71,7 @@ const ClientDashboard = () => {
                 View
               </Link>
 
-              <button className="flex-1 bg-red-500 text-white py-2 rounded-lg">
+              <button onClick={()=>deleteJob(job._id)} className="flex-1 bg-red-500 text-white py-2 rounded-lg">
                 Delete
               </button>
             </div>
