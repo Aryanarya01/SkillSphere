@@ -39,7 +39,11 @@ const SingleJob = () => {
       const res = await clientServer.post(`/proposal/apply/${id}`,{
         proposalData
       });
-      
+        alert(res.data.message);
+        setProposalData({
+          coverLetter : "",
+          bidAmount : "",
+        })
     }catch(err){
       console.log(err);
       alert(err.response?.data?.message);
