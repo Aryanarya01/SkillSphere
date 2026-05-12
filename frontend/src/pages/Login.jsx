@@ -28,6 +28,10 @@ const Login = () => {
       dispatch(setLoading(true));
       const res = await clientServer.post("/login", formData);
       dispatch(setUser(res.data.user));
+      localStorage.setItem(
+  "user",
+  JSON.stringify(res.data.user)
+);
       navigate("/dashboard")
       alert("Login Successful");
     } catch (err) {

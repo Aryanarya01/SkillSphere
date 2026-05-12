@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import clientServer from "../api/client.js";
 import { useParams } from "react-router-dom";
-
+import {useSelector} from "react-redux"
 const SingleJob = () => {
   const [job, setJob] = useState(null);
   const { id } = useParams();
-
+const { user } = useSelector(
+  (state) => state.auth
+);
+console.log(user);
   const fetchJob = async () => {
     try {
       const res = await clientServer.get(`/jobs/${id}`);
@@ -52,7 +55,68 @@ const SingleJob = () => {
             {job.status}
           </span>
             </div>
+            {
+  user?.role === "freelancer" && (
 
+    <div className="mt-10 border-t pt-8">
+
+      <h2 className="text-2xl font-bold mb-5">
+        Apply For This Job
+      </h2>
+
+      <form
+       
+        className="space-y-5"
+      >
+
+        {/* Cover Letter */}
+        <div>
+
+          <label className="block mb-2 font-medium">
+            Cover Letter
+          </label>
+
+          <textarea
+            name="coverLetter"
+            rows="5"
+            placeholder="Write your proposal..."
+            
+            className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-black"
+          />
+
+        </div>
+
+        {/* Bid Amount */}
+        <div>
+
+          <label className="block mb-2 font-medium">
+            Bid Amount
+          </label>
+
+          <input
+            type="number"
+            name="bidAmount"
+            placeholder="Enter your bid amount"
+           
+            className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-black"
+          />
+
+        </div>
+
+        {/* Submit Button */}
+        <button
+          type="submit"
+          className="bg-black text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition"
+        >
+          Submit Proposal
+        </button>
+
+      </form>
+
+    </div>
+
+  )
+}
       </div>
     </div>
   );
