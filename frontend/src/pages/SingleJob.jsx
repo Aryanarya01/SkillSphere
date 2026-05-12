@@ -69,7 +69,8 @@ const SingleJob = () => {
                     </div>
 
                       {/* bidAmount */}
-                      
+                      <label>Bid Amount</label>
+                      <input type="number" placeholder="Enter your bid amount" />
                 
                   </form>
                 </div>
