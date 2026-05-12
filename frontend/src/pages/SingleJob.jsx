@@ -55,7 +55,26 @@ const SingleJob = () => {
           </span>
             </div>
 
+            {
+              user?.role === "freelancer" && (
+                <div>
+                  
+                <h2>Apply For This Job</h2>
+                  <form>
 
+                    {/* coverLetter */}
+                    <div>
+                      <label>Cover Letter</label>
+                      <textarea  placeholder="Write your proposal..."/>
+                    </div>
+
+                      {/* bidAmount */}
+                      
+                
+                  </form>
+                </div>
+              )
+            }
 
 
       </div>
