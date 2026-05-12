@@ -50,31 +50,31 @@ const handelSubmit = async(e)=>{
 
         {/* title */}
       <div>
-        <label>Job Title</label>
+        <label className='block mb-2 font-medium'>Job Title</label>
         <input name='title' value={formData.title} onChange={handelChange} type="text" placeholder="Enter job title" />
       </div>
 
       {/* description */}
       <div>
-        <label>Description</label>
+        <label className='block mb-2 font-medium'>Description</label>
         <textarea name='description' value={formData.description} onChange={handelChange} placeholder='Enten job description' />
       </div>
 
       {/* budget */}
       <div>
-        <label>Budget</label>
+        <label className='block mb-2 font-medium'>Budget</label>
         <input name='budget' type="number" value={formData.budget} onChange={handelChange} placeholder='Enter budget' />
       </div>
 
       {/* Skills */}
       <div>
-        <label>Skills Required</label>
+        <label className='block mb-2 font-medium'>Skills Required</label>
         <input name='skillsRequired' type="text" value={formData.skillsRequired} onChange={handelChange}  placeholder="React, Node.js, MongoDB" />
       </div>
 
       {/* Deadline */}
       <div>
-        <label>Deadline</label>
+        <label className='block mb-2 font-medium'>Deadline</label>
             <input name='deadline' value={formData.deadline} onChange={handelChange} type="date"  />
       </div>
 
