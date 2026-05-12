@@ -28,7 +28,7 @@ const handelChange = (e)=>{
         </div>
 
 
-      <form> 
+      <form onSubmit={handelSubmit}> 
 
         {/* title */}
       <div>
