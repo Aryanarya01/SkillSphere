@@ -76,6 +76,8 @@ const ClientDashboard = () => {
               >
                 Delete
               </button>
+
+              <Link to={`/proposals/${job._id}`} className="flex-1 text-center bg-black text-white py-2 rounded-lg">Proposals</Link>
             </div>
           </div>
         ))}
