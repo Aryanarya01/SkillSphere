@@ -34,6 +34,8 @@ const startDB = async () => {
   const connect = await mongoose.connect(
     "mongodb+srv://aryanarya01:aryan5555@skillsphere.jcqnrhp.mongodb.net/?appName=SkillSphere",
   );
+  console.log("DB connected");
+  
   app.listen(port, () => {
     console.log(`Server is listining to port ${port}`);
   });
