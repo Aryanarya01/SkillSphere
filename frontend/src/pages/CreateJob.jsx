@@ -37,6 +37,7 @@ const CreateJob = () => {
       {/* Skills */}
       <div>
         <label>Skills Required</label>
+        <input type="text"  placeholder="React, Node.js, MongoDB" />
       </div>
 
 
