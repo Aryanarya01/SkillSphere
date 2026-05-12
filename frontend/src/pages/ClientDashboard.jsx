@@ -1,23 +1,16 @@
 import { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
- 
+
 import clientServer from "../api/client.js";
 
 const ClientDashboard = () => {
-
   const [jobs, setJobs] = useState([]);
-
-  
 
   const fetchJobs = async () => {
     try {
-
-      const res = await clientServer.get(
-        "/jobs/my-jobs"
-      );
+      const res = await clientServer.get("/jobs/my-jobs");
       setJobs(res.data.jobs);
-
     } catch (err) {
       console.log(err);
     }
@@ -29,17 +22,11 @@ const ClientDashboard = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
- 
       <div className="flex justify-between items-center mb-8">
-
         <div>
-          <h1 className="text-4xl font-bold">
-            Client Dashboard
-          </h1>
+          <h1 className="text-4xl font-bold">Client Dashboard</h1>
 
-          <p className="text-gray-500 mt-2">
-            Manage your posted jobs
-          </p>
+          <p className="text-gray-500 mt-2">Manage your posted jobs</p>
         </div>
 
         <Link
@@ -48,63 +35,38 @@ const ClientDashboard = () => {
         >
           Create Job
         </Link>
-
       </div>
 
-      
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {jobs.map((job) => (
+          <div key={job._id} className="bg-white rounded-2xl shadow-md p-6">
+            <h2 className="text-2xl font-bold">{job.title}</h2>
 
-        {
-          jobs.map((job) => (
+            <p className="text-gray-600 mt-3 line-clamp-3">{job.description}</p>
 
-            <div
-              key={job._id}
-              className="bg-white rounded-2xl shadow-md p-6"
-            >
+            <div className="mt-5 flex justify-between items-center">
+              <span className="font-semibold">₹ {job.budget}</span>
 
-              <h2 className="text-2xl font-bold">
-                {job.title}
-              </h2>
-
-              <p className="text-gray-600 mt-3 line-clamp-3">
-                {job.description}
-              </p>
-
-              <div className="mt-5 flex justify-between items-center">
-
-                <span className="font-semibold">
-                  ₹ {job.budget}
-                </span>
-
-                <span className="bg-black text-white px-3 py-1 rounded-full text-sm">
-                  {job.status}
-                </span>
-
-              </div>
-
-              
-              <div className="flex gap-3 mt-6">
-
-                <Link
-                  to={`/jobs/${job._id}`}
-                  className="flex-1 text-center bg-gray-200 py-2 rounded-lg"
-                >
-                  View
-                </Link>
-
-                <button className="flex-1 bg-red-500 text-white py-2 rounded-lg">
-                  Delete
-                </button>
-
-              </div>
-
+              <span className="bg-black text-white px-3 py-1 rounded-full text-sm">
+                {job.status}
+              </span>
             </div>
 
-          ))
-        }
+            <div className="flex gap-3 mt-6">
+              <Link
+                to={`/jobs/${job._id}`}
+                className="flex-1 text-center bg-gray-200 py-2 rounded-lg"
+              >
+                View
+              </Link>
 
+              <button className="flex-1 bg-red-500 text-white py-2 rounded-lg">
+                Delete
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
-
     </div>
   );
 };
