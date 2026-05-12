@@ -22,6 +22,19 @@ const CreateJob = () => {
         <input type="text" placeholder="Enter job title" />
       </div>
 
+      {/* description */}
+      <div>
+        <label>Description</label>
+        <textarea placeholder='Enten job description' />
+      </div>
+
+      {/* budget */}
+      <div>
+        <label>Budget</label>
+        <input type="number" placeholder='Enter budget' />
+      </div>
+
+
       </form>
 
 
