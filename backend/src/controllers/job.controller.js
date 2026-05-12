@@ -91,3 +91,12 @@ export const deleteJob = async (req, res) => {
     return res.status(500).json({ message: err.message });
   }
 };
+
+
+export const getMyJobs = async(req,res)=>{
+  try{
+
+  }catch(err){
+    return res
+  }
+}
