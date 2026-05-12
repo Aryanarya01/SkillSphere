@@ -51,31 +51,31 @@ const handelSubmit = async(e)=>{
         {/* title */}
       <div>
         <label className='block mb-2 font-medium'>Job Title</label>
-        <input name='title' value={formData.title} onChange={handelChange} type="text" placeholder="Enter job title" />
+        <input className='w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-black' name='title' value={formData.title} onChange={handelChange} type="text" placeholder="Enter job title" />
       </div>
 
       {/* description */}
       <div>
         <label className='block mb-2 font-medium'>Description</label>
-        <textarea name='description' value={formData.description} onChange={handelChange} placeholder='Enten job description' />
+        <textarea className='w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-black' name='description' value={formData.description} onChange={handelChange} placeholder='Enten job description' />
       </div>
 
       {/* budget */}
       <div>
         <label className='block mb-2 font-medium'>Budget</label>
-        <input name='budget' type="number" value={formData.budget} onChange={handelChange} placeholder='Enter budget' />
+        <input className='w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-black' name='budget' type="number" value={formData.budget} onChange={handelChange} placeholder='Enter budget' />
       </div>
 
       {/* Skills */}
       <div>
         <label className='block mb-2 font-medium'>Skills Required</label>
-        <input name='skillsRequired' type="text" value={formData.skillsRequired} onChange={handelChange}  placeholder="React, Node.js, MongoDB" />
+        <input className='w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-black' name='skillsRequired' type="text" value={formData.skillsRequired} onChange={handelChange}  placeholder="React, Node.js, MongoDB" />
       </div>
 
       {/* Deadline */}
       <div>
         <label className='block mb-2 font-medium'>Deadline</label>
-            <input name='deadline' value={formData.deadline} onChange={handelChange} type="date"  />
+            <input className='w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-black' name='deadline' value={formData.deadline} onChange={handelChange} type="date"  />
       </div>
 
       <button type='submit'>Create Job</button>
