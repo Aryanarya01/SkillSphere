@@ -33,6 +33,15 @@ const SingleJob = () => {
     })
   }
 
+  const handelApply = async(e)=>{
+    e.preventDefault();
+    try{
+
+    }catch(err){
+      
+    }
+  }
+
   useEffect(() => {
     fetchJob();
   }, []);
@@ -76,7 +85,7 @@ const SingleJob = () => {
                 <div>
                   
                 <h2>Apply For This Job</h2>
-                  <form>
+                  <form onSubmit={handelApply}>
 
                     {/* coverLetter */}
                     <div>
