@@ -1,8 +1,11 @@
 
 
 import React, { useState } from 'react'
+import clientServer from '../api/client.js'
+import { useNavigate } from 'react-router-dom'
 
 const CreateJob = () => {
+  const navigate = useNavigate();
 const [formData, setFormData] = useState({
   title : "",
   description : "",
@@ -21,6 +24,7 @@ const handelChange = (e)=>{
 const handelSubmit = async(e)=>{
   e.preventDefault();
   try{
+    const res = await clientServer.post("/jobs/create",formData);
 
   }catch(err){
     console.log(err);
