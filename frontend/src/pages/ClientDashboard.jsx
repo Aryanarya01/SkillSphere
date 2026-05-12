@@ -16,17 +16,15 @@ const ClientDashboard = () => {
     }
   };
 
-
-  const deleteJob = async(id)=>{
-    try{
-     await clientServer.delete(`/jobs/${id}`);
-     fetchJobs()
-     alert("Job Deleted!")
-    }catch(err){
+  const deleteJob = async (id) => {
+    try {
+      await clientServer.delete(`/jobs/${id}`);
+      fetchJobs();
+      alert("Job Deleted!");
+    } catch (err) {
       console.log(err);
-      
     }
-  }
+  };
 
   useEffect(() => {
     fetchJobs();
@@ -72,7 +70,10 @@ const ClientDashboard = () => {
                 View
               </Link>
 
-              <button onClick={()=>deleteJob(job._id)} className="flex-1 bg-red-500 text-white py-2 rounded-lg">
+              <button
+                onClick={() => deleteJob(job._id)}
+                className="flex-1 bg-red-500 text-white py-2 rounded-lg"
+              >
                 Delete
               </button>
             </div>
