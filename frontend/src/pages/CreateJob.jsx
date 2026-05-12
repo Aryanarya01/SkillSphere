@@ -24,6 +24,10 @@ const handelChange = (e)=>{
 const handelSubmit = async(e)=>{
   e.preventDefault();
   try{
+    const mainRes = {
+      ...formData,
+      skillsRequired : formData.skillsRequired.split(",").map((skill)=>skill.trim())
+    }
     const res = await clientServer.post("/jobs/create",formData);
 
   }catch(err){
