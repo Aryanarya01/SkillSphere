@@ -1,8 +1,16 @@
 
 
-import React from 'react'
+import React, { useState } from 'react'
 
 const CreateJob = () => {
+const [formData, setFormData] = useState({
+  title : "",
+  description : "",
+  budget : "",
+  skillsRequired : "",
+  deadline : "",
+})
+
   return (
     <div> 
       <div>
