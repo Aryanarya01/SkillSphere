@@ -17,6 +17,15 @@ const handelChange = (e)=>{
     [e.target.name] : e.target.value,
   })
 }
+
+const handelSubmit = async(e)=>{
+  e.preventDefault();
+  try{
+
+  }catch(err){
+    console.log(err);
+  }
+}
   return (
     <div> 
       <div>
