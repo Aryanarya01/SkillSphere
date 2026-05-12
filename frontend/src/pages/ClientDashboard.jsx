@@ -16,6 +16,16 @@ const ClientDashboard = () => {
     }
   };
 
+
+  const deleteJob = ()=>{
+    try{
+
+    }catch(err){
+      console.log(err);
+      
+    }
+  }
+
   useEffect(() => {
     fetchJobs();
   }, []);
