@@ -19,7 +19,8 @@ const ClientDashboard = () => {
 
   const deleteJob = async(id)=>{
     try{
-     await clientServer.delete(`/jobs/${id}`) ;
+     await clientServer.delete(`/jobs/${id}`);
+     fetchJobs()
      alert("Job Deleted!")
     }catch(err){
       console.log(err);
