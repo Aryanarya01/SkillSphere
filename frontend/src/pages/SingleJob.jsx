@@ -95,17 +95,17 @@ const SingleJob = () => {
 
                     {/* coverLetter */}
                     <div>
-                      <label>Cover Letter</label>
-                      <textarea name="coverLetter" onChange={handelChange} value={proposalData.coverLetter}  placeholder="Write your proposal..."/>
+                      <label className="block mb-2 font-medium">Cover Letter</label>
+                      <textarea className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-black" name="coverLetter" onChange={handelChange} value={proposalData.coverLetter}  placeholder="Write your proposal..."/>
                     </div>
 
                       {/* bidAmount */}
                       <div>
-                        <label>Bid Amount</label>
-                        <input name="bidAmount" onChange={handelChange} value={proposalData.bidAmount} type="number" placeholder="Enter your bid amount" />
+                        <label className="block mb-2 font-medium">Bid Amount</label>
+                        <input className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-black" name="bidAmount" onChange={handelChange} value={proposalData.bidAmount} type="number" placeholder="Enter your bid amount" />
                       </div>
                     {/* submit */}
-                    <button type="submit">Submit Proposal</button>
+                    <button className="bg-black text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition" type="submit">Submit Proposal</button>
                   </form>
                 </div>
               )
