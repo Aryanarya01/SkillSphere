@@ -9,6 +9,7 @@ import Home from './pages/Home.jsx';
 import Job from './pages/Job.jsx';
 import SingleJob from './pages/SingleJob.jsx';
 import CreateJob from './pages/CreateJob.jsx';
+import ClientDashboard from './pages/ClientDashboard.jsx';
  
 
  const App = () => {
@@ -23,6 +24,7 @@ import CreateJob from './pages/CreateJob.jsx';
           <Route path='/jobs' element={<Job/>}/>
           <Route path='/jobs/:id' element={<SingleJob/>} />
           <Route path='/jobs/create' element={<CreateJob/>}/>
+          <Route path='/my-jobs' element={<ClientDashboard/>}/>
       </Routes>
     </BrowserRouter>
    )
