@@ -8,9 +8,7 @@ const ClientDashboard = () => {
 
   const [jobs, setJobs] = useState([]);
 
-  // =========================
-  // FETCH MY JOBS
-  // =========================
+  
 
   const fetchJobs = async () => {
     try {
@@ -18,13 +16,10 @@ const ClientDashboard = () => {
       const res = await clientServer.get(
         "/jobs/my-jobs"
       );
-
       setJobs(res.data.jobs);
 
     } catch (err) {
-
       console.log(err);
-
     }
   };
 
