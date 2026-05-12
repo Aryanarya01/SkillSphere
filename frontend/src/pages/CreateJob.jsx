@@ -34,6 +34,13 @@ const CreateJob = () => {
         <input type="number" placeholder='Enter budget' />
       </div>
 
+      {/* Skills */}
+      <div>
+        <label>Skills Required</label>
+      </div>
+
+
+
 
       </form>
 
