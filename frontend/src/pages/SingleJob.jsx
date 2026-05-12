@@ -81,13 +81,13 @@ const SingleJob = () => {
                     {/* coverLetter */}
                     <div>
                       <label>Cover Letter</label>
-                      <textarea value={proposalData.coverLetter}  placeholder="Write your proposal..."/>
+                      <textarea onChange={handelChange} value={proposalData.coverLetter}  placeholder="Write your proposal..."/>
                     </div>
 
                       {/* bidAmount */}
                       <div>
                         <label>Bid Amount</label>
-                        <input value={proposalData.bidAmount} type="number" placeholder="Enter your bid amount" />
+                        <input onChange={handelChange} value={proposalData.bidAmount} type="number" placeholder="Enter your bid amount" />
                       </div>
                     {/* submit */}
                     <button>Submit Proposal</button>
