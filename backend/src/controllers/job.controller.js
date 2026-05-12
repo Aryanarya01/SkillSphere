@@ -97,6 +97,6 @@ export const getMyJobs = async(req,res)=>{
   try{
 
   }catch(err){
-    return res
+    return res.status(500).json({message :err.message})
   }
 }
