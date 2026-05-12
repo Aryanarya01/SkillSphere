@@ -40,9 +40,13 @@ const CreateJob = () => {
         <input type="text"  placeholder="React, Node.js, MongoDB" />
       </div>
 
+      {/* Deadline */}
+      <div>
+        <label>Deadline</label>
+            <input type="date"  />
+      </div>
 
-
-
+      
       </form>
 
 
