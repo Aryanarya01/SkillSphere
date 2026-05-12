@@ -36,7 +36,10 @@ const SingleJob = () => {
   const handelApply = async(e)=>{
     e.preventDefault();
     try{
-
+      const res = await clientServer.post(`/proposal/apply/${id}`,{
+        proposalData
+      });
+      
     }catch(err){
       console.log(err);
       alert(err.response?.data?.message);
