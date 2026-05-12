@@ -46,7 +46,8 @@ const CreateJob = () => {
             <input type="date"  />
       </div>
 
-      
+      <button>Create Job</button>
+
       </form>
 
 
