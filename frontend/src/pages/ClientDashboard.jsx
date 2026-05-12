@@ -16,7 +16,7 @@ const ClientDashboard = () => {
     try {
 
       const res = await clientServer.get(
-        "/jobs/my-jobs"
+        "/jobs/my_jobs"
       );
 
       setJobs(res.data.jobs);
