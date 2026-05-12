@@ -33,31 +33,31 @@ const handelChange = (e)=>{
         {/* title */}
       <div>
         <label>Job Title</label>
-        <input name='title' value={formData.title} type="text" placeholder="Enter job title" />
+        <input name='title' value={formData.title} onChange={handelChange} type="text" placeholder="Enter job title" />
       </div>
 
       {/* description */}
       <div>
         <label>Description</label>
-        <textarea name='description' value={formData.description} placeholder='Enten job description' />
+        <textarea name='description' value={formData.description} onChange={handelChange} placeholder='Enten job description' />
       </div>
 
       {/* budget */}
       <div>
         <label>Budget</label>
-        <input name='budget' type="number" value={formData.budget} placeholder='Enter budget' />
+        <input name='budget' type="number" value={formData.budget} onChange={handelChange} placeholder='Enter budget' />
       </div>
 
       {/* Skills */}
       <div>
         <label>Skills Required</label>
-        <input name='skillsRequired' type="text" value={formData.skillsRequired}  placeholder="React, Node.js, MongoDB" />
+        <input name='skillsRequired' type="text" value={formData.skillsRequired} onChange={handelChange}  placeholder="React, Node.js, MongoDB" />
       </div>
 
       {/* Deadline */}
       <div>
         <label>Deadline</label>
-            <input name='deadline' value={formData.deadline} type="date"  />
+            <input name='deadline' value={formData.deadline} onChange={handelChange} type="date"  />
       </div>
 
       <button>Create Job</button>
