@@ -28,7 +28,7 @@ const handelSubmit = async(e)=>{
       ...formData,
       skillsRequired : formData.skillsRequired.split(",").map((skill)=>skill.trim())
     }
-    const res = await clientServer.post("/jobs/create",formData);
+    const res = await clientServer.post("/jobs/create",mainRes);
 
   }catch(err){
     console.log(err);
