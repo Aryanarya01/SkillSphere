@@ -98,7 +98,7 @@ export const getMyJobs = async(req,res)=>{
     const jobs = await Job.find({
       client : req.user._id,
     })
-    
+    return res.status(200).json({jobs})
   }catch(err){
     return res.status(500).json({message :err.message})
   }
