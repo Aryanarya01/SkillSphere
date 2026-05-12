@@ -36,9 +36,7 @@ const SingleJob = () => {
   const handelApply = async(e)=>{
     e.preventDefault();
     try{
-      const res = await clientServer.post(`/proposal/apply/${id}`,{
-        proposalData
-      });
+      const res = await clientServer.post(`/proposal/apply/${id}`,proposalData  );
         alert(res.data.message);
         setProposalData({
           coverLetter : "",
@@ -90,10 +88,10 @@ const SingleJob = () => {
 
             {
               user?.role === "freelancer" && (
-                <div>
+                <div className="mt-10 border-t pt-8">
                   
-                <h2>Apply For This Job</h2>
-                  <form onSubmit={handelApply}>
+                <h2 className="text-2xl font-bold mb-5">Apply For This Job</h2>
+                  <form className="space-y-5" onSubmit={handelApply}>
 
                     {/* coverLetter */}
                     <div>
