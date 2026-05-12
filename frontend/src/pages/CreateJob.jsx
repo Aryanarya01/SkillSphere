@@ -11,6 +11,12 @@ const [formData, setFormData] = useState({
   deadline : "",
 })
 
+const handelChange = (e)=>{
+  setFormData({
+    ...formData,
+    [e.target.name] : e.target.value,
+  })
+}
   return (
     <div> 
       <div>
