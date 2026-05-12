@@ -24,7 +24,7 @@ import ClientDashboard from './pages/ClientDashboard.jsx';
           <Route path='/jobs' element={<Job/>}/>
           <Route path='/jobs/:id' element={<SingleJob/>} />
           <Route path='/jobs/create' element={<CreateJob/>}/>
-          <Route path='/my-jobs' element={<ClientDashboard/>}/>
+          <Route path='client-dashboard' element={<ClientDashboard/>}/>
       </Routes>
     </BrowserRouter>
    )

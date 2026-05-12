@@ -49,7 +49,7 @@ const ClientDashboard = () => {
         </div>
 
         <Link
-          to="/create-job"
+          to="/jobs/create"
           className="bg-black text-white px-5 py-3 rounded-xl"
         >
           Create Job
