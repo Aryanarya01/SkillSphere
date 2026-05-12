@@ -37,16 +37,16 @@ const handelSubmit = async(e)=>{
 }
   return (
   <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
-      <div>
+      <div className='w-full max-w-3xl bg-white rounded-2xl shadow-xl p-8'> 
 
         {/* heading */}
-        <div>
-          <h1>Post a New Job</h1>
-          <p>Find the best freelancers for your work</p>
+        <div className='mb-8'>
+          <h1 className='text-4xl font-bold text-gray-800'>Post a New Job</h1>
+          <p className='text-gray-500 mt-2'>Find the best freelancers for your work</p>
         </div>
 
 
-      <form onSubmit={handelSubmit}> 
+      <form className='space-y-6' onSubmit={handelSubmit}> 
 
         {/* title */}
       <div>
