@@ -5,7 +5,9 @@ const ViewProposals = () => {
     
 
   return (
-    <div>ViewProposals</div>
+    <div>
+      
+    </div>
   )
 }
 
