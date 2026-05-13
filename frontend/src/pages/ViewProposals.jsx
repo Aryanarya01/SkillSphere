@@ -39,8 +39,8 @@ const ViewProposals = () => {
   };
 
   return (
-      <div>
-        <div>
+      <div className="min-h-screen bg-gray-100 p-6">
+        <div className="mb-8">
           <h1 className="text-4xl font-bold">
           Job Proposals
         </h1>
@@ -49,6 +49,22 @@ const ViewProposals = () => {
           Manage freelancer applications
         </p>
         </div>
+
+          {/* card */}
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {
+              proposals.map((proposal)=>(
+                  <div
+              key={proposal._id}
+              className="bg-white rounded-2xl shadow-md p-6"
+            >
+              
+
+            </div>
+              ))
+            }
+           </div>
+
       </div>
   );
 };
