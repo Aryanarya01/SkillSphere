@@ -33,7 +33,11 @@ const Register = () => {
         dispatch(setLoading(true));
         const res = await clientServer.post("/register",formData);
         dispatch(setUser(res.data.user));
-        navigate("/login")
+         if(res.data.user.role === "client"){
+        navigate("/client-dashboard");
+      }else if(res.data.user.role === "freelancer"){
+        navigate("/freelancer-dashboard")
+      }
         alert("Registration Successful")
     }catch(err){
         console.log(err);
