@@ -81,7 +81,8 @@ export const rejectProposal = async (req, res) => {
 
 export const getMyProposals = async(req,res)=>{
   try{
-    
+    const proposals = await Proposal.findById({freelancer : req.user._id}).populate("job");
+    return res.status(200).json({proposals})
   }catch(err){
     return res.status(500).json({message : err.message})
   }
