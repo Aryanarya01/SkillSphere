@@ -53,78 +53,46 @@ const ViewProposals = () => {
             key={proposal._id}
             className="bg-white rounded-2xl shadow-md p-6"
           >
+            <h2 className="text-2xl font-bold">{proposal.freelancer?.name}</h2>
 
-             <h2 className="text-2xl font-bold">
-                {
-                  proposal.freelancer?.name
-                }
-              </h2>
+            <p className="text-gray-500 mt-1">{proposal.freelancer?.email}</p>
 
-              <p className="text-gray-500 mt-1">
-                {
-                  proposal.freelancer?.email
-                }
+            <div className="mt-5">
+              <h3 className="font-semibold mb-2">Cover Letter</h3>
+
+              <p className="text-gray-600 leading-relaxed">
+                {proposal.coverLetter}
               </p>
+            </div>
 
-                <div className="mt-5">
-                    <h3 className="font-semibold mb-2">
-                  Cover Letter
-                </h3>
+            <div className="mt-5">
+              <span className="font-bold">Bid Amount:</span>
 
-                <p className="text-gray-600 leading-relaxed">
-                  {
-                    proposal.coverLetter
-                  }
-                </p>
-                </div>
+              <span className="ml-2">₹ {proposal.bidAmount}</span>
+            </div>
 
-                 <div className="mt-5">
+            <div className="mt-5">
+              <span className="bg-black text-white px-4 py-2 rounded-full text-sm">
+                {proposal.status}
+              </span>
+            </div>
 
-                <span className="font-bold">
-                  Bid Amount:
-                </span>
+            {/* Buttons */}
+            <div className="flex gap-4 mt-6">
+              <button
+                onClick={() => handelAccept(proposal._id)}
+                className="flex-1 bg-green-500 text-white py-3 rounded-xl font-semibold"
+              >
+                Accept
+              </button>
 
-                <span className="ml-2">
-                  ₹ {proposal.bidAmount}
-                </span>
-
-              </div>
-
-                <div className="mt-5">
-
-                <span className="bg-black text-white px-4 py-2 rounded-full text-sm">
-                  {proposal.status}
-                </span>
-
-              </div>
-
-              {/* Buttons */}
-              <div className="flex gap-4 mt-6">
-
-                <button
-                  onClick={() =>
-                    handleAccept(
-                      proposal._id
-                    )
-                  }
-                  className="flex-1 bg-green-500 text-white py-3 rounded-xl font-semibold"
-                >
-                  Accept
-                </button>
-
-                <button
-                  onClick={() =>
-                    handleReject(
-                      proposal._id
-                    )
-                  }
-                  className="flex-1 bg-red-500 text-white py-3 rounded-xl font-semibold"
-                >
-                  Reject
-                </button>
-
-              </div>
-
+              <button
+                onClick={() => handelReject(proposal._id)}
+                className="flex-1 bg-red-500 text-white py-3 rounded-xl font-semibold"
+              >
+                Reject
+              </button>
+            </div>
           </div>
         ))}
       </div>
