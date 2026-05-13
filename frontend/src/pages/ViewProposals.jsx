@@ -19,8 +19,14 @@ const ViewProposals = () => {
     fetchPropsals();
   },[])
 
+  const handelAccept = async()=>{
+    try{
 
-  
+    }catch(err){
+      console.log(err);      
+    }
+  }
+
   return (
     <div>ViewProposals</div>
   )
