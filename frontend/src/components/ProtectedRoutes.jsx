@@ -14,9 +14,7 @@ const ProtectedRoutes = ({children, role}) => {
         }
 
   return (
-    <>
-
-    </>
+    children
   )
 }
 
