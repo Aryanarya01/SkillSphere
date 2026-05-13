@@ -78,6 +78,53 @@ const ViewProposals = () => {
                 </p>
                 </div>
 
+                 <div className="mt-5">
+
+                <span className="font-bold">
+                  Bid Amount:
+                </span>
+
+                <span className="ml-2">
+                  ₹ {proposal.bidAmount}
+                </span>
+
+              </div>
+
+                <div className="mt-5">
+
+                <span className="bg-black text-white px-4 py-2 rounded-full text-sm">
+                  {proposal.status}
+                </span>
+
+              </div>
+
+              {/* Buttons */}
+              <div className="flex gap-4 mt-6">
+
+                <button
+                  onClick={() =>
+                    handleAccept(
+                      proposal._id
+                    )
+                  }
+                  className="flex-1 bg-green-500 text-white py-3 rounded-xl font-semibold"
+                >
+                  Accept
+                </button>
+
+                <button
+                  onClick={() =>
+                    handleReject(
+                      proposal._id
+                    )
+                  }
+                  className="flex-1 bg-red-500 text-white py-3 rounded-xl font-semibold"
+                >
+                  Reject
+                </button>
+
+              </div>
+
           </div>
         ))}
       </div>
