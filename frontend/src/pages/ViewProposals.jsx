@@ -29,6 +29,16 @@ const ViewProposals = () => {
     }
   }
 
+  const handelReject = async(id)=>{
+    try{
+      const res = await clientServer.put(`/proposal/reject/${id}`);
+      setProposals(res.data.proposal);
+      fetchPropsals()
+    }catch(err){
+      console.log(err);      
+    }
+  }
+
   return (
     <div>ViewProposals</div>
   )
