@@ -25,7 +25,9 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/jobs" element={<Job />} />
         <Route path="/jobs/:id" element={<SingleJob />} />
-        <Route path="/jobs/create" element={<CreateJob />} />
+        <Route path="/jobs/create" element={<ProtectedRoutes role="client">
+          <CreateJob />
+        </ProtectedRoutes>} />
         <Route
           path="/client-dashboard"
           element={
