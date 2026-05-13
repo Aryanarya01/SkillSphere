@@ -14,6 +14,9 @@ const router = Router();
 router
   .route("/proposal/apply/:JobId")
   .post(Protect, authorizedRole("freelancer"), applyJob);
+  router
+  .route("/proposal/my_proposals")
+  .get(Protect, authorizedRole("freelancer"), getMyProposals);
 router
   .route("/proposal/job/:JobId")
   .get(Protect, authorizedRole("client"), getJobProposals);
@@ -24,8 +27,6 @@ router
   .route("/proposal/reject/:id")
   .put(Protect, authorizedRole("client"), rejectProposal);
 
-router
-  .route("/proposal/my_proposals")
-  .get(Protect, authorizedRole("freelancer"), getMyProposals);
+ 
 
 export default router;
