@@ -19,9 +19,11 @@ const ViewProposals = () => {
     fetchPropsals();
   },[])
 
-  const handelAccept = async()=>{
-    try{
-
+  const handelAccept = async(id)=>{
+    try{  
+      const res = await clientServer.put(`/proposal/accept/${id}`);
+      alert(res.data.proposal);
+      fetchPropsals();
     }catch(err){
       console.log(err);      
     }
