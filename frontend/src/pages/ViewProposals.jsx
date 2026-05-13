@@ -39,33 +39,49 @@ const ViewProposals = () => {
   };
 
   return (
-      <div className="min-h-screen bg-gray-100 p-6">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold">
-          Job Proposals
-        </h1>
+    <div className="min-h-screen bg-gray-100 p-6">
+      <div className="mb-8">
+        <h1 className="text-4xl font-bold">Job Proposals</h1>
 
-        <p className="text-gray-500 mt-2">
-          Manage freelancer applications
-        </p>
-        </div>
-
-          {/* card */}
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {
-              proposals.map((proposal)=>(
-                  <div
-              key={proposal._id}
-              className="bg-white rounded-2xl shadow-md p-6"
-            >
-              
-
-            </div>
-              ))
-            }
-           </div>
-
+        <p className="text-gray-500 mt-2">Manage freelancer applications</p>
       </div>
+
+      {/* card */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {proposals.map((proposal) => (
+          <div
+            key={proposal._id}
+            className="bg-white rounded-2xl shadow-md p-6"
+          >
+
+             <h2 className="text-2xl font-bold">
+                {
+                  proposal.freelancer?.name
+                }
+              </h2>
+
+              <p className="text-gray-500 mt-1">
+                {
+                  proposal.freelancer?.email
+                }
+              </p>
+
+                <div className="mt-5">
+                    <h3 className="font-semibold mb-2">
+                  Cover Letter
+                </h3>
+
+                <p className="text-gray-600 leading-relaxed">
+                  {
+                    proposal.coverLetter
+                  }
+                </p>
+                </div>
+
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 
