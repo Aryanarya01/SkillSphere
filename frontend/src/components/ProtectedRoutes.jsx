@@ -1,9 +1,11 @@
 
 import React from 'react'
 
-const ProtectedRoutes = () => {
+const ProtectedRoutes = ({children, role}) => {
   return (
-    <div>ProtectedRoutes</div>
+    <>
+        
+    </>
   )
 }
 
