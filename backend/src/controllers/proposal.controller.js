@@ -32,7 +32,7 @@ export const applyJob = async (req, res) => {
   }
 };
 
-//getJobProposals
+//getJobProposals(client)
 export const getJobProposals = async (req, res) => {
   try {
     const JobId = req.params.JobId;
@@ -77,3 +77,8 @@ export const rejectProposal = async (req, res) => {
     return res.status(500).json({ message: err.message });
   }
 };
+
+
+export const getMyProposals = async(req,res)=>{
+  
+}
