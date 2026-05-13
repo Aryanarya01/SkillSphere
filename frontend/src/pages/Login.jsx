@@ -32,7 +32,12 @@ const Login = () => {
   "user",
   JSON.stringify(res.data.user)
 );
-      navigate("/dashboard")
+      if(res.data.user.role === "client"){
+        navigate("/client-dashboard");
+      }else if(res.data.user.role === "freelancer"){
+        navigate("/freelancer-dashboard")
+      }
+
       alert("Login Successful");
     } catch (err) {
       console.log(err);
