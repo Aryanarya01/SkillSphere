@@ -28,7 +28,7 @@ import FreelancerDashboard from './pages/FreelancerDashboard.jsx';
           <Route path='/jobs/create' element={<CreateJob/>}/>
           <Route path='/client-dashboard' element={<ClientDashboard/>}/>
           <Route path='/proposals/:JobId' element={<ViewProposals/>}/>
-          <Route path='my_proposals' element={<FreelancerDashboard/>}/>
+          <Route path='/freelancer-dashboard' element={<FreelancerDashboard/>}/>
       </Routes>
     </BrowserRouter>
    )
