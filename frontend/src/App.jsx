@@ -41,9 +41,14 @@ const App = () => {
             </ProtectedRoutes>
           }
         />
-        <Route path="/proposals/:JobId" element={<ProtectedRoutes role="client">
-          <ViewProposals />
-        </ProtectedRoutes>} />
+        <Route
+          path="/proposals/:JobId"
+          element={
+            <ProtectedRoutes role="client">
+              <ViewProposals />
+            </ProtectedRoutes>
+          }
+        />
         <Route
           path="/freelancer-dashboard"
           element={
