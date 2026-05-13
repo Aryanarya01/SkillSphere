@@ -28,7 +28,13 @@ const Navbar = () => {
       <div className="flex items-center gap-5">
         {user ? (
           <>
-            <Link to="/dashboard">Dashboard</Link>
+           {user.role === "client" && (
+            <>
+              <Link to="/jobs/create">Create Job</Link>
+              <Link to="/dashboard">Dashboard</Link>
+            </>
+            
+           )}
             <p>{user.name}</p>
             <button
               className="bg-white text-black px-4 py-2 rounded-lg"
