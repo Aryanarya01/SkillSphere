@@ -31,9 +31,14 @@ const Navbar = () => {
            {user.role === "client" && (
             <>
               <Link to="/jobs/create">Create Job</Link>
-              <Link to="/dashboard">Dashboard</Link>
+              <Link to="/client-dashboard">Dashboard</Link>
             </>
-            
+           )}
+           {user.role === "freelancer" && (
+            <>
+                <Link to="/jobs">Find Jobs</Link>
+              <Link to="/freelancer-dashboard">Dashboard</Link>
+            </>
            )}
             <p>{user.name}</p>
             <button
