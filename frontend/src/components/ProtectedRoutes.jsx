@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
  
 
 const ProtectedRoutes = ({children, role}) => {
-    const navigate = useNavigate();
+    
 
     const {user} = useSelector((state)=>state.auth);
 
