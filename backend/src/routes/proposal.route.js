@@ -5,6 +5,7 @@ import {
   acceptProposal,
   applyJob,
   getJobProposals,
+  getMyProposals,
   rejectProposal,
 } from "../controllers/proposal.controller.js";
 
@@ -24,4 +25,4 @@ router
   .put(Protect, authorizedRole("client"), rejectProposal);
 export default router;
 
-router.route("/proposal/my_proposals").get(Protect,authorizeRoles("freelancer"),)
+router.route("/proposal/my_proposals").get(Protect,authorizeRoles("freelancer"),getMyProposals)
