@@ -24,10 +24,8 @@ router
   .route("/proposal/reject/:id")
   .put(Protect, authorizedRole("client"), rejectProposal);
 
-  router
+router
   .route("/proposal/my_proposals")
   .get(Protect, authorizedRole("freelancer"), getMyProposals);
 
 export default router;
-
- 
