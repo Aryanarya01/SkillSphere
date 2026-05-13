@@ -1,10 +1,16 @@
 
 
-import React from 'react'
+import React, { useState } from 'react'
 
 const FreelancerDashboard = () => {
+
+    const [proposals,setProposals] = useState([]);
+    
+
   return (
-    <div>FreelancerDashboard</div>
+    <div>
+        
+    </div>
   )
 }
 
