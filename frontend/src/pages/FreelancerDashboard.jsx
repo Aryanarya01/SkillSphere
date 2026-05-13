@@ -10,7 +10,8 @@ const FreelancerDashboard = () => {
     const fetchPropsals = async()=>{
         try{
             const res = await clientServer.get("/proposal/my_proposals")
-            setProposals(res.data.proposals)
+            console.log(res.data);
+    setProposals(res.data.proposals);
         }catch(err){
             console.log(err);
         }

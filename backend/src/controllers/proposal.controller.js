@@ -80,7 +80,7 @@ export const rejectProposal = async (req, res) => {
 
 export const getMyProposals = async (req, res) => {
   try {
-    const proposals = await Proposal.findById({
+    const proposals = await Proposal.find({
       freelancer: req.user._id,
     }).populate("job");
     return res.status(200).json({ proposals });

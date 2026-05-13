@@ -12,11 +12,11 @@ import {
 const router = Router();
 
 router
-  .route("/proposal/apply/:JobId")
-  .post(Protect, authorizedRole("freelancer"), applyJob);
-  router
   .route("/proposal/my_proposals")
   .get(Protect, authorizedRole("freelancer"), getMyProposals);
+router
+  .route("/proposal/apply/:JobId")
+  .post(Protect, authorizedRole("freelancer"), applyJob);
 router
   .route("/proposal/job/:JobId")
   .get(Protect, authorizedRole("client"), getJobProposals);
