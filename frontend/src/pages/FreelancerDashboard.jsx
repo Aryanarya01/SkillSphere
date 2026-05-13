@@ -1,6 +1,7 @@
 
 
 import React, { useState } from 'react'
+import clientServer from '../api/client.js';
 
 const FreelancerDashboard = () => {
 
@@ -8,7 +9,7 @@ const FreelancerDashboard = () => {
 
     const fetchPropsals = async()=>{
         try{
-
+            const res = await clientServer.get("/proposal/my_proposals")
         }catch(err){
             console.log(err);
         }
