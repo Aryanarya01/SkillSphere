@@ -8,7 +8,8 @@ const ViewProposals = () => {
   const {JobId}= useParams()
   const fetchPropsals = async()=>{
     try{
-      const res = await clientServer.get(`/proposal/job/${JobId}`)
+      const res = await clientServer.get(`/proposal/job/${JobId}`);
+      setProposals(res.data.proposal);
     }catch(err){
       console.log(err);
     }
