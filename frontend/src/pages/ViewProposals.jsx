@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import clientServer from "../api/client.js";
 import { useParams } from 'react-router-dom';
 
@@ -14,6 +14,13 @@ const ViewProposals = () => {
       console.log(err);
     }
   }
+
+  useEffect(()=>{ 
+    fetchPropsals();
+  },[])
+
+
+  
   return (
     <div>ViewProposals</div>
   )
