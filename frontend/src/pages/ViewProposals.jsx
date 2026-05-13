@@ -5,9 +5,13 @@ import { useParams } from "react-router-dom";
 const ViewProposals = () => {
   const [proposals, setProposals] = useState([]);
   const { JobId } = useParams();
+  console.log(JobId);
+  
   const fetchPropsals = async () => {
     try {
       const res = await clientServer.get(`/proposal/job/${JobId}`);
+      console.log(res.data);
+      
       setProposals(res.data.proposal);
     } catch (err) {
       console.log(err);
@@ -31,7 +35,7 @@ const ViewProposals = () => {
   const handelReject = async (id) => {
     try {
       const res = await clientServer.put(`/proposal/reject/${id}`);
-      setProposals(res.data.proposal);
+      alert(res.data.message);
       fetchPropsals();
     } catch (err) {
       console.log(err);
