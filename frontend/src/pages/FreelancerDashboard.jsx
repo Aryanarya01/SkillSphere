@@ -22,7 +22,7 @@ const FreelancerDashboard = () => {
 
   return (
     <div>
-        
+            
     </div>
   )
 }

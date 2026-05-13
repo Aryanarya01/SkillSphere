@@ -27,4 +27,4 @@ export default router;
 
 router
   .route("/proposal/my_proposals")
-  .get(Protect, authorizeRoles("freelancer"), getMyProposals);
+  .get(Protect, authorizedRole("freelancer"), getMyProposals);
