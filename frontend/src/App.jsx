@@ -12,6 +12,7 @@ import CreateJob from './pages/CreateJob.jsx';
 import ClientDashboard from './pages/ClientDashboard.jsx';
 import ViewProposals from './pages/ViewProposals.jsx';
 import FreelancerDashboard from './pages/FreelancerDashboard.jsx';
+import ProtectedRoutes from './components/ProtectedRoutes.jsx';
  
 
  const App = () => {
@@ -26,7 +27,9 @@ import FreelancerDashboard from './pages/FreelancerDashboard.jsx';
           <Route path='/jobs' element={<Job/>}/>
           <Route path='/jobs/:id' element={<SingleJob/>} />
           <Route path='/jobs/create' element={<CreateJob/>}/>
-          <Route path='/client-dashboard' element={<ClientDashboard/>}/>
+          <Route path='/client-dashboard' element={ <ProtectedRoutes>
+            <ClientDashboard/>
+          </ProtectedRoutes>}/>
           <Route path='/proposals/:JobId' element={<ViewProposals/>}/>
           <Route path='/freelancer-dashboard' element={<FreelancerDashboard/>}/>
       </Routes>
