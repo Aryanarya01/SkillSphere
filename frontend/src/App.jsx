@@ -27,11 +27,13 @@ import ProtectedRoutes from './components/ProtectedRoutes.jsx';
           <Route path='/jobs' element={<Job/>}/>
           <Route path='/jobs/:id' element={<SingleJob/>} />
           <Route path='/jobs/create' element={<CreateJob/>}/>
-          <Route path='/client-dashboard' element={ <ProtectedRoutes>
+          <Route path='/client-dashboard' element={ <ProtectedRoutes role="client">
             <ClientDashboard/>
           </ProtectedRoutes>}/>
           <Route path='/proposals/:JobId' element={<ViewProposals/>}/>
-          <Route path='/freelancer-dashboard' element={<FreelancerDashboard/>}/>
+          <Route path='/freelancer-dashboard' element={<ProtectedRoutes role="freelancer">
+            <FreelancerDashboard/>
+          </ProtectedRoutes>}/>
       </Routes>
     </BrowserRouter>
    )
