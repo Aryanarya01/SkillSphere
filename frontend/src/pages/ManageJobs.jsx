@@ -5,9 +5,9 @@ const ManageJobs = () => {
 
   const fetchJobs = async()=>{
     try{
-
+      const res = await
     }catch(err){
-      
+      console.log(err);
     }
   }
 
