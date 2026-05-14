@@ -17,7 +17,8 @@ const ManageJobs = () => {
 
   const deleteJob = async(id)=>{
     try{
-
+      const res = await clientServer.delete(`admin/job/${id}`);
+      fetchJobs()
     }catch(err){
       console.log(err);
     }
