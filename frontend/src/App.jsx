@@ -15,6 +15,7 @@ import FreelancerDashboard from "./pages/FreelancerDashboard.jsx";
 import ProtectedRoutes from "./components/ProtectedRoutes.jsx";
 import AdminDashoboard from "./pages/AdminDashoboard.jsx";
 import ManageUser from "./pages/ManageUser.jsx";
+import ManageJobs from "./pages/ManageJobs.jsx";
 
 const App = () => {
   return (
@@ -75,6 +76,9 @@ const App = () => {
             </ProtectedRoutes>
           }
         />
+        <Route path="/manage-jobs" element={<ProtectedRoutes>
+          <ManageJobs/>
+        </ProtectedRoutes>}/>
       </Routes>
     </BrowserRouter>
   );
