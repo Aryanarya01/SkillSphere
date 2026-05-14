@@ -8,6 +8,15 @@ const AdminDashoboard = () => {
       totalJobs : 0,
       totalProposals : 0,
     })
+
+
+    const fetchStats = async()=>{
+        try{
+
+        }catch(err){
+            console.log(err);
+        }
+    }
   return (
     <div>AdminDashoboard</div>
   )
