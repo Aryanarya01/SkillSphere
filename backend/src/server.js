@@ -30,7 +30,7 @@ app.use(freelancerRouter);
 app.use(jobRoute);
 app.use(proposalRoute);
 app.use(reviweRoute);
-app.use("/admin", adminRoute);
+app.use(adminRoute);
 
 const startDB = async () => {
   const connect = await mongoose.connect(

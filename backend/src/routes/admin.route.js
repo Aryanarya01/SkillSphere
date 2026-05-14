@@ -5,6 +5,6 @@ import { AdminAnalysisData } from "../controllers/admin.controller.js";
 
 const router = Router();
 
-router.route("/stats").get(Protect, authorizedRole("admin"), AdminAnalysisData);
+router.route("/admin/stats").get(Protect, authorizedRole("admin"), AdminAnalysisData);
 
 export default router;
