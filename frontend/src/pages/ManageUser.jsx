@@ -34,8 +34,8 @@ const ManageUser = () => {
       </div>
 
       <div className="bg-white rounded-2xl shadow-md overflow-hidden">
-        <table>
-          <thead>
+        <table className="w-full">
+          <thead className="bg-black text-white">
             <tr>
               <th>Name</th>
               <th>Email</th>
