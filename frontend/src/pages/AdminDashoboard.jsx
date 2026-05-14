@@ -31,12 +31,12 @@ const AdminDashoboard = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white rounded-2xl shadow-md p-6">
+        <div onClick={()=>navigate("/manage-users")} className="bg-white rounded-2xl shadow-md p-6">
           <h2 className="text-gray-500 text-lg">Total Users</h2>
           <p className="text-5xl font-bold mt-4">{stats.totalUser}</p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-md p-6">
+        <div onClick={()=>navigate("/manage-jobs")} className="bg-white rounded-2xl shadow-md p-6">
           <h2 className="text-gray-500 text-lg">Total Jobs</h2>
           <p className="text-5xl font-bold mt-4">{stats.totalJobs}</p>
         </div>
