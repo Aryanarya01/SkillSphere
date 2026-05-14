@@ -25,14 +25,18 @@ useEffect(()=>{
 },[])
 
   return (
-    <div> 
+    <div className='min-h-screen bg-gray-100 p-6'> 
 
-    <div>
-        <h1>Admin Dashboard</h1>
+    <div className='mb-10'>
+        <h1 className='text-4xl font-bold'>Admin Dashboard</h1>
         <p className='text-gray-500 mt-2'> Platform overview & analytics</p>
     </div>
 
+    <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
 
+    <div className='bg-white rounded-2xl shadow-md p-6'></div>
+
+    </div>
     </div>
   )
 }
