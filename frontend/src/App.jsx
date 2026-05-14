@@ -14,6 +14,7 @@ import ViewProposals from "./pages/ViewProposals.jsx";
 import FreelancerDashboard from "./pages/FreelancerDashboard.jsx";
 import ProtectedRoutes from "./components/ProtectedRoutes.jsx";
 import AdminDashoboard from "./pages/AdminDashoboard.jsx";
+import ManageUser from "./pages/ManageUser.jsx";
 
 const App = () => {
   return (
@@ -66,6 +67,9 @@ const App = () => {
             </ProtectedRoutes>
           }
         />
+        <Route path="/manage-users" element={<ProtectedRoutes>
+          <ManageUser/>
+        </ProtectedRoutes>}
       </Routes>
     </BrowserRouter>
   );
