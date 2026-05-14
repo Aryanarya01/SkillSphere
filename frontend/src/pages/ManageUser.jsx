@@ -24,7 +24,8 @@ const ManageUser = () => {
 
     const handelDelete = async()=>{
         try{
-            
+            await clientServer.delete(`/admin/user/${id}`);
+            fetchUser();
         }catch(err){
             console.log(err);
         }
