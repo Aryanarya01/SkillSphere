@@ -22,7 +22,7 @@ const ManageUser = () => {
         fetchUser();
     },[]);
 
-    const handelDelete = async()=>{
+    const handelDelete = async(id)=>{
         try{
             await clientServer.delete(`/admin/user/${id}`);
             fetchUser();
@@ -55,7 +55,7 @@ const ManageUser = () => {
                             <td>{user.name}</td>
                             <td>{user.email}</td>
                             <td>{user.role}</td>
-                            <td><button></button></td>
+                            <td><button onClick={()=>handelDelete(user._id)}>Delete</button></td>
                         </tr>
                     ))
                 }
