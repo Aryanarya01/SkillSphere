@@ -36,6 +36,8 @@ const Login = () => {
         navigate("/client-dashboard");
       }else if(res.data.user.role === "freelancer"){
         navigate("/freelancer-dashboard")
+      }else if(res.data.user.role === "admin"){
+        navigate("/admin_dashboard")
       }
 
       alert("Login Successful");
