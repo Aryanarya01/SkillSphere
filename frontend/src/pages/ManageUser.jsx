@@ -37,10 +37,10 @@ const ManageUser = () => {
         <table className="w-full">
           <thead className="bg-black text-white">
             <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Role</th>
-              <th>Action</th>
+              <th className="p-4 text-left">Name</th>
+              <th className="p-4 text-left">Email</th>
+              <th className="p-4 text-left">Role</th>
+              <th className="p-4 text-left">Action</th>
             </tr>
           </thead>
           <tbody>
