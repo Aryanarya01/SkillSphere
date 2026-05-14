@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import clientServer from "../api/client";
+import { useNavigate } from "react-router-dom";
 
 const AdminDashoboard = () => {
+  const navigate = useNavigate();
   const [stats, setStats] = useState({
     totalUser: 0,
     totalJobs: 0,
