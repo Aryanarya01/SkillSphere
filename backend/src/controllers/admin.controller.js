@@ -50,7 +50,8 @@ export const getAllJobsAdmin = async(req,res)=>{
 
 export const deleteJobAdmin = async(req,res)=>{
   try{
-
+    await Job.findByIdAndDelete(req.params.id);
+    return res.status(200).json({message : "Job deleted successfully"});
   }catch(err){
     return res.status(500).json({message : err.message})
   }
