@@ -58,9 +58,14 @@ const App = () => {
             </ProtectedRoutes>
           }
         />
-        <Route path="/admin_dashboard" element={<ProtectedRoutes role="admin">
-          <AdminDashoboard/>
-        </ProtectedRoutes>} />
+        <Route
+          path="/admin_dashboard"
+          element={
+            <ProtectedRoutes role="admin">
+              <AdminDashoboard />
+            </ProtectedRoutes>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
