@@ -40,10 +40,10 @@ const AdminDashoboard = () => {
         </div>
 
          <div className="bg-white rounded-2xl shadow-md p-6">
-          <h2 className="text-gray-500 text-lg">Total Jobs</h2>
-          <p className="text-5xl font-bold mt-4">{stats.totalJobs}</p>
+          <h2 className="text-gray-500 text-lg">Total Proposals</h2>
+          <p className="text-5xl font-bold mt-4">{stats.totalProposals}</p>
         </div>
-        
+
       </div>
     </div>
   );
