@@ -8,18 +8,19 @@ import userRouter from "./routes/user.routes.js";
 import freelancerRouter from "./routes/freelancer.route.js";
 import jobRoute from "./routes/job.route.js";
 import proposalRoute from "./routes/proposal.route.js";
-import reviweRoute from "./routes/review.route.js"
-import adminRoute from "./routes/admin.route.js"
-
+import reviweRoute from "./routes/review.route.js";
+import adminRoute from "./routes/admin.route.js";
 
 const app = express();
 const port = 9090;
 
 dotenv.config();
-app.use(cors({
-  origin: "http://localhost:5173",
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  }),
+);
 app.use(express.json());
 app.use(cookieParser());
 
@@ -29,14 +30,14 @@ app.use(freelancerRouter);
 app.use(jobRoute);
 app.use(proposalRoute);
 app.use(reviweRoute);
-app.use("/admin",adminRoute)
+app.use("/admin", adminRoute);
 
 const startDB = async () => {
   const connect = await mongoose.connect(
     "mongodb+srv://aryanarya01:aryan5555@skillsphere.jcqnrhp.mongodb.net/?appName=SkillSphere",
   );
   console.log("DB connected");
-  
+
   app.listen(port, () => {
     console.log(`Server is listining to port ${port}`);
   });
