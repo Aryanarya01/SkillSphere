@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading, setUser } from "../redux/slices/authSlice.js";
 import clientServer from "../api/client.js";
@@ -8,7 +8,7 @@ const Login = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
 
-  const {isLoading } = useSelector((state) => state.auth);
+  const {isLoading, user } = useSelector((state) => state.auth);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -50,6 +50,25 @@ const Login = () => {
     }
   };
 
+  useEffect(() => {
+
+  if (user?.role === "client") {
+    navigate("/client-dashboard");
+  }
+
+  else if (
+    user?.role === "freelancer"
+  ) {
+    navigate("/freelancer-dashboard");
+  }
+
+  else if (
+    user?.role === "admin"
+  ) {
+    navigate("/admin_dashboard");
+  }
+
+}, [user]);
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
