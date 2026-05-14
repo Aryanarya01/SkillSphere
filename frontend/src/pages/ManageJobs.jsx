@@ -12,7 +12,7 @@ const ManageJobs = () => {
     }
   }
   useEffect(()=>{
-    
+    fetchJobs();
   },[])
 
   return (
