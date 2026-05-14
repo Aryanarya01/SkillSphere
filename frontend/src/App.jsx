@@ -13,6 +13,7 @@ import ClientDashboard from "./pages/ClientDashboard.jsx";
 import ViewProposals from "./pages/ViewProposals.jsx";
 import FreelancerDashboard from "./pages/FreelancerDashboard.jsx";
 import ProtectedRoutes from "./components/ProtectedRoutes.jsx";
+import AdminDashoboard from "./pages/AdminDashoboard.jsx";
 
 const App = () => {
   return (
@@ -57,6 +58,9 @@ const App = () => {
             </ProtectedRoutes>
           }
         />
+        <Route path="/admin_dashboard" element={<ProtectedRoutes role="admin">
+          <AdminDashoboard/>
+        </ProtectedRoutes>} />
       </Routes>
     </BrowserRouter>
   );
