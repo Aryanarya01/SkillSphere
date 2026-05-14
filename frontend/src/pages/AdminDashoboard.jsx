@@ -29,10 +29,10 @@ useEffect(()=>{
 
     <div>
         <h1>Admin Dashboard</h1>
-        <p> Platform overview & analytics</p>
+        <p className='text-gray-500 mt-2'> Platform overview & analytics</p>
     </div>
 
-    
+
     </div>
   )
 }
