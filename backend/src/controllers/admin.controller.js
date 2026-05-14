@@ -26,3 +26,12 @@ export const getAllUser = async (req, res) => {
     return res.status(500).json({ message: err.message });
   }
 };
+
+
+export const deleteUser = async(req,res)=>{
+  try{
+
+  }catch(err){
+    return res.status(500).json({message : err.message})
+  }
+}
