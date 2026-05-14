@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import clientServer from '../api/client'
 
 const AdminDashoboard = () => {
@@ -19,8 +19,19 @@ const AdminDashoboard = () => {
             console.log(err);
         }
     }
+
+useEffect(()=>{
+    fetchStats();
+},[])
+
   return (
-    <div>AdminDashoboard</div>
+    <div> 
+
+    <div>
+        <h1>Admin Dashboard</h1>
+        <p> Platform overview & analytics</p>
+    </div>
+    </div>
   )
 }
 
