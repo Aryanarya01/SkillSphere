@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react'
+import clientServer from '../api/client'
 
 const AdminDashoboard = () => {
 
@@ -12,7 +13,7 @@ const AdminDashoboard = () => {
 
     const fetchStats = async()=>{
         try{
-
+            const res = await clientServer.get("/admin/stats")
         }catch(err){
             console.log(err);
         }
