@@ -36,3 +36,13 @@ export const deleteUser = async(req,res)=>{
     return res.status(500).json({message : err.message})
   }
 }
+
+
+export const getAllJobs = async(req,res)=>{
+  try{
+    const jobs = await Job.find();
+    return res.status(200).json({jobs})
+  }catch(err){
+    return res.status(500).json({message : err.message})
+  }
+}
