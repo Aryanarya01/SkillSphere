@@ -6,7 +6,7 @@ import { AdminAnalysisData, deleteUser, getAllUser } from "../controllers/admin.
 const router = Router();
 
 router.route("/admin/stats").get(Protect, authorizedRole("admin"), AdminAnalysisData);
-router.route("admin/users").get(Protect,authorizedRole("admin"),getAllUser);
+router.route("/admin/users").get(Protect,authorizedRole("admin"),getAllUser);
 router.route("/admin/user/:id").delete(Protect,authorizedRole("admin"),deleteUser);
 
 export default router;

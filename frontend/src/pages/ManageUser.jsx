@@ -8,7 +8,7 @@ const ManageUser = () => {
 
   const fetchUser = async () => {
     try {
-      const res = await clientServer.get("admin/users");
+      const res = await clientServer.get("/admin/users");
       setUsers(res.data.users);
     } catch (err) {
       console.log(err);
