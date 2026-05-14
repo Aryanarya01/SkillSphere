@@ -20,7 +20,15 @@ const ManageUser = () => {
     }
     useEffect(()=>{
         fetchUser();
-    },[])
+    },[]);
+
+    const handelDelete = async()=>{
+        try{
+            
+        }catch(err){
+            console.log(err);
+        }
+    }
   return (
     <div>ManageUser</div>
   )
