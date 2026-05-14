@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import clientServer from "../api/client.js";
 const ManageJobs = () => {
   const [jobs, setJobs] = useState([]);
@@ -11,6 +11,9 @@ const ManageJobs = () => {
       console.log(err);
     }
   }
+  useEffect(()=>{
+    
+  },[])
 
   return (
     <div>ManageJobs</div>
