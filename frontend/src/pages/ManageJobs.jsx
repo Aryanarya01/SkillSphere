@@ -15,6 +15,13 @@ const ManageJobs = () => {
     fetchJobs();
   },[])
 
+  const deleteJob = async(id)=>{
+    try{
+
+    }catch(err){
+      console.log(err);
+    }
+  }
   return (
     <div>ManageJobs</div>
   )
