@@ -13,7 +13,8 @@ const AdminDashoboard = () => {
 
     const fetchStats = async()=>{
         try{
-            const res = await clientServer.get("/admin/stats")
+            const res = await clientServer.get("/admin/stats");
+            setStats(res.data)
         }catch(err){
             console.log(err);
         }
