@@ -67,9 +67,14 @@ const App = () => {
             </ProtectedRoutes>
           }
         />
-        <Route path="/manage-users" element={<ProtectedRoutes role="admin">
-          <ManageUser/>
-        </ProtectedRoutes>}
+        <Route
+          path="/manage-users"
+          element={
+            <ProtectedRoutes role="admin">
+              <ManageUser />
+            </ProtectedRoutes>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
