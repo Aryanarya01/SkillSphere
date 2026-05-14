@@ -39,6 +39,10 @@ useEffect(()=>{
         <p className='text-5xl font-bold mt-4'>{stats.totalUser}</p>
     </div>
 
+        <div className='bg-white rounded-2xl shadow-md p-6'>
+            <h2 className='text-gray-500 text-lg'></h2>
+             </div>
+
     </div>
     </div>
   )
