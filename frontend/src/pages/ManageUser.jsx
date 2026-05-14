@@ -48,6 +48,17 @@ const ManageUser = () => {
                     <th>Action</th>
                 </tr>
             </thead>
+            <tbody>
+                {
+                    users.map((user)=>(
+                        <tr>
+                            <td>{user.name}</td>
+                            <td>{user.email}</td>
+                            <td>{user.role}</td>
+                        </tr>
+                    ))
+                }
+            </tbody>
         </table>
     </div>
 
