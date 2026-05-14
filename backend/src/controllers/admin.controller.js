@@ -17,3 +17,13 @@ export const AdminAnalysisData = async (req, res) => {
     return res.status(500).json({ message: err.message });
   }
 };
+
+
+
+export const getAllUser = async(req,res)=>{
+  try{
+
+  }catch(err){
+    return res.status
+  }
+}
