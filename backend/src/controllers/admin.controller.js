@@ -22,8 +22,8 @@ export const AdminAnalysisData = async (req, res) => {
 
 export const getAllUser = async(req,res)=>{
   try{
-
+    
   }catch(err){
-    return res.status
+    return res.status(500).json({message : err.message})
   }
 }
