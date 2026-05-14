@@ -24,8 +24,110 @@ const ManageJobs = () => {
     }
   }
   return (
-    <div>ManageJobs</div>
-  )
+    <div className="min-h-screen bg-gray-100 p-6">
+
+      {/* Heading */}
+      <div className="mb-8">
+
+        <h1 className="text-4xl font-bold">
+          Manage Jobs
+        </h1>
+
+        <p className="text-gray-500 mt-2">
+          Admin job management panel
+        </p>
+
+      </div>
+
+      {/* Jobs Table */}
+      <div className="bg-white rounded-2xl shadow-md overflow-hidden">
+
+        <table className="w-full">
+
+          <thead className="bg-black text-white">
+
+            <tr>
+
+              <th className="p-4 text-left">
+                Title
+              </th>
+
+              <th className="p-4 text-left">
+                Client
+              </th>
+
+              <th className="p-4 text-left">
+                Budget
+              </th>
+
+              <th className="p-4 text-left">
+                Status
+              </th>
+
+              <th className="p-4 text-left">
+                Action
+              </th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            {
+              jobs.map((job) => (
+
+                <tr
+                  key={job._id}
+                  className="border-b"
+                >
+
+                  <td className="p-4">
+                    {job.title}
+                  </td>
+
+                  <td className="p-4">
+                    {
+                      job.client?.name
+                    }
+                  </td>
+
+                  <td className="p-4">
+                    ₹ {job.budget}
+                  </td>
+
+                  <td className="p-4 capitalize">
+                    {job.status}
+                  </td>
+
+                  <td className="p-4">
+
+                    <button
+                      onClick={() =>
+                        handleDelete(
+                          job._id
+                        )
+                      }
+                      className="bg-red-500 text-white px-4 py-2 rounded-lg"
+                    >
+                      Delete
+                    </button>
+
+                  </td>
+
+                </tr>
+
+              ))
+            }
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+  );
 }
 
 export default ManageJobs
