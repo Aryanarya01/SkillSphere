@@ -45,12 +45,12 @@ const ManageUser = () => {
           </thead>
           <tbody>
             {users.map((user) => (
-              <tr>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>{user.role}</td>
-                <td>
-                  <button onClick={() => handelDelete(user._id)}>Delete</button>
+              <tr key={user._id} className="border-b">
+                <td className="p-4">{user.name}</td>
+                <td className="p-4">{user.email}</td>
+                <td className="p-4 capitalize">{user.role}</td>
+                <td className="p-4">
+                  <button className="bg-red-500 text-white px-4 py-2 rounded-lg" onClick={() => handelDelete(user._id)}>Delete</button>
                 </td>
               </tr>
             ))}
