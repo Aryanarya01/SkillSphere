@@ -9,7 +9,7 @@ router.route("/admin/stats").get(Protect, authorizedRole("admin"), AdminAnalysis
 router.route("/admin/users").get(Protect,authorizedRole("admin"),getAllUser);
 router.route("/admin/user/:id").delete(Protect,authorizedRole("admin"),deleteUser);
 router.route("/admin/jobs").get(Protect,authorizedRole("admin"),getAllJobsAdmin);
-router.route("admin/job/:id").delete(Protect,authorizedRole("admin"),deleteJobAdmin);
+router.route("/admin/job/:id").delete(Protect,authorizedRole("admin"),deleteJobAdmin);
 
 
 export default router;
