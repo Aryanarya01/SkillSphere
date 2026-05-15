@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import clientServer from "../api/client.js";
 import toast from 'react-hot-toast';
+import { useDispatch, useSelector } from 'react-redux';
+import { setLoading } from '../redux/slices/authSlice.js';
 const ManageJobs = () => {
   const [jobs, setJobs] = useState([]);
-
+  const {isLoading} = useSelector((state)=>state.auth);
+  const dispatch = useDispatch()
   const fetchJobs = async()=>{
     try{
       const res = await clientServer.get("/admin/jobs");
@@ -17,6 +20,7 @@ const ManageJobs = () => {
   },[])
 
   const handleDelete = async(id)=>{
+    dispatch(setLoading(true))
     try{
       const res = await clientServer.delete(`/admin/job/${id}`);
       fetchJobs()
@@ -24,6 +28,8 @@ const ManageJobs = () => {
     }catch(err){
       console.log(err);
       toast.err("Error Deleting Job")
+    }finally{
+      dispatch(setLoading(false))
     }
   }
   return (
@@ -113,7 +119,7 @@ const ManageJobs = () => {
                       }
                       className="bg-red-500 text-white px-4 py-2 rounded-lg"
                     >
-                      Delete
+                      {isLoading ? "Deleting..." : "Delete"}
                     </button>
 
                   </td>
