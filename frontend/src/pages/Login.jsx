@@ -4,6 +4,7 @@ import { setLoading, setUser } from "../redux/slices/authSlice.js";
 import clientServer from "../api/client.js";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+
 const Login = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
@@ -119,7 +120,7 @@ const Login = () => {
         <p className="text-sm text-center text-gray-500 mt-6">
           {" "}
           Don’t have an account?{" "}
-          <span className="text-black font-medium cursor-pointer hover:underline">
+          <span onClick={()=>navigate("/register")} className="text-black font-medium cursor-pointer hover:underline">
             Register
           </span>
         </p>
