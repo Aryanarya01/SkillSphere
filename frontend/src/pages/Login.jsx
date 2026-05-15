@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLoading, setUser } from "../redux/slices/authSlice.js";
 import clientServer from "../api/client.js";
 import { useNavigate } from "react-router-dom";
-
+import toast from "react-hot-toast";
 const Login = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
@@ -40,9 +40,9 @@ const Login = () => {
         navigate("/admin_dashboard")
       }
 
-      alert("Login Successful");
+      toast.success("Login Successful");
     } catch (err) {
-      console.log(err);
+      toast.error(err.response?.data?.message)
 
       alert(err.response?.data?.message || "Login failed");
     } finally {
