@@ -2,6 +2,7 @@ import React from "react";
 import clientServer from "../api/client.js";
 import { useState } from "react";
 import { useEffect } from "react";
+import toast from "react-hot-toast";
 
 const ManageUser = () => {
   const [users, setUsers] = useState([]);
@@ -22,7 +23,9 @@ const ManageUser = () => {
     try {
       await clientServer.delete(`/admin/user/${id}`);
       fetchUser();
+      toast.success("User deleted")
     } catch (err) {
+      toast.error("Error deleting user")
       console.log(err);
     }
   };
