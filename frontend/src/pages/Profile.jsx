@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-
+import { Link } from "react-router-dom";
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
     
@@ -27,6 +27,12 @@ const Profile = () => {
           <span className="mt-4 bg-black text-white px-4 py-2 rounded-full capitalize">
             {user?.role}
           </span>
+          <Link
+  to="/edit-profile"
+  className="mt-6 bg-black text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition"
+>
+  Edit Profile
+</Link>
         </div>
 
         {/* User Info */}
