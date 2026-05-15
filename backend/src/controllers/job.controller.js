@@ -109,7 +109,11 @@ export const getMyJobs = async (req, res) => {
 export const getAllJobs = async(req,res)=>{
   try{
     const keyword = req.query.keyword || "";
-    
+    const jobs = await Job.find({
+      title : {
+        
+      }
+    })
   }catch(err){
     return res.status(500).json({message : err.message})
   }
