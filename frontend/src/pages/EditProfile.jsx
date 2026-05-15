@@ -15,7 +15,12 @@ const EditProfile = () => {
        const { name, value, files } =
       e.target;
 
-      
+      if(name === "profilePicture"){
+        setFormData({
+            ...formData,
+            profilePicture : files[0],
+        })
+      }
     }
 
   return (
