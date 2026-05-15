@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 const Job = () => {
   const [jobs, setJobs] = useState([]);
   const [keyword, setkeyword] = useState("");
-  
+
   const fetchJobs = async () => {
     try {
-      const res = await clientServer.get("/jobs");
+      const res = await clientServer.get(`/jobs?keword=${keyword}`);
       setJobs(res.data.jobs);
     } catch (err) {
       console.log(err);
@@ -17,7 +17,7 @@ const Job = () => {
 
   useEffect(() => {
     fetchJobs();
-  }, []);
+  }, [keyword]);
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
