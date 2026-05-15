@@ -32,6 +32,9 @@ const Navbar = () => {
               <>
                 <Link to="/jobs/create">Create Job</Link>
                 <Link to="/client-dashboard">Dashboard</Link>
+                <Link to="/profile">
+  Profile
+</Link>
               </>
             )}
             {user.role === "freelancer" && (
