@@ -105,7 +105,11 @@ export const updateProfile = async(req,res)=>{
       user.profilePicture =  `/uploads/${req.file.filename}`;
     }
     await user.save();
-    
+    return res.status(200).json({
+        message:
+          "Profile updated successfully",
+        user,
+      });
   }catch(err){
     return res.status(500).json({message : err.message})
   }
