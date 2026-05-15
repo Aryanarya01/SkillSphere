@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const EditProfile = () => {
+    const [formData, setFormData]=  useState({
+         name: user?.name || "",
+      username:
+        user?.username || "",
+      profilePicture: null,
+    })
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
 
