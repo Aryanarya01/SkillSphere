@@ -41,7 +41,7 @@ const Register = () => {
         toast.success("Registration Successful")
     }catch(err){
         console.log(err);
-        alert("Registration Failed");
+        toast.error("Registration Failed");
     }finally{
         dispatch(setLoading(false))
     }
