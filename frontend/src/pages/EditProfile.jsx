@@ -12,7 +12,10 @@ const EditProfile = () => {
     })
 
     const handleChange = async(e)=>{
-
+        setFormData({
+            ...formData,
+            [e.target.name] : e.target.value
+        })
     }
 
   return (
