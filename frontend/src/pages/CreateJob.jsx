@@ -3,9 +3,14 @@
 import React, { useState } from 'react'
 import clientServer from '../api/client.js'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import toast from 'react-hot-toast';
+import { setLoading } from '../redux/slices/authSlice.js';
 
 const CreateJob = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
    const {isLoading} = useSelector((state)=>state.auth)
 const [formData, setFormData] = useState({
   title : "",
@@ -23,6 +28,7 @@ const handelChange = (e)=>{
 }
 
 const handelSubmit = async(e)=>{
+   dispatch(setLoading(true));
   e.preventDefault();
   try{
     const mainRes = {
@@ -31,6 +37,7 @@ const handelSubmit = async(e)=>{
     }
     const res = await clientServer.post("/jobs/create",mainRes);
     toast.success(res.data.message);
+    dispatch(setLoading(false))
     navigate("/jobs");
   }catch(err){
     console.log(err);
@@ -79,7 +86,7 @@ const handelSubmit = async(e)=>{
             <input className='w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-black' name='deadline' value={formData.deadline} onChange={handelChange} type="date"  />
       </div>
 
-      <button className='w-full bg-black text-white py-4 rounded-xl font-semibold hover:opacity-90 transition' type='submit'>{isLoading ? "Creating Job" : "Create Job"}</button>
+      <button className='w-full bg-black text-white py-4 rounded-xl font-semibold hover:opacity-90 transition' type='submit'>{isLoading ? "Creating Job..." : "Create Job"}</button>
 
       </form>
 
