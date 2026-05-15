@@ -80,10 +80,11 @@ const App = () => {
         <Route path="/manage-jobs" element={<ProtectedRoutes role="admin">
           <ManageJobs/>
         </ProtectedRoutes>}/>
-      </Routes>
+     
       <Route path="/profile" element={<ProtectedRoutes>
         <Profile/>
       </ProtectedRoutes>}/>
+        </Routes>
     </BrowserRouter>
   );
 };
