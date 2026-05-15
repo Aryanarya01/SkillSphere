@@ -63,7 +63,7 @@ const ManageUser = () => {
                     className="bg-red-500 text-white px-4 py-2 rounded-lg"
                     onClick={() => handelDelete(user._id)}
                   >
-                    {isLoading ? "Deleting" : "Delete"}
+                    {isLoading ? "Deleting..." : "Delete"}
                   </button>
                 </td>
               </tr>

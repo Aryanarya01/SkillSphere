@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import clientServer from "../api/client.js";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const ViewProposals = () => {
+  const {isLoading} = useSelector((state)=>state.auth);
+    const dispatch = useSelector();
   const [proposals, setProposals] = useState([]);
   const { JobId } = useParams();
   console.log(JobId);
