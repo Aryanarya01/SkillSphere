@@ -40,12 +40,15 @@ const ViewProposals = () => {
   };
 
   const handelReject = async (id) => {
+    dispatch(setLoading(true))
     try {
       const res = await clientServer.put(`/proposal/reject/${id}`);
       alert(res.data.message);
       fetchPropsals();
     } catch (err) {
       console.log(err);
+    }finally{
+      dispatch(setLoading(false))
     }
   };
 
@@ -94,14 +97,14 @@ const ViewProposals = () => {
                 onClick={() => handelAccept(proposal._id)}
                 className="flex-1 bg-green-500 text-white py-3 rounded-xl font-semibold"
               >
-                Accept
+                {isLoading ? "Accepting..." : "Accept"}
               </button>
 
               <button
                 onClick={() => handelReject(proposal._id)}
                 className="flex-1 bg-red-500 text-white py-3 rounded-xl font-semibold"
               >
-                Reject
+                {isLoading ? "Rejecting... " : "Reject"}
               </button>
             </div>
           </div>
