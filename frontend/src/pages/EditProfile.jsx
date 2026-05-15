@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 const EditProfile = () => {
     const dispatch = useDispatch();
+    const {user} = useSelector((state)=>state.auth);
     const [formData, setFormData]=  useState({
          name: user?.name || "",
       username:
