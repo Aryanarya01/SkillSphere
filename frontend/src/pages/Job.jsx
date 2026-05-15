@@ -8,7 +8,7 @@ const Job = () => {
 
   const fetchJobs = async () => {
     try {
-      const res = await clientServer.get(`/jobs?keword=${keyword}`);
+      const res = await clientServer.get(`/jobs?keyword=${keyword}`);
       setJobs(res.data.jobs);
     } catch (err) {
       console.log(err);
@@ -32,7 +32,7 @@ const Job = () => {
     placeholder="Search jobs..."
     value={keyword}
     onChange={(e) =>
-      setKeyword(e.target.value)
+      setkeyword(e.target.value)
     }
     className="w-full md:w-96 border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-black"
   />
