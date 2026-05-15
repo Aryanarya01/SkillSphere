@@ -111,9 +111,11 @@ export const getAllJobs = async(req,res)=>{
     const keyword = req.query.keyword || "";
     const jobs = await Job.find({
       title : {
-        
-      }
-    })
+         $regex: keyword,
+        $options: "i",
+      },
+    });
+    return res.status(200).json({jobs})
   }catch(err){
     return res.status(500).json({message : err.message})
   }
