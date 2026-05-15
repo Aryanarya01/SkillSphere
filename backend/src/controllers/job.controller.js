@@ -28,21 +28,20 @@ export const createJob = async (req, res) => {
 
 //getAllJob
 
-export const getAllJobs = async(req,res)=>{
-  try{
+export const getAllJobs = async (req, res) => {
+  try {
     const keyword = req.query.keyword || "";
     const jobs = await Job.find({
-      title : {
-         $regex: keyword,
+      title: {
+        $regex: keyword,
         $options: "i",
       },
-    }).populate("client", "-password");;
-    return res.status(200).json({jobs})
-  }catch(err){
-    return res.status(500).json({message : err.message})
+    }).populate("client", "-password");
+    return res.status(200).json({ jobs });
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
   }
-}
- 
+};
 
 //getSingleJobs
 
@@ -106,24 +105,22 @@ export const getMyJobs = async (req, res) => {
     });
     return res.status(200).json({ jobs });
   } catch (err) {
-
     console.log(err);
     return res.status(500).json({ message: err.message });
   }
 };
 
-
-export const getAllJobs = async(req,res)=>{
-  try{
+export const getAllJobs = async (req, res) => {
+  try {
     const keyword = req.query.keyword || "";
     const jobs = await Job.find({
-      title : {
-         $regex: keyword,
+      title: {
+        $regex: keyword,
         $options: "i",
       },
-    }).populate("client", "-password");;
-    return res.status(200).json({jobs})
-  }catch(err){
-    return res.status(500).json({message : err.message})
+    }).populate("client", "-password");
+    return res.status(200).json({ jobs });
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
   }
-}
+};
