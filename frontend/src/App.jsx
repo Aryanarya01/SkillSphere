@@ -16,6 +16,7 @@ import ProtectedRoutes from "./components/ProtectedRoutes.jsx";
 import AdminDashoboard from "./pages/AdminDashoboard.jsx";
 import ManageUser from "./pages/ManageUser.jsx";
 import ManageJobs from "./pages/ManageJobs.jsx";
+import Profile from "./pages/Profile.jsx";
 
 const App = () => {
   return (
@@ -80,6 +81,9 @@ const App = () => {
           <ManageJobs/>
         </ProtectedRoutes>}/>
       </Routes>
+      <Route path="/profile" element={<ProtectedRoutes>
+        <Profile/>
+      </ProtectedRoutes>}/>
     </BrowserRouter>
   );
 };
