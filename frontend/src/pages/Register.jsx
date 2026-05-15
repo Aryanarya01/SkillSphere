@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setLoading, setUser } from '../redux/slices/authSlice.js';
 import clientServer from '../api/client.js';
 import { useNavigate } from "react-router-dom";
-
+import toast from 'react-hot-toast';
 const Register = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch();
@@ -38,7 +38,7 @@ const Register = () => {
       }else if(res.data.user.role === "freelancer"){
         navigate("/freelancer-dashboard")
       }
-        alert("Registration Successful")
+        toast.success("Registration Successful")
     }catch(err){
         console.log(err);
         alert("Registration Failed");
