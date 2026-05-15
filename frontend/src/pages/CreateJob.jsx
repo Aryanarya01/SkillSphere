@@ -29,7 +29,7 @@ const handelSubmit = async(e)=>{
       skillsRequired : formData.skillsRequired.split(",").map((skill)=>skill.trim())
     }
     const res = await clientServer.post("/jobs/create",mainRes);
-    alert(res.data.message);
+    toast.success(res.data.message);
     navigate("/jobs");
   }catch(err){
     console.log(err);
