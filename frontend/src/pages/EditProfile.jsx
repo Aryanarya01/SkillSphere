@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux'
 
 const EditProfile = () => {
@@ -11,7 +12,7 @@ const EditProfile = () => {
       profilePicture: null,
     })
 
-    const handleChange = async(e)=>{
+    const handleChange = (e)=>{
        const { name, value, files } =
       e.target;
 
@@ -27,6 +28,17 @@ const EditProfile = () => {
          })
       }
     }
+
+    const handleSubmit = async(e)=>{
+        e.preventDefault();
+
+        try{
+            
+        }catch(err){
+            toast.error("Error!!")
+        }
+    }
+
 
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
