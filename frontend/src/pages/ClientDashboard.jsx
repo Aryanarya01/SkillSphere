@@ -4,9 +4,12 @@ import { Link } from "react-router-dom";
 
 import clientServer from "../api/client.js";
 import toast from "react-hot-toast";
+import { useSelector } from "react-redux";
 const ClientDashboard = () => {
   const [jobs, setJobs] = useState([]);
 
+  const {isLoading} = useSelector((state)=>state.auth)
+  
   const fetchJobs = async () => {
     try {
       const res = await clientServer.get("/jobs/my-jobs");
