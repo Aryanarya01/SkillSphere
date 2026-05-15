@@ -3,10 +3,13 @@ import clientServer from "../api/client.js";
 import { useState } from "react";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { setLoading } from "../redux/slices/authSlice.js";
 
 const ManageUser = () => {
   const [users, setUsers] = useState([]);
-
+  const dispatch = useDispatch();
+  const {isLoading} = useSelector((state)=>state.auth);
   const fetchUser = async () => {
     try {
       const res = await clientServer.get("/admin/users");
@@ -20,6 +23,7 @@ const ManageUser = () => {
   }, []);
 
   const handelDelete = async (id) => {
+    dispatch(setLoading(true));
     try {
       await clientServer.delete(`/admin/user/${id}`);
       fetchUser();
@@ -27,6 +31,8 @@ const ManageUser = () => {
     } catch (err) {
       toast.error("Error deleting user")
       console.log(err);
+    }finally{
+      dispatch(setLoading(false));
     }
   };
   return (
@@ -57,7 +63,7 @@ const ManageUser = () => {
                     className="bg-red-500 text-white px-4 py-2 rounded-lg"
                     onClick={() => handelDelete(user._id)}
                   >
-                    Delete
+                    {isLoDelete}
                   </button>
                 </td>
               </tr>
