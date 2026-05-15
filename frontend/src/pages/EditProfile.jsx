@@ -51,7 +51,9 @@ const EditProfile = () => {
             );
 
             dispatch(setUser(res.data.user));
-            toast.success("")
+              toast.success(
+        res.data.message
+      );
             
 
         }catch(err){
