@@ -91,7 +91,11 @@ export const Logout = async (req, res) => {
 
 export const updateProfile = async(req,res)=>{
   try{
-
+    const {name, username} = req.body;
+    const user = await User.findById(req.user._id);
+    if(!user){
+      return res.status(404).json({message : ""})
+    }
   }catch(err){
     return res.status(500).json({message : err.message})
   }
