@@ -37,10 +37,11 @@ const handelSubmit = async(e)=>{
     }
     const res = await clientServer.post("/jobs/create",mainRes);
     toast.success(res.data.message);
-    dispatch(setLoading(false))
     navigate("/jobs");
   }catch(err){
     console.log(err);
+  }finally{
+    dispatch(setLoading(false))
   }
 }
   return (
