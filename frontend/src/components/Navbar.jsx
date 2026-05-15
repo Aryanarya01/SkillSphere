@@ -42,6 +42,12 @@ const Navbar = () => {
                 <Link to="/profile">Profile</Link>
               </>
             )}
+             {user.role === "admin" && (
+              <>
+                <Link to="/admin_dashboard">Dashboard</Link>
+                <Link to="/profile">Profile</Link>
+              </>
+            )}
             <p>{user.name}</p>
             <button
               className="bg-white text-black px-4 py-2 rounded-lg"
