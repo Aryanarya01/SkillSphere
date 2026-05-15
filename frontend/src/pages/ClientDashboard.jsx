@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import clientServer from "../api/client.js";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
+import { setLoading } from "../redux/slices/authSlice.js";
 const ClientDashboard = () => {
   const [jobs, setJobs] = useState([]);
   const dispatch = useDispatch();
@@ -21,14 +22,16 @@ const ClientDashboard = () => {
   };
 
   const deleteJob = async (id) => {
-    
+      dispatch(setLoading(true))
     try {
       await clientServer.delete(`/jobs/${id}`);
       fetchJobs();
       toast.success("Job Deleted!");
     } catch (err) {
       console.log(err);
-      toast.err("Error deleting Job")
+      toast.error("Error deleting Job")
+    }finally{
+      dispatch(setLoading(false))
     }
   };
 
