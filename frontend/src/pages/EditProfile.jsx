@@ -3,9 +3,11 @@ import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import clientServer from "../api/client.js";
 import { setUser } from "../redux/slices/authSlice";
+import { useNavigate } from "react-router-dom";
 
 const EditProfile = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
   const [formData, setFormData] = useState({
     name: user?.name || "",
@@ -48,6 +50,7 @@ const EditProfile = () => {
 
       dispatch(setUser(res.data.user));
       toast.success(res.data.message);
+      navigate("/profile")
     } catch (err) {
       toast.error(err.response?.data?.message);
     }
