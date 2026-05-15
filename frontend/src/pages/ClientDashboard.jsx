@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 const ClientDashboard = () => {
   const [jobs, setJobs] = useState([]);
   const dispatch = useDispatch();
-  
+
   const {isLoading} = useSelector((state)=>state.auth)
   
   const fetchJobs = async () => {
@@ -48,7 +48,7 @@ const ClientDashboard = () => {
           to="/jobs/create"
           className="bg-black text-white px-5 py-3 rounded-xl"
         >
-          Create Job
+          {isLoading ? "Creating Job..." : "Create Job"}
         </Link>
       </div>
 
@@ -79,7 +79,7 @@ const ClientDashboard = () => {
                 onClick={() => deleteJob(job._id)}
                 className="flex-1 bg-red-500 text-white py-2 rounded-lg"
               >
-                Delete
+                {isLoading ? "Deleting Job..." : "Delete"}
               </button>
 
               <Link to={`/proposals/${job._id}`} className="flex-1 text-center bg-black text-white py-2 rounded-lg">Proposals</Link>
