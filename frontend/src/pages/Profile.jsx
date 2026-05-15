@@ -1,85 +1,54 @@
-
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React from "react";
+import { useSelector } from "react-redux";
 
 const Profile = () => {
-const {user} = useSelector((state)=>state.auth);
-
+  const { user } = useSelector((state) => state.auth);
 
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
-
       <div className="w-full max-w-3xl bg-white rounded-2xl shadow-xl p-8">
-
         {/* Profile Header */}
         <div className="flex flex-col items-center">
-
           {/* Avatar */}
           <img
-            src={
-              user?.profilePicture ||
-              "https://via.placeholder.com/150"
-            }
+            src={user?.profilePicture || "https://via.placeholder.com/150"}
             alt="profile"
             className="w-32 h-32 rounded-full object-cover border-4 border-black"
           />
 
           {/* Name */}
-          <h1 className="text-4xl font-bold mt-5">
-            {user?.name}
-          </h1>
+          <h1 className="text-4xl font-bold mt-5">{user?.name}</h1>
 
           {/* Username */}
-          <p className="text-gray-500 mt-2">
-            @{user?.username}
-          </p>
+          <p className="text-gray-500 mt-2">@{user?.username}</p>
 
           {/* Role */}
           <span className="mt-4 bg-black text-white px-4 py-2 rounded-full capitalize">
             {user?.role}
           </span>
-
         </div>
 
         {/* User Info */}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
-
           {/* Email */}
           <div className="bg-gray-100 rounded-xl p-5">
+            <h2 className="text-gray-500">Email</h2>
 
-            <h2 className="text-gray-500">
-              Email
-            </h2>
-
-            <p className="text-lg font-semibold mt-2">
-              {user?.email}
-            </p>
-
+            <p className="text-lg font-semibold mt-2">{user?.email}</p>
           </div>
 
           {/* Account Status */}
           <div className="bg-gray-100 rounded-xl p-5">
-
-            <h2 className="text-gray-500">
-              Account Status
-            </h2>
+            <h2 className="text-gray-500">Account Status</h2>
 
             <p className="text-lg font-semibold mt-2">
-              {
-                user?.active
-                  ? "Active"
-                  : "Inactive"
-              }
+              {user?.active ? "Active" : "Inactive"}
             </p>
-
           </div>
-
         </div>
-
       </div>
-
     </div>
   );
-}
+};
 
-export default Profile
+export default Profile;
