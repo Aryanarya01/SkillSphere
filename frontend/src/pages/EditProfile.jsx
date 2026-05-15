@@ -1,12 +1,19 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 const EditProfile = () => {
+    const dispatch = useDispatch();
     const [formData, setFormData]=  useState({
          name: user?.name || "",
       username:
         user?.username || "",
       profilePicture: null,
     })
+
+    const handleChange = async(e)=>{
+
+    }
+
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
 
