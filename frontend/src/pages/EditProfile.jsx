@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux'
+import clientServer from '../api/client.js';
 
 const EditProfile = () => {
     const dispatch = useDispatch();
@@ -39,6 +40,18 @@ const EditProfile = () => {
             if(formData.profilePicture){
                 data.append("profilePicture",formData.profilePicture)
             }
+
+            const res = await clientServer.put("/update-profile",data,
+                {
+                    headers : {
+                        "Content-Type": "multipart/form-data"
+                    }
+                }
+            );
+
+            
+            
+
         }catch(err){
             toast.error("Error!!")
         }
