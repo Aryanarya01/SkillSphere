@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import clientServer from "../api/client.js";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { setLoading } from "../redux/slices/authSlice.js";
 
 const ViewProposals = () => {
   const {isLoading} = useSelector((state)=>state.auth);
@@ -26,12 +27,15 @@ const ViewProposals = () => {
   }, []);
 
   const handelAccept = async (id) => {
+    dispatch(setLoading(true))
     try {
       const res = await clientServer.put(`/proposal/accept/${id}`);
       alert(res.data.proposal);
       fetchPropsals();
     } catch (err) {
       console.log(err);
+    }finally{
+      dispatch(setLoading(false));
     }
   };
 
