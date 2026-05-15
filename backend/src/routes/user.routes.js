@@ -7,5 +7,5 @@ const router = Router();
 router.route("/register").post(Register);
 router.route("/login").post(Login);
 router.route("/logout").get(Protect,Logout);
-router.route("/update-profile",Protect,upload.single("profilePicture"),updateProfile)
+router.route("/update-profile").put(Protect,upload.single("profilePicture"),updateProfile);
 export default router;
