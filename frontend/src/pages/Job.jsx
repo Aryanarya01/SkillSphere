@@ -25,6 +25,19 @@ const Job = () => {
         <h1 className="text-4xl font-bold text-gray-800">Available Jobs</h1>
         <p className="text-gray-500 mt-2"> Explore freelance opportunities</p>
       </div>
+      <div className="mb-8">
+
+  <input
+    type="text"
+    placeholder="Search jobs..."
+    value={keyword}
+    onChange={(e) =>
+      setKeyword(e.target.value)
+    }
+    className="w-full md:w-96 border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-black"
+  />
+
+</div>
       {
   jobs.length === 0 && (
     <div className="text-center py-20">
