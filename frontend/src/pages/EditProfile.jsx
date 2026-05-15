@@ -33,7 +33,10 @@ const EditProfile = () => {
         e.preventDefault();
 
         try{
-            
+            const data = new FormData();
+            data.append("name",formData.name);
+            data.append("username",formData.username);
+            if()
         }catch(err){
             toast.error("Error!!")
         }
