@@ -17,6 +17,7 @@ import AdminDashoboard from "./pages/AdminDashoboard.jsx";
 import ManageUser from "./pages/ManageUser.jsx";
 import ManageJobs from "./pages/ManageJobs.jsx";
 import Profile from "./pages/Profile.jsx";
+import EditProfile from "./pages/EditProfile.jsx";
 
 const App = () => {
   return (
@@ -84,6 +85,11 @@ const App = () => {
       <Route path="/profile" element={<ProtectedRoutes>
         <Profile/>
       </ProtectedRoutes>}/>
+
+<Route path="/edit-profile" element={<ProtectedRoutes>
+  <EditProfile/>
+</ProtectedRoutes>} />
+
         </Routes>
     </BrowserRouter>
   );
