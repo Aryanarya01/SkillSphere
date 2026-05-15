@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import clientServer from "../api/client.js";
-
+import toast from "react-hot-toast";
 const ClientDashboard = () => {
   const [jobs, setJobs] = useState([]);
 
@@ -20,9 +20,10 @@ const ClientDashboard = () => {
     try {
       await clientServer.delete(`/jobs/${id}`);
       fetchJobs();
-      alert("Job Deleted!");
+      toast.success("Job Deleted!");
     } catch (err) {
       console.log(err);
+      toast.err("Error deleting Job")
     }
   };
 
