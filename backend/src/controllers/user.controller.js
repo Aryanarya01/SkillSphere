@@ -102,7 +102,7 @@ export const updateProfile = async(req,res)=>{
     user.username = username || user.username;
 
     if(req.file){
-      user.profilePicture =  `/uploads/${req.file.filename}`;
+      user.profilePicture = `/uploads/${req.file.filename}`;
     }
     await user.save();
     return res.status(200).json({

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
-
+    
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
       <div className="w-full max-w-3xl bg-white rounded-2xl shadow-xl p-8">
@@ -11,7 +11,8 @@ const Profile = () => {
         <div className="flex flex-col items-center">
           {/* Avatar */}
           <img
-            src={user?.profilePicture || "https://via.placeholder.com/150"}
+         
+             src={`http://localhost:9090${user?.profilePicture}`}
             alt="profile"
             className="w-32 h-32 rounded-full object-cover border-4 border-black"
           />
