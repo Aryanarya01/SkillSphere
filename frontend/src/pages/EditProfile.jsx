@@ -20,6 +20,11 @@ const EditProfile = () => {
             ...formData,
             profilePicture : files[0],
         })
+      }else{
+         setFormData({
+        ...formData,
+        [name]: value,
+         })
       }
     }
 
