@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import clientServer from "../api/client.js";
+import toast from 'react-hot-toast';
 const ManageJobs = () => {
   const [jobs, setJobs] = useState([]);
 
@@ -19,8 +20,10 @@ const ManageJobs = () => {
     try{
       const res = await clientServer.delete(`/admin/job/${id}`);
       fetchJobs()
+      toast.success("Job Deleted")
     }catch(err){
       console.log(err);
+      toast.err("Error Deleting Job")
     }
   }
   return (
