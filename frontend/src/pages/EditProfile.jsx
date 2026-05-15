@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux'
 import clientServer from '../api/client.js';
+import { setUser } from '../redux/slices/authSlice';
 
 const EditProfile = () => {
     const dispatch = useDispatch();
@@ -49,11 +50,14 @@ const EditProfile = () => {
                 }
             );
 
-            
+            dispatch(setUser(res.data.user));
+            toast.success("")
             
 
         }catch(err){
-            toast.error("Error!!")
+          toast.error(
+        err.response?.data?.message
+      );
         }
     }
 
