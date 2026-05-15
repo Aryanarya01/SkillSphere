@@ -87,3 +87,12 @@ export const Logout = async (req, res) => {
     return res.status(500).json("Server Error!");
   }
 };
+
+
+export const updateProfile = async(req,res)=>{
+  try{
+
+  }catch(err){
+    return res.status(500).json({message : err.message})
+  }
+}
