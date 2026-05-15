@@ -49,6 +49,10 @@ const EditProfile = () => {
       });
 
       dispatch(setUser(res.data.user));
+      localStorage.setItem(
+  "user",
+  JSON.stringify(res.data.user)
+);
       toast.success(res.data.message);
       navigate("/profile")
     } catch (err) {
