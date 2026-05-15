@@ -36,7 +36,9 @@ const EditProfile = () => {
             const data = new FormData();
             data.append("name",formData.name);
             data.append("username",formData.username);
-            if()
+            if(formData.profilePicture){
+                data.append("profilePicture",formData.profilePicture)
+            }
         }catch(err){
             toast.error("Error!!")
         }
