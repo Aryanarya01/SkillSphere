@@ -24,8 +24,22 @@ const Job = () => {
         <h1 className="text-4xl font-bold text-gray-800">Available Jobs</h1>
         <p className="text-gray-500 mt-2"> Explore freelance opportunities</p>
       </div>
+      {
+  jobs.length === 0 && (
+    <div className="text-center py-20">
+      <h2 className="text-2xl font-bold">
+        No Jobs Found
+      </h2>
+
+      <p className="text-gray-500 mt-2">
+        No jobs available right now.
+      </p>
+    </div>
+  )
+}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
         {jobs.map((job) => (
           <Link to={`/jobs/${job._id}`} key={job._id}>
             <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition">
