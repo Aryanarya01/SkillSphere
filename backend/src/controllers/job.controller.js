@@ -141,3 +141,11 @@ export const savedJobs = async(req,res)=>{
     return req.status(500).json({message : err.message})
   }
 }
+
+export const getSavedJobs = async(req,res)=>{
+  try{
+    
+  }catch(err){
+    return req.status(500).json({message : err.message})
+  }
+}
