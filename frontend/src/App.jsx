@@ -80,24 +80,49 @@ const App = () => {
             </ProtectedRoutes>
           }
         />
-        <Route path="/manage-jobs" element={<ProtectedRoutes role="admin">
-          <ManageJobs/>
-        </ProtectedRoutes>}/>
-     
-      <Route path="/profile" element={<ProtectedRoutes>
-        <Profile/>
-      </ProtectedRoutes>}/>
+        <Route
+          path="/manage-jobs"
+          element={
+            <ProtectedRoutes role="admin">
+              <ManageJobs />
+            </ProtectedRoutes>
+          }
+        />
 
-<Route path="/edit-profile" element={<ProtectedRoutes>
-  <EditProfile/>
-</ProtectedRoutes>} />
-    <Route path="/saved-jobs" element={<ProtectedRoutes role="freelancer">
-      <SavedJobs/>
-    </ProtectedRoutes>} />
-    <Route path="/review-form" element={<ProtectedRoutes>
-      <ReviewForm/>
-    </ProtectedRoutes>} />
-        </Routes>
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoutes>
+              <Profile />
+            </ProtectedRoutes>
+          }
+        />
+
+        <Route
+          path="/edit-profile"
+          element={
+            <ProtectedRoutes>
+              <EditProfile />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/saved-jobs"
+          element={
+            <ProtectedRoutes role="freelancer">
+              <SavedJobs />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/review-form"
+          element={
+            <ProtectedRoutes>
+              <ReviewForm />
+            </ProtectedRoutes>
+          }
+        />
+      </Routes>
     </BrowserRouter>
   );
 };
