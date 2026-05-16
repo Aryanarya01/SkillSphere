@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 const ReviewForm = ({ receiverId, jobId }) => {
   const [rating, setRating] = useState(5);
@@ -9,7 +10,9 @@ const ReviewForm = ({ receiverId, jobId }) => {
     try{
 
     }catch(err){
+        console.log(err);
         
+        toast.error(err.response?.data?.message)
     }
   }
 
