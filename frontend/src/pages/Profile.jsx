@@ -48,12 +48,12 @@ const Profile = () => {
 
 
 
+{/* check    form */}
 
 
 
 
 
-    
           {/* Account Status */}
           <div className="bg-gray-100 rounded-xl p-5">
             <h2 className="text-gray-500">Account Status</h2>
