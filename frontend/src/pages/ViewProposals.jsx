@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import clientServer from "../api/client.js";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../redux/slices/authSlice.js";
 
 const ViewProposals = () => {
   const {isLoading} = useSelector((state)=>state.auth);
-    const dispatch = useSelector();
+    const dispatch = useDispatch();
   const [proposals, setProposals] = useState([]);
   const { JobId } = useParams();
   console.log(JobId);
@@ -60,8 +60,22 @@ const ViewProposals = () => {
         <p className="text-gray-500 mt-2">Manage freelancer applications</p>
       </div>
 
+{
+  proposals.length === 0 && (
+    <div className="text-center py-20">
+      <h2 className="text-2xl font-bold">
+        No Proposal Found
+      </h2>
+
+      <p className="text-gray-500 mt-2">
+        No proposals right now.
+      </p>
+    </div>
+  )
+}
       {/* card */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
         {proposals.map((proposal) => (
           <div
             key={proposal._id}
