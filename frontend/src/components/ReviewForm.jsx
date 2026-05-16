@@ -21,7 +21,7 @@ const ReviewForm = () => {
                 <textarea />
             </div>
 
-            
+            <button>Submit Review</button>
         </form>
     </div>
   )
