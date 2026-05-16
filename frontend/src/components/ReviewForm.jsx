@@ -16,6 +16,12 @@ const ReviewForm = () => {
                     <option value="5">5</option>
                 </select>
             </div>
+            <div>
+                <label>Comment</label>
+                <textarea />
+            </div>
+
+            
         </form>
     </div>
   )
