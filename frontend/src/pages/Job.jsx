@@ -52,7 +52,7 @@ const Job = () => {
         </select>
 
 
-      <input type="number" placeholder="Min Budget" value={minBudget} onChange={(e)=>setBudget(e.target.value)} />
+      <input  className="border border-gray-300 rounded-xl p-4" type="number" placeholder="Min Budget" value={minBudget} onChange={(e)=>setBudget(e.target.value)} />
 
       </div>
 
