@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import clientServer from "../api/client.js";
 import { useParams } from "react-router-dom";
+import toast from "react-hot-toast"
 // ADD THIS INSIDE SingleJob.jsx
 
 import { useSelector } from "react-redux";
@@ -54,6 +55,14 @@ const SingleJob = () => {
 
   if (!job) {
     return <div className="p-10">Loading...</div>;
+  }
+
+  const handleSaveJob = async()=>{
+    try{
+
+    }catch(err){
+      toast.error(err.response?.data?.message)
+    }
   }
 
   return (
