@@ -32,6 +32,19 @@ export const getAllJobs = async (req, res) => {
   try {
    const {keyword, status, minBudget} = req.query;
    const query = {};
+   if(keyword){
+    query.title = {
+        $regex: keyword,
+        $options: "i",
+      };
+   }
+
+   if(status){
+    query.status = status;
+   }
+
+   
+
     const jobs = await Job.find(query).populate("client", "-password");
     return res.status(200).json({ jobs });
   } catch (err) {
