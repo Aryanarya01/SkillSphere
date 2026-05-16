@@ -1,10 +1,151 @@
 
-import React from 'react'
+import { useState } from "react";
 
-const ReviewForm = () => {
+import clientServer from "../api/client.js";
+
+import toast from "react-hot-toast";
+
+const ReviewForm = ({
+  receiverId,
+  jobId,
+}) => {
+
+  const [rating, setRating] =
+    useState(5);
+
+  const [comment, setComment] =
+    useState("");
+
+  // =========================
+  // SUBMIT REVIEW
+  // =========================
+
+  const handleSubmit =
+    async (e) => {
+
+      e.preventDefault();
+
+      try {
+
+        const res =
+          await clientServer.post(
+            "/reviews/create",
+            {
+              receiver:
+                receiverId,
+
+              job: jobId,
+
+              rating,
+
+              comment,
+            }
+          );
+
+        toast.success(
+          res.data.message
+        );
+
+        setComment("");
+
+      } catch (err) {
+
+        console.log(err);
+
+        toast.error(
+          err.response?.data?.message
+        );
+
+      }
+
+    };
+
   return (
-    <div>ReviewForm</div>
-  )
-}
+    <div className="bg-white rounded-2xl shadow-md p-6 mt-10">
 
-export default ReviewForm
+      <h2 className="text-2xl font-bold mb-6">
+        Leave a Review
+      </h2>
+
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-5"
+      >
+
+        {/* Rating */}
+        <div>
+
+          <label className="block mb-2 font-medium">
+            Rating
+          </label>
+
+          <select
+            value={rating}
+            onChange={(e) =>
+              setRating(
+                e.target.value
+              )
+            }
+            className="w-full border border-gray-300 rounded-xl p-4"
+          >
+
+            <option value="1">
+              1 Star
+            </option>
+
+            <option value="2">
+              2 Stars
+            </option>
+
+            <option value="3">
+              3 Stars
+            </option>
+
+            <option value="4">
+              4 Stars
+            </option>
+
+            <option value="5">
+              5 Stars
+            </option>
+
+          </select>
+
+        </div>
+
+        {/* Comment */}
+        <div>
+
+          <label className="block mb-2 font-medium">
+            Comment
+          </label>
+
+          <textarea
+            rows="4"
+            value={comment}
+            onChange={(e) =>
+              setComment(
+                e.target.value
+              )
+            }
+            placeholder="Write your review..."
+            className="w-full border border-gray-300 rounded-xl p-4"
+          />
+
+        </div>
+
+        {/* Button */}
+        <button
+          type="submit"
+          className="bg-black text-white px-6 py-3 rounded-xl font-semibold"
+        >
+          Submit Review
+        </button>
+
+      </form>
+
+    </div>
+  );
+};
+
+export default ReviewForm;
