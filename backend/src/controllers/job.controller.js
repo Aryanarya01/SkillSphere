@@ -127,6 +127,7 @@ export const getMyJobs = async (req, res) => {
 export const savedJobs = async(req,res)=>{
   try{
     const user = await User.findById(req.params._id);
+    const jobId = req.params.id;
     
   }catch(err){
     return req.status(500).json({message : err.message})
