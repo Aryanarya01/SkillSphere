@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import clientServer from "../api/client.js";
 
 const ReviewForm = ({ receiverId, jobId }) => {
   const [rating, setRating] = useState(5);
@@ -8,10 +9,18 @@ const ReviewForm = ({ receiverId, jobId }) => {
   const handelSubmit = async(e)=>{
     e.preventDefault();
     try{
+        const res = await clientServer.post("/reviews/create",{
+             receiver:
+                receiverId,
 
+              job: jobId,
+
+              rating,
+
+              comment,
+        })
     }catch(err){
         console.log(err);
-        
         toast.error(err.response?.data?.message)
     }
   }
