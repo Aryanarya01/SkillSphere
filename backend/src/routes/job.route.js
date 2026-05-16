@@ -16,11 +16,15 @@ const router = Router();
 
 router.route("/jobs/create").post(Protect, authorizedRole("client"), createJob);
 router.route("/jobs").get(Protect, getAllJobs);
-router.route("/jobs/my-jobs").get(Protect,authorizedRole("client"),getMyJobs);
+router.route("/jobs/my-jobs").get(Protect, authorizedRole("client"), getMyJobs);
 router.route("/jobs/:id").get(Protect, getSingleJob);
 router.route("/jobs/:id").put(Protect, authorizedRole("client"), updateJob);
 router.route("/jobs/:id").delete(Protect, authorizedRole("client"), deleteJob);
-router.route("/jobs/save/:id").post(Protect,authorizedRole("freelancer"),savedJobs);
-router.route("/jobs/saved").get(Protect,authorizedRole("freelancer"),getSavedJobs)
+router
+  .route("/jobs/save/:id")
+  .post(Protect, authorizedRole("freelancer"), savedJobs);
+router
+  .route("/jobs/saved")
+  .get(Protect, authorizedRole("freelancer"), getSavedJobs);
 
 export default router;
