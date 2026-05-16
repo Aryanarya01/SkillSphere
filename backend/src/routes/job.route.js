@@ -4,6 +4,7 @@ import {
   deleteJob,
   getAllJobs,
   getMyJobs,
+  getSavedJobs,
   getSingleJob,
   savedJobs,
   updateJob,
@@ -20,6 +21,6 @@ router.route("/jobs/:id").get(Protect, getSingleJob);
 router.route("/jobs/:id").put(Protect, authorizedRole("client"), updateJob);
 router.route("/jobs/:id").delete(Protect, authorizedRole("client"), deleteJob);
 router.route("/jobs/save/:id").post(Protect,authorizedRole("freelancer"),savedJobs);
-route 
+router.route("/jobs/saved").get(Protect,authorizedRole("freelancer"),getSavedJobs)
 
 export default router;
