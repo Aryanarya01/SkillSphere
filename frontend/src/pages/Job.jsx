@@ -29,6 +29,9 @@ const Job = () => {
         <h1 className="text-4xl font-bold text-gray-800">Available Jobs</h1>
         <p className="text-gray-500 mt-2"> Explore freelance opportunities</p>
       </div>
+
+
+
       <div className="flex flex-cols mb-8">
         <input
           className="border border-gray-300 rounded-xl p-4 flex-1"
@@ -42,8 +45,15 @@ const Job = () => {
           value={status}
           onChange={(e) => setStatus(e.target.value)}
           className="border border-gray-300 rounded-xl p-4"
-        ></select>
+        >
+          <option value="open">Open</option>
+          <option value="in-progress">In Progress</option>
+          <option value="completed">Completed</option>
+        </select>
       </div>
+
+
+
 
       {jobs.length === 0 && (
         <div className="text-center py-20">
