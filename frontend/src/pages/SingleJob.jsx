@@ -7,16 +7,13 @@ import { useSelector } from "react-redux";
 const SingleJob = () => {
   const [job, setJob] = useState(null);
 
-
   const [proposalData, setProposalData] = useState({
-     coverLetter : "",
-      bidAmount : "",
-  })
-
-
+    coverLetter: "",
+    bidAmount: "",
+  });
 
   const { id } = useParams();
-  const {user} = useSelector((state)=>state.auth)
+  const { user } = useSelector((state) => state.auth);
   const fetchJob = async () => {
     try {
       const res = await clientServer.get(`/jobs/${id}`);
@@ -26,27 +23,30 @@ const SingleJob = () => {
     }
   };
 
-  const handelChange = (e)=>{
+  const handelChange = (e) => {
     setProposalData({
       ...proposalData,
-      [e.target.name] : e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
-  const handelApply = async(e)=>{
+  const handelApply = async (e) => {
     e.preventDefault();
-    try{
-      const res = await clientServer.post(`/proposal/apply/${id}`,proposalData  );
-        alert(res.data.message);
-        setProposalData({
-          coverLetter : "",
-          bidAmount : "",
-        })
-    }catch(err){
+    try {
+      const res = await clientServer.post(
+        `/proposal/apply/${id}`,
+        proposalData,
+      );
+      alert(res.data.message);
+      setProposalData({
+        coverLetter: "",
+        bidAmount: "",
+      });
+    } catch (err) {
       console.log(err);
       alert(err.response?.data?.message);
     }
-  }
+  };
 
   useEffect(() => {
     fetchJob();
@@ -80,49 +80,58 @@ const SingleJob = () => {
           </div>
         </div>
 
-            <div className="mt-6">
-                <span className="bg-green-500 text-white px-4 py-2 rounded-full">
+        <div className="mt-6">
+          <span className="bg-green-500 text-white px-4 py-2 rounded-full">
             {job.status}
           </span>
-            </div>
-            {
-              user.role === "freelancer" && (
+        </div>
+        {user.role === "freelancer" && (
+          <button
+            onClick={handleSaveJob}
+            className="mt-6 bg-yellow-500 text-white px-6 py-3 rounded-xl font-semibold"
+          >
+            Save Job
+          </button>
+        )}
 
-    <button
-      onClick={handleSaveJob}
-      className="mt-6 bg-yellow-500 text-white px-6 py-3 rounded-xl font-semibold"
-    >
-      Save Job
-    </button>
-              )
-            }
+        {user?.role === "freelancer" && (
+          <div className="mt-10 border-t pt-8">
+            <h2 className="text-2xl font-bold mb-5">Apply For This Job</h2>
+            <form className="space-y-5" onSubmit={handelApply}>
+              {/* coverLetter */}
+              <div>
+                <label className="block mb-2 font-medium">Cover Letter</label>
+                <textarea
+                  className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-black"
+                  name="coverLetter"
+                  onChange={handelChange}
+                  value={proposalData.coverLetter}
+                  placeholder="Write your proposal..."
+                />
+              </div>
 
-            {
-              user?.role === "freelancer" && (
-                <div className="mt-10 border-t pt-8">
-                  
-                <h2 className="text-2xl font-bold mb-5">Apply For This Job</h2>
-                  <form className="space-y-5" onSubmit={handelApply}>
-
-                    {/* coverLetter */}
-                    <div>
-                      <label className="block mb-2 font-medium">Cover Letter</label>
-                      <textarea className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-black" name="coverLetter" onChange={handelChange} value={proposalData.coverLetter}  placeholder="Write your proposal..."/>
-                    </div>
-
-                      {/* bidAmount */}
-                      <div>
-                        <label className="block mb-2 font-medium">Bid Amount</label>
-                        <input className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-black" name="bidAmount" onChange={handelChange} value={proposalData.bidAmount} type="number" placeholder="Enter your bid amount" />
-                      </div>
-                    {/* submit */}
-                    <button className="bg-black text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition" type="submit">Submit Proposal</button>
-                  </form>
-                </div>
-              )
-            }
-
-
+              {/* bidAmount */}
+              <div>
+                <label className="block mb-2 font-medium">Bid Amount</label>
+                <input
+                  className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-black"
+                  name="bidAmount"
+                  onChange={handelChange}
+                  value={proposalData.bidAmount}
+                  type="number"
+                  placeholder="Enter your bid amount"
+                />
+              </div>
+              {/* submit */}
+              <button
+                className="bg-black text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition"
+                type="submit"
+              >
+                Submit Proposal
+              </button>
+            </form>
+          </div>
+        )}
       </div>
     </div>
   );
