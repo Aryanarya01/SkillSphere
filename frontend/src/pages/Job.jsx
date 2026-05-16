@@ -50,6 +50,10 @@ const Job = () => {
           <option value="in-progress">In Progress</option>
           <option value="completed">Completed</option>
         </select>
+
+
+      <input type="number" placeholder="Min Budget" value={minBudget} onChange={(e)=>setBudget(e.target.value)} />
+
       </div>
 
 
