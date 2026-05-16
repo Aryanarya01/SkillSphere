@@ -31,9 +31,14 @@ const Job = () => {
       </div>
       <div className="mb-8">
 
-<div>
-  <input type="text" placeholder="Search jobs..." value={keyword} onChange={(e)=>setkeyword(e.target.value)} />
-</div>
+ 
+          <input
+            type="text"
+            placeholder="Search jobs..."
+            value={keyword}
+            onChange={(e) => setkeyword(e.target.value)}
+          />
+       
 
 </div>
       {
