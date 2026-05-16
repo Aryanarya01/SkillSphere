@@ -144,7 +144,8 @@ export const savedJobs = async(req,res)=>{
 
 export const getSavedJobs = async(req,res)=>{
   try{
-    
+    const user = await User.findById(req.params._id).populate("savedJobs");
+    return res.status(200).json({jobs : user.savedJobs})
   }catch(err){
     return req.status(500).json({message : err.message})
   }
