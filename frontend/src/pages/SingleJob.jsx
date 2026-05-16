@@ -59,7 +59,8 @@ const SingleJob = () => {
 
   const handleSaveJob = async()=>{
     try{
-
+      const res = clientServer.post(`/jobs/save/${id}`);
+      toast.success(res.data.message)
     }catch(err){
       toast.error(err.response?.data?.message)
     }
