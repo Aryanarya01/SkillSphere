@@ -131,6 +131,12 @@ export const savedJobs = async(req,res)=>{
     if(user.savedJobs.includes(jobId)){
       return res.status(400).json({message : "Job already saved",})
     }
+    user.savedJobs.push(jobId);
+    await user.save();
+    return res.status(200).json({
+      message:
+        "Job saved successfully",
+    });
   }catch(err){
     return req.status(500).json({message : err.message})
   }
