@@ -42,8 +42,13 @@ export const getAllJobs = async (req, res) => {
    if(status){
     query.status = status;
    }
-
+   if(minBudget){
+    query.budget = {
+      $gte : Number(minBudget)
+    }
+   }
    
+
 
     const jobs = await Job.find(query).populate("client", "-password");
     return res.status(200).json({ jobs });
