@@ -1,14 +1,19 @@
 
-import React from 'react'
+import React, { useState } from 'react'
 
-const ReviewForm = () => {
+const ReviewForm = ({  receiverId,
+  jobId,}) => {
+
+    const [rating, setRating] = useState(5);
+    const [comment,setComment] = useState("");
+
   return (
-    <div>
-        <h2>Leave a Review</h2>
-        <form >
+    <div className='bg-white rounded-2xl shadow-md p-6 mt-10'>
+        <h2 className='text-2xl font-bold mb-6'>Leave a Review</h2>
+        <form className='space-y-5' >
             <div>
-                <label>Rating</label>
-                <select>
+                <label className='block mb-2 font-medium'>Rating</label>
+                <select className='w-full border border-gray-300 rounded-xl p-4'>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -17,11 +22,11 @@ const ReviewForm = () => {
                 </select>
             </div>
             <div>
-                <label>Comment</label>
-                <textarea />
+                <label className='block mb-2 font-medium'>Comment</label>
+                <textarea className='w-full border border-gray-300 rounded-xl p-4'/>
             </div>
 
-            <button>Submit Review</button>
+            <button className='bg-black text-white px-6 py-3 rounded-xl font-semibold'>Submit Review</button>
         </form>
     </div>
   )
