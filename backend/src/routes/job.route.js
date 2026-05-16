@@ -26,6 +26,5 @@ router.route("/jobs/:id").delete(Protect, authorizedRole("client"), deleteJob);
 router
   .route("/jobs/save/:id")
   .post(Protect, authorizedRole("freelancer"), savedJobs);
- 
 
 export default router;
