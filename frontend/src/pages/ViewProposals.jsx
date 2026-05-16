@@ -5,17 +5,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../redux/slices/authSlice.js";
 
 const ViewProposals = () => {
-  const {isLoading} = useSelector((state)=>state.auth);
-    const dispatch = useDispatch();
+  const { isLoading } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   const [proposals, setProposals] = useState([]);
   const { JobId } = useParams();
   console.log(JobId);
-  
+
   const fetchPropsals = async () => {
     try {
       const res = await clientServer.get(`/proposal/job/${JobId}`);
       console.log(res.data);
-      
+
       setProposals(res.data.proposal);
     } catch (err) {
       console.log(err);
@@ -27,28 +27,28 @@ const ViewProposals = () => {
   }, []);
 
   const handelAccept = async (id) => {
-    dispatch(setLoading(true))
+    dispatch(setLoading(true));
     try {
       const res = await clientServer.put(`/proposal/accept/${id}`);
       alert(res.data.proposal);
       fetchPropsals();
     } catch (err) {
       console.log(err);
-    }finally{
+    } finally {
       dispatch(setLoading(false));
     }
   };
 
   const handelReject = async (id) => {
-    dispatch(setLoading(true))
+    dispatch(setLoading(true));
     try {
       const res = await clientServer.put(`/proposal/reject/${id}`);
       alert(res.data.message);
       fetchPropsals();
     } catch (err) {
       console.log(err);
-    }finally{
-      dispatch(setLoading(false))
+    } finally {
+      dispatch(setLoading(false));
     }
   };
 
@@ -60,22 +60,15 @@ const ViewProposals = () => {
         <p className="text-gray-500 mt-2">Manage freelancer applications</p>
       </div>
 
-{
-  proposals.length === 0 && (
-    <div className="text-center py-20">
-      <h2 className="text-2xl font-bold">
-        No Proposal Found
-      </h2>
+      {proposals.length === 0 && (
+        <div className="text-center py-20">
+          <h2 className="text-2xl font-bold">No Proposal Found</h2>
 
-      <p className="text-gray-500 mt-2">
-        No proposals right now.
-      </p>
-    </div>
-  )
-}
+          <p className="text-gray-500 mt-2">No proposals right now.</p>
+        </div>
+      )}
       {/* card */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
         {proposals.map((proposal) => (
           <div
             key={proposal._id}
