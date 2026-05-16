@@ -1,4 +1,5 @@
 import Job from "../models/job.model.js";
+import User from "../models/user.model.js";
 
 export const createJob = async (req, res) => {
   try {
@@ -125,6 +126,7 @@ export const getMyJobs = async (req, res) => {
 
 export const savedJobs = async(req,res)=>{
   try{
+    const user = await User.findById(req.params._id);
     
   }catch(err){
     return req.status(500).json({message : err.message})
