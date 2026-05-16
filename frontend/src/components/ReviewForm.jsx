@@ -33,10 +33,10 @@ const ReviewForm = ({ receiverId, jobId }) => {
   return (
     <div className="bg-white rounded-2xl shadow-md p-6 mt-10">
       <h2 className="text-2xl font-bold mb-6">Leave a Review</h2>
-      <form className="space-y-5">
+      <form onSubmit={handelSubmit} className="space-y-5">
         <div>
           <label className="block mb-2 font-medium">Rating</label>
-          <select className="w-full border border-gray-300 rounded-xl p-4">
+          <select value={rating} onChange={(e)=>setRating(e.target.value)} className="w-full border border-gray-300 rounded-xl p-4">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -46,7 +46,7 @@ const ReviewForm = ({ receiverId, jobId }) => {
         </div>
         <div>
           <label className="block mb-2 font-medium">Comment</label>
-          <textarea className="w-full border border-gray-300 rounded-xl p-4" />
+          <textarea value={comment} onChange={(e)=>setComment(e.target.value)} className="w-full border border-gray-300 rounded-xl p-4" />
         </div>
 
         <button className="bg-black text-white px-6 py-3 rounded-xl font-semibold">
