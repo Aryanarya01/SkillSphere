@@ -30,25 +30,23 @@ export const createJob = async (req, res) => {
 
 export const getAllJobs = async (req, res) => {
   try {
-   const {keyword, status, minBudget} = req.query;
-   const query = {};
-   if(keyword){
-    query.title = {
+    const { keyword, status, minBudget } = req.query;
+    const query = {};
+    if (keyword) {
+      query.title = {
         $regex: keyword,
         $options: "i",
       };
-   }
-
-   if(status){
-    query.status = status;
-   }
-   if(minBudget){
-    query.budget = {
-      $gte : Number(minBudget)
     }
-   }
-   
 
+    if (status) {
+      query.status = status;
+    }
+    if (minBudget) {
+      query.budget = {
+        $gte: Number(minBudget),
+      };
+    }
 
     const jobs = await Job.find(query).populate("client", "-password");
     return res.status(200).json({ jobs });
@@ -123,4 +121,3 @@ export const getMyJobs = async (req, res) => {
     return res.status(500).json({ message: err.message });
   }
 };
-
