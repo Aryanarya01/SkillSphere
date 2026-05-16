@@ -19,6 +19,11 @@ const ReviewForm = ({ receiverId, jobId }) => {
 
               comment,
         })
+         toast.success(
+          res.data.message
+        );
+
+        setComment("");
     }catch(err){
         console.log(err);
         toast.error(err.response?.data?.message)
