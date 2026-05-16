@@ -46,7 +46,7 @@ const ReviewForm = ({ receiverId, jobId }) => {
         </div>
         <div>
           <label className="block mb-2 font-medium">Comment</label>
-          <textarea value={comment} onChange={(e)=>setComment(e.target.value)} className="w-full border border-gray-300 rounded-xl p-4" />
+          <textarea placeholder="Write your review..." value={comment} onChange={(e)=>setComment(e.target.value)} className="w-full border border-gray-300 rounded-xl p-4" />
         </div>
 
         <button className="bg-black text-white px-6 py-3 rounded-xl font-semibold">
