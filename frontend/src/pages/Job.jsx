@@ -9,10 +9,10 @@ const Job = () => {
   const [minBudget, setBudget] = useState("");
 
 
-  
+
   const fetchJobs = async () => {
     try {
-      const res = await clientServer.get(`/jobs?keyword=${keyword}`);
+      const res = await clientServer.get(`/jobs?keyword=${keyword}&status=${status}&minBudget=${minBudget}`);
       setJobs(res.data.jobs);
     } catch (err) {
       console.log(err);
