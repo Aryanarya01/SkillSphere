@@ -36,6 +36,12 @@ const userSchema = new mongoose.Schema({
     enum: ["client", "freelancer", "admin"],
     default: "client",
   },
+  savedJobs : [
+        {
+          type : mongoose.Schema.Types.ObjectId,
+          ref : "Job",
+        }
+      ]
 });
 
 const User = mongoose.model("User", userSchema);

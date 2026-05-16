@@ -125,7 +125,7 @@ export const getMyJobs = async (req, res) => {
 
 export const savedJobs = async(req,res)=>{
   try{
-
+    
   }catch(err){
     return req.status(500).json({message : err.message})
   }
