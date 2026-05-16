@@ -18,6 +18,7 @@ import ManageUser from "./pages/ManageUser.jsx";
 import ManageJobs from "./pages/ManageJobs.jsx";
 import Profile from "./pages/Profile.jsx";
 import EditProfile from "./pages/EditProfile.jsx";
+import SavedJobs from "./pages/SavedJobs.jsx";
 
 const App = () => {
   return (
@@ -89,7 +90,9 @@ const App = () => {
 <Route path="/edit-profile" element={<ProtectedRoutes>
   <EditProfile/>
 </ProtectedRoutes>} />
-
+    <Route path="/saved-jobs" element={<ProtectedRoutes role="freelancer">
+      <SavedJobs/>
+    </ProtectedRoutes>} />
         </Routes>
     </BrowserRouter>
   );
