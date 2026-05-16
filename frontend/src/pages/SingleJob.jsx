@@ -85,6 +85,17 @@ const SingleJob = () => {
             {job.status}
           </span>
             </div>
+            {
+              user.role === "freelancer" && (
+
+    <button
+      onClick={handleSaveJob}
+      className="mt-6 bg-yellow-500 text-white px-6 py-3 rounded-xl font-semibold"
+    >
+      Save Job
+    </button>
+              )
+            }
 
             {
               user?.role === "freelancer" && (
