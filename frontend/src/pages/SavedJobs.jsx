@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
-import clientServer from '../api/client';
+import clientServer from '../api/client.js';
 const SavedJobs = () => {
     const [jobs, setJobs] = useState([]);
 
@@ -10,9 +10,15 @@ const SavedJobs = () => {
             const res = await clientServer.get("/jobs/saved");
             setJobs(res.data.jobs)
         }catch(err){
+            console.log(err);
+            
             toast.error("Error fetching")
         }
     }
+
+    useEffect(()=>{
+        fetcSavedJobs()
+    },[])
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
