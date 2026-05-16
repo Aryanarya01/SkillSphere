@@ -1,7 +1,18 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
+import clientServer from '../api/client';
 const SavedJobs = () => {
+    const [jobs, setJobs] = useState([]);
 
+    const fetcSavedJobs = async()=>{
+        try{    
+            const res = await clientServer.get("/jobs/saved");
+            setJobs(res.data.jobs)
+        }catch(err){
+            toast.error("Error fetching")
+        }
+    }
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
