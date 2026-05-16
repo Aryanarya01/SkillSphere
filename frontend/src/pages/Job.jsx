@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 const Job = () => {
   const [jobs, setJobs] = useState([]);
   const [keyword, setkeyword] = useState("");
-  const [status,setStatus] = useState("");
+  const [status, setStatus] = useState("");
   const [minBudget, setBudget] = useState("");
-
-
 
   const fetchJobs = async () => {
     try {
-      const res = await clientServer.get(`/jobs?keyword=${keyword}&status=${status}&minBudget=${minBudget}`);
+      const res = await clientServer.get(
+        `/jobs?keyword=${keyword}&status=${status}&minBudget=${minBudget}`,
+      );
       setJobs(res.data.jobs);
     } catch (err) {
       console.log(err);
@@ -30,40 +30,30 @@ const Job = () => {
         <p className="text-gray-500 mt-2"> Explore freelance opportunities</p>
       </div>
       <div className="flex flex-cols mb-8">
+        <input
+          className="border border-gray-300 rounded-xl p-4 flex-1"
+          type="text"
+          placeholder="Search jobs..."
+          value={keyword}
+          onChange={(e) => setkeyword(e.target.value)}
+        />
 
- 
-          <input 
-           className="border border-gray-300 rounded-xl p-4 flex-1"
-            type="text"
-            placeholder="Search jobs..."
-            value={keyword}
-            onChange={(e) => setkeyword(e.target.value)}
-          />
+        <select
+          value={status}
+          onChange={(e) => setStatus(e.target.value)}
+          className="border border-gray-300 rounded-xl p-4"
+        ></select>
+      </div>
 
-       <select value={status} onChange={(e)=>setStatus(e.target.value)} className="border border-gray-300 rounded-xl p-4">
-        
-       </select>
+      {jobs.length === 0 && (
+        <div className="text-center py-20">
+          <h2 className="text-2xl font-bold">No Jobs Found</h2>
 
-</div>
-
-
-
-      {
-  jobs.length === 0 && (
-    <div className="text-center py-20">
-      <h2 className="text-2xl font-bold">
-        No Jobs Found
-      </h2>
-
-      <p className="text-gray-500 mt-2">
-        No jobs available right now.
-      </p>
-    </div>
-  )
-}
+          <p className="text-gray-500 mt-2">No jobs available right now.</p>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        
         {jobs.map((job) => (
           <Link to={`/jobs/${job._id}`} key={job._id}>
             <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition">
