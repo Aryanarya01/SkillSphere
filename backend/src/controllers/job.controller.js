@@ -123,30 +123,28 @@ export const getMyJobs = async (req, res) => {
   }
 };
 
-
-export const savedJobs = async(req,res)=>{
-  try{
+export const savedJobs = async (req, res) => {
+  try {
     const user = await User.findById(req.params._id);
     const jobId = req.params.id;
-    if(user.savedJobs.includes(jobId)){
-      return res.status(400).json({message : "Job already saved",})
+    if (user.savedJobs.includes(jobId)) {
+      return res.status(400).json({ message: "Job already saved" });
     }
     user.savedJobs.push(jobId);
     await user.save();
     return res.status(200).json({
-      message:
-        "Job saved successfully",
+      message: "Job saved successfully",
     });
-  }catch(err){
-    return req.status(500).json({message : err.message})
+  } catch (err) {
+    return req.status(500).json({ message: err.message });
   }
-}
+};
 
-export const getSavedJobs = async(req,res)=>{
-  try{
+export const getSavedJobs = async (req, res) => {
+  try {
     const user = await User.findById(req.params._id).populate("savedJobs");
-    return res.status(200).json({jobs : user.savedJobs})
-  }catch(err){
-    return req.status(500).json({message : err.message})
+    return res.status(200).json({ jobs: user.savedJobs });
+  } catch (err) {
+    return req.status(500).json({ message: err.message });
   }
-}
+};
