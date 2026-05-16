@@ -20,6 +20,7 @@ import Profile from "./pages/Profile.jsx";
 import EditProfile from "./pages/EditProfile.jsx";
 import SavedJobs from "./pages/SavedJobs.jsx";
 import ReviewForm from "./components/ReviewForm.jsx";
+import Reviews from "./components/Reviews.jsx";
 
 const App = () => {
   return (
@@ -122,6 +123,9 @@ const App = () => {
             </ProtectedRoutes>
           }
         />
+        <Route path="/reviews" element={<ProtectedRoutes>
+          <Reviews/>
+        </ProtectedRoutes>}/>
       </Routes>
     </BrowserRouter>
   );

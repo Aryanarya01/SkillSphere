@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Reviews from "../components/Reviews";
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
 
@@ -42,7 +43,17 @@ const Profile = () => {
 
             <p className="text-lg font-semibold mt-2">{user?.email}</p>
           </div>
+    <Reviews userId={user?._id} />
 
+
+
+
+
+
+
+
+
+    
           {/* Account Status */}
           <div className="bg-gray-100 rounded-xl p-5">
             <h2 className="text-gray-500">Account Status</h2>

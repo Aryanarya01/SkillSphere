@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
 import clientServer from '../api/client';
 
-const Reviews = () => {
+const Reviews = ({userId}) => {
     const [reviews, setReviews] = useState([]);
 
     const fetchReviews = async()=>{
