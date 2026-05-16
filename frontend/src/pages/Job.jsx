@@ -21,7 +21,7 @@ const Job = () => {
 
   useEffect(() => {
     fetchJobs();
-  }, [keyword]);
+  }, [keyword,status,minBudget]);
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
@@ -30,7 +30,7 @@ const Job = () => {
         <p className="text-gray-500 mt-2"> Explore freelance opportunities</p>
       </div>
 
-      <div className="flex flex-cols mb-8">
+      <div className="flex flex-cols md:flex-row gap-4 mb-8">
         <input
           className="border border-gray-300 rounded-xl p-4 flex-1"
           type="text"
