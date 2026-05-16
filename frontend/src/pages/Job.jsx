@@ -30,8 +30,6 @@ const Job = () => {
         <p className="text-gray-500 mt-2"> Explore freelance opportunities</p>
       </div>
 
-
-
       <div className="flex flex-cols mb-8">
         <input
           className="border border-gray-300 rounded-xl p-4 flex-1"
@@ -51,13 +49,14 @@ const Job = () => {
           <option value="completed">Completed</option>
         </select>
 
-
-      <input  className="border border-gray-300 rounded-xl p-4" type="number" placeholder="Min Budget" value={minBudget} onChange={(e)=>setBudget(e.target.value)} />
-
+        <input
+          className="border border-gray-300 rounded-xl p-4"
+          type="number"
+          placeholder="Min Budget"
+          value={minBudget}
+          onChange={(e) => setBudget(e.target.value)}
+        />
       </div>
-
-
-
 
       {jobs.length === 0 && (
         <div className="text-center py-20">
