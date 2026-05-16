@@ -126,7 +126,7 @@ export const getMyJobs = async (req, res) => {
 
 export const savedJobs = async(req,res)=>{
   try{
-    const user = await User.findById(req.params._id);
+    const user = await User.findById(req.user._id);
     const jobId = req.params.id;
     if(user.savedJobs.includes(jobId)){
       return res.status(400).json({message : "Job already saved",})
