@@ -19,6 +19,7 @@ import ManageJobs from "./pages/ManageJobs.jsx";
 import Profile from "./pages/Profile.jsx";
 import EditProfile from "./pages/EditProfile.jsx";
 import SavedJobs from "./pages/SavedJobs.jsx";
+import ReviewForm from "./components/ReviewForm.jsx";
 
 const App = () => {
   return (
@@ -92,6 +93,9 @@ const App = () => {
 </ProtectedRoutes>} />
     <Route path="/saved-jobs" element={<ProtectedRoutes role="freelancer">
       <SavedJobs/>
+    </ProtectedRoutes>} />
+    <Route path="/review-form" element={<ProtectedRoutes>
+      <ReviewForm/>
     </ProtectedRoutes>} />
         </Routes>
     </BrowserRouter>
