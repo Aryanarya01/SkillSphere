@@ -6,6 +6,9 @@ const Job = () => {
   const [jobs, setJobs] = useState([]);
   const [keyword, setkeyword] = useState("");
   const [status,setStatus] = useState("");
+  const [minBudget, setBudget] = useState("");
+
+
   
   const fetchJobs = async () => {
     try {
