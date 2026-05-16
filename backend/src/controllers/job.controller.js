@@ -30,7 +30,8 @@ export const createJob = async (req, res) => {
 
 export const getAllJobs = async (req, res) => {
   try {
-    const keyword = req.query.keyword || "";
+   const {keyword, status, minBudget} = req.query;
+   
     const jobs = await Job.find({
       title: {
         $regex: keyword,
