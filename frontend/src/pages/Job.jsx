@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 const Job = () => {
   const [jobs, setJobs] = useState([]);
   const [keyword, setkeyword] = useState("");
-
+  const [status,setStatus] = useState("");
+  
   const fetchJobs = async () => {
     try {
       const res = await clientServer.get(`/jobs?keyword=${keyword}`);
