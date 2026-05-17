@@ -12,15 +12,10 @@ console.log(user?._id)
         <div className="flex flex-col items-center">
           {/* Avatar */}
           <img
-         src={
-    user?.profilePicture
-      ? `http://localhost:9090${user.profilePicture}`
-      : "/default.jpg"
-  }
-
-            alt="profile"
-            className="w-32 h-32 rounded-full object-cover border-4 border-black"
-          />
+  src={`http://localhost:9090${user?.profilePicture}`}
+  alt="profile"
+  className="w-32 h-32 rounded-full object-cover border-4 border-black"
+/>
 
           {/* Name */}
           <h1 className="text-4xl font-bold mt-5">{user?.name}</h1>
