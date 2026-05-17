@@ -1,68 +1,63 @@
-  import React from "react";
-  import { useSelector } from "react-redux";
-  import { Link } from "react-router-dom";
-  import Reviews from "../components/Reviews";
-  const Profile = () => {
-    const { user } = useSelector((state) => state.auth);
-  console.log(user?._id)
-    return (
-      <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
-        <div className="w-full max-w-3xl bg-white rounded-2xl shadow-xl p-8">
-          {/* Profile Header */}
-          <div className="flex flex-col items-center">
-            {/* Avatar */}
-            <img
-    src={`http://localhost:9090${user?.profilePicture}`}
-    alt="profile"
-    className="w-32 h-32 rounded-full object-cover border-4 border-black"
-  />
+import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import Reviews from "../components/Reviews";
+const Profile = () => {
+  const { user } = useSelector((state) => state.auth);
+  console.log(user?._id);
+  return (
+    <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
+      <div className="w-full max-w-3xl bg-white rounded-2xl shadow-xl p-8">
+        {/* Profile Header */}
+        <div className="flex flex-col items-center">
+          {/* Avatar */}
+          <img
+            src={`http://localhost:9090${user?.profilePicture}`}
+            alt="profile"
+            className="w-32 h-32 rounded-full object-cover border-4 border-black"
+          />
 
-            {/* Name */}
-            <h1 className="text-4xl font-bold mt-5">{user?.name}</h1>
+          {/* Name */}
+          <h1 className="text-4xl font-bold mt-5">{user?.name}</h1>
 
-            {/* Username */}
-            <p className="text-gray-500 mt-2">@{user?.username}</p>
+          {/* Username */}
+          <p className="text-gray-500 mt-2">@{user?.username}</p>
 
-            {/* Role */}
-            <span className="mt-4 bg-black text-white px-4 py-2 rounded-full capitalize">
-              {user?.role}
-            </span>
-            <Link
-              to="/edit-profile"
-              className="mt-6 bg-black text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition"
-            >
-              Edit Profile
-            </Link>
+          {/* Role */}
+          <span className="mt-4 bg-black text-white px-4 py-2 rounded-full capitalize">
+            {user?.role}
+          </span>
+          <Link
+            to="/edit-profile"
+            className="mt-6 bg-black text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition"
+          >
+            Edit Profile
+          </Link>
+        </div>
+
+        {/* User Info */}
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Email */}
+          <div className="bg-gray-100 rounded-xl p-5">
+            <h2 className="text-gray-500">Email</h2>
+
+            <p className="text-lg font-semibold mt-2">{user?.email}</p>
           </div>
 
-          {/* User Info */}
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Email */}
-            <div className="bg-gray-100 rounded-xl p-5">
-              <h2 className="text-gray-500">Email</h2>
+          <Reviews userId={user?._id} />
 
-              <p className="text-lg font-semibold mt-2">{user?.email}</p>
-              
-            </div>
-            
-      <Reviews userId={user?._id} />
+          {/* Account Status */}
+          <div className="bg-gray-100 rounded-xl p-5">
+            <h2 className="text-gray-500">Account Status</h2>
 
-
-
-  
-
-            {/* Account Status */}
-            <div className="bg-gray-100 rounded-xl p-5">
-              <h2 className="text-gray-500">Account Status</h2>
-
-              <p className="text-lg font-semibold mt-2">
-                {user?.active ? "Active" : "Inactive"}
-              </p>
-            </div>
+            <p className="text-lg font-semibold mt-2">
+              {user?.active ? "Active" : "Inactive"}
+            </p>
           </div>
         </div>
       </div>
-    );
-  };
+    </div>
+  );
+};
 
-  export default Profile;
+export default Profile;
