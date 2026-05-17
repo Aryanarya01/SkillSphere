@@ -100,6 +100,9 @@ const ViewProposals = () => {
             </div>
 
             {/* Buttons */}
+            {
+              proposal.status === "pending" && (
+            
             <div className="flex gap-4 mt-6">
               <button
                 onClick={() => handelAccept(proposal._id)}
@@ -115,7 +118,8 @@ const ViewProposals = () => {
                 {isLoading ? "Rejecting... " : "Reject"}
               </button>
             </div>
-
+              )}
+  <hr className="mt-6"/>
   {
     proposal.status === "accepted" && (
                  <ReviewForm
