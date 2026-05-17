@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Reviews from "../components/Reviews";
+import ReviewForm from "../components/ReviewForm";
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
 
@@ -51,7 +52,7 @@ const Profile = () => {
 {/* check    form */}
 
 
-
+    <ReviewForm />
 
 
           {/* Account Status */}
