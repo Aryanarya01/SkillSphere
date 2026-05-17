@@ -26,8 +26,8 @@ export const getUserReview = async (req, res) => {
     const reviews = await Review.find({
       receiver: req.params.userId,
     })
-      .popolate("reviewer", "name profilePicture")
-      .popolate("job", "title");
+      .populate("reviewer", "name profilePicture")
+      .populate("job", "title");
 
     return res.status(200).json({ reviews });
   } catch (err) {
