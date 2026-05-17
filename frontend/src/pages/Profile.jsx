@@ -2,10 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Reviews from "../components/Reviews";
-import ReviewForm from "../components/ReviewForm";
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
-
+console.log(user?._id)
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
       <div className="w-full max-w-3xl bg-white rounded-2xl shadow-xl p-8">
@@ -13,7 +12,12 @@ const Profile = () => {
         <div className="flex flex-col items-center">
           {/* Avatar */}
           <img
-            src={`http://localhost:9090${user?.profilePicture}`}
+         src={
+    user?.profilePicture
+      ? `http://localhost:9090${user.profilePicture}`
+      : "/default.jpg"
+  }
+
             alt="profile"
             className="w-32 h-32 rounded-full object-cover border-4 border-black"
           />
@@ -43,17 +47,14 @@ const Profile = () => {
             <h2 className="text-gray-500">Email</h2>
 
             <p className="text-lg font-semibold mt-2">{user?.email}</p>
+            
           </div>
+          
     <Reviews userId={user?._id} />
 
 
 
-
-{/* check    form */}
-
-
-    <ReviewForm />
-
+ 
 
           {/* Account Status */}
           <div className="bg-gray-100 rounded-xl p-5">

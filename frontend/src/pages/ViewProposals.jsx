@@ -3,6 +3,7 @@ import clientServer from "../api/client.js";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../redux/slices/authSlice.js";
+import ReviewForm from "../components/ReviewForm.jsx";
 
 const ViewProposals = () => {
   const { isLoading } = useSelector((state) => state.auth);
@@ -114,6 +115,11 @@ const ViewProposals = () => {
                 {isLoading ? "Rejecting... " : "Reject"}
               </button>
             </div>
+
+            <ReviewForm
+  receiverId={proposal.freelancer?._id}
+  jobId={proposal.job?._id}
+/>
           </div>
         ))}
       </div>

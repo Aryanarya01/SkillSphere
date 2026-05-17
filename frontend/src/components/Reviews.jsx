@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
-import clientServer from '../api/client';
+import clientServer from '../api/client.js';
 
 const Reviews = ({userId}) => {
     const [reviews, setReviews] = useState([]);
@@ -11,7 +11,7 @@ const Reviews = ({userId}) => {
             setReviews(res.data.reviews)
         }catch(err){
             console.log(err);
-            toast.err("Error fetching");
+            toast.error("Error fetching");
         }
     }
     useEffect(()=>{
