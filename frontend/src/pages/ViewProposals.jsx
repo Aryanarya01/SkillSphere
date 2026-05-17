@@ -116,10 +116,14 @@ const ViewProposals = () => {
               </button>
             </div>
 
-            <ReviewForm
+  {
+    proposal.status === "accepted" && (
+                 <ReviewForm
   receiverId={proposal.freelancer?._id}
   jobId={proposal.job?._id}
 />
+    )
+  }
           </div>
         ))}
       </div>
