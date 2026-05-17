@@ -38,7 +38,7 @@ const Reviews = ({ userId }) => {
             {/* Reviewer */}
             <div className="flex items-center gap-4">
               <img
-                src={`${BASE_URL}${review.reviewer?.profilePicture}`}
+                src={`http://localhost:9090${review.reviewer?.profilePicture}`}
                 alt="reviewer"
                 className="w-14 h-14 rounded-full object-cover"
               />
