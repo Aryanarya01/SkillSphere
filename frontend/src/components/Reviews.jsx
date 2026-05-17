@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
-import clientServer from '../api/client.js';
+import clientServer, { BASE_URL } from '../api/client.js';
 
 const Reviews = ({userId}) => {
     const [reviews, setReviews] = useState([]);
-
+    console.log(reviews);
+    
     const fetchReviews = async()=>{
         try{
             const res = await clientServer.get(`/reviews/${userId}`);
@@ -56,10 +57,7 @@ const Reviews = ({userId}) => {
               <div className="flex items-center gap-4">
 
                 <img
-                  src={
-                    review.reviewer
-                      ?.profilePicture
-                  }
+                  src={`${BASE_URL}${review.reviewer?.profilePicture}`}
                   alt="reviewer"
                   className="w-14 h-14 rounded-full object-cover"
                 />
