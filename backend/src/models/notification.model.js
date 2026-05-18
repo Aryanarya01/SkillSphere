@@ -5,5 +5,17 @@ const notificationSchema = new mongoose.Schema({
         type : mongoose.Schema.Types.ObjectId,
         ref : "User",
         required : true,
+    },
+    message : {
+        type : String,
+        required : true,
+    },
+    read : {
+        type : Boolean,
+        default : false,
     }
 })
+
+
+const Notification = mongoose.model("Notification",notificationSchema);
+export const Notification;
