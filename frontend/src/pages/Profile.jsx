@@ -35,6 +35,18 @@ const Profile = () => {
           </Link>
         </div>
 
+         {user?.role === "freelancer" && (
+  <div className="mt-6 bg-gray-100 rounded-xl p-5">
+    <h2 className="text-gray-500">Verification Status</h2>
+
+    <p className="text-lg font-semibold mt-2">
+      {user?.freelancer?.isVerified
+        ? "✔ Verified Freelancer"
+        : "Not Verified"}
+    </p>
+  </div>
+)}
+
         {/* User Info */}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Email */}
