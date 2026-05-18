@@ -17,5 +17,6 @@ router
   .put(Protect, authorizedRole("freelancer"), updateFreelancerProfile);
 router.route("/freelancers/all").get(getAllFreelancer);
 router.route("/freelancers/:id").get(getSingleFreelancer);
+router.route("/freelancer/verify/:id").put(Protect,authorizedRole("admin"),
 
 export default router;
