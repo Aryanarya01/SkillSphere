@@ -7,11 +7,14 @@ const Job = () => {
   const [keyword, setkeyword] = useState("");
   const [status, setStatus] = useState("");
   const [minBudget, setBudget] = useState("");
+  const [category, setCategory] = useState("");
 
+
+  
   const fetchJobs = async () => {
     try {
       const res = await clientServer.get(
-        `/jobs?keyword=${keyword}&status=${status}&minBudget=${minBudget}`,
+        `/jobs?keyword=${keyword}&status=${status}&minBudget=${minBudget}&category=${category}`,
       );
       setJobs(res.data.jobs);
     } catch (err) {
