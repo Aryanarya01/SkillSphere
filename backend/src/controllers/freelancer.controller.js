@@ -64,3 +64,13 @@ export const getSingleFreelancer = async (req, res) => {
     return res.status(500).json({ message: err.message });
   }
 };
+
+
+
+export const verifiedFreelancer = async(req,res)=>{
+  try{
+
+  }catch(err){
+    
+  }
+}
