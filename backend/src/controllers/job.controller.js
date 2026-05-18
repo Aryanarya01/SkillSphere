@@ -32,7 +32,7 @@ export const createJob = async (req, res) => {
 
 export const getAllJobs = async (req, res) => {
   try {
-    const { keyword, status, minBudget } = req.query;
+    const { keyword, status, minBudget, category } = req.query;
     const query = {};
     if (keyword) {
       query.title = {
@@ -48,6 +48,9 @@ export const getAllJobs = async (req, res) => {
       query.budget = {
         $gte: Number(minBudget),
       };
+    }
+    if(category){
+      query.category = category;
     }
 
     const jobs = await Job.find(query).populate("client", "-password");
