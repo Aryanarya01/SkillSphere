@@ -23,7 +23,9 @@ const Navbar = () => {
 
   const fetchNotifications = async()=>{
     try{
-
+      const res = await clientServer.get("/notifications");
+      const unread = res.data.notifications.filter((n)=>!n.read)
+      setCount(unread.length)
     }catch(err){
       console.log(err);
       
