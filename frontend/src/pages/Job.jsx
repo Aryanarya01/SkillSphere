@@ -10,7 +10,7 @@ const Job = () => {
   const [category, setCategory] = useState("");
 
 
-  
+
   const fetchJobs = async () => {
     try {
       const res = await clientServer.get(
@@ -59,6 +59,35 @@ const Job = () => {
           value={minBudget}
           onChange={(e) => setBudget(e.target.value)}
         />
+        <select
+  value={category}
+  onChange={(e) =>
+    setCategory(e.target.value)
+  }
+  className="border border-gray-300 rounded-xl p-4"
+>
+
+  <option value="">
+    All Categories
+  </option>
+
+  <option value="Web Development">
+    Web Development
+  </option>
+
+  <option value="Mobile Development">
+    Mobile Development
+  </option>
+
+  <option value="UI/UX Design">
+    UI/UX Design
+  </option>
+
+  <option value="AI/ML">
+    AI/ML
+  </option>
+
+</select>
       </div>
 
       {jobs.length === 0 && (
