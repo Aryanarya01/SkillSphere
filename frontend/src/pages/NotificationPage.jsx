@@ -38,6 +38,13 @@ const NotificationPage = () => {
 
           </div>
     )}
+
+
+    {/* notifications */}
+
+    
+
+
    </div>
   )
 }
