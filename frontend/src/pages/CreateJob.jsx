@@ -87,6 +87,12 @@ const handelSubmit = async(e)=>{
             <input className='w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-black' name='deadline' value={formData.deadline} onChange={handelChange} type="date"  />
       </div>
 
+      <div>
+        <label className='block mb-2 font-medium'>
+           Category
+        </label>
+      </div>
+
       <button className='w-full bg-black text-white py-4 rounded-xl font-semibold hover:opacity-90 transition' type='submit'>{isLoading ? "Creating Job..." : "Create Job"}</button>
 
       </form>
