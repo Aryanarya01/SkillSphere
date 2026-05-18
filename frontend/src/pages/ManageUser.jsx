@@ -9,7 +9,7 @@ import { setLoading } from "../redux/slices/authSlice.js";
 const ManageUser = () => {
   const [users, setUsers] = useState([]);
   const dispatch = useDispatch();
-  const {isLoading} = useSelector((state)=>state.auth);
+  const { isLoading } = useSelector((state) => state.auth);
   const fetchUser = async () => {
     try {
       const res = await clientServer.get("/admin/users");
@@ -27,23 +27,23 @@ const ManageUser = () => {
     try {
       await clientServer.delete(`/admin/user/${id}`);
       fetchUser();
-      toast.success("User deleted")
+      toast.success("User deleted");
     } catch (err) {
-      toast.error("Error deleting user")
+      toast.error("Error deleting user");
       console.log(err);
-    }finally{
+    } finally {
       dispatch(setLoading(false));
     }
   };
 
-  const handelVerify = async (id)=>{
-    try{
+  const handelVerify = async (id) => {
+    try {
       const res = await clientServer.put(`/freelancer/verify/${id}`);
-      toast.success(res.data.message)
-    }catch(err){
+      toast.success(res.data.message);
+    } catch (err) {
       toast.error("Error verifying user!");
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
@@ -78,7 +78,12 @@ const ManageUser = () => {
                   </button>
                 </td>
                 <td>
-                  <button onClick={()=>handelVerify(user._id)} className="bg-green-500 text-white px-4 py-2 rounded-lg mr-3">Verify</button>
+                  <button
+                    onClick={() => handelVerify(user._id)}
+                    className="bg-green-500 text-white px-4 py-2 rounded-lg mr-3"
+                  >
+                    Verify
+                  </button>
                 </td>
               </tr>
             ))}
