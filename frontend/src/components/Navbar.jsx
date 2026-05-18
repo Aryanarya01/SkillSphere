@@ -6,7 +6,7 @@ import { logoutUser } from "../redux/slices/authSlice.js";
 
 const Navbar = () => {
   const [count, setCount] = useState(0);
-  
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
@@ -20,6 +20,15 @@ const Navbar = () => {
       console.log(err);
     }
   };
+
+  const fetchNotifications = async()=>{
+    try{
+
+    }catch(err){
+      console.log(err);
+      
+    }
+  }
 
   return (
     <nav className="bg-black text-white px-6 py-4 flex justify-between items-center">
