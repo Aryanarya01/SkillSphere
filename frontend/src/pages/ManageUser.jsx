@@ -50,6 +50,7 @@ const ManageUser = () => {
               <th className="p-4 text-left">Email</th>
               <th className="p-4 text-left">Role</th>
               <th className="p-4 text-left">Action</th>
+              <th className="p-4 text-left">Verification</th>
             </tr>
           </thead>
           <tbody>
@@ -65,6 +66,9 @@ const ManageUser = () => {
                   >
                     {isLoading ? "Deleting..." : "Delete"}
                   </button>
+                </td>
+                <td>
+                  <button>Verify</button>
                 </td>
               </tr>
             ))}
