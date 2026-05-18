@@ -6,6 +6,7 @@ import {
   getMyFreelancerProfile,
   getSingleFreelancer,
   updateFreelancerProfile,
+  verifiedFreelancer,
 } from "../controllers/freelancer.controller.js";
 const router = Router();
 
@@ -17,6 +18,7 @@ router
   .put(Protect, authorizedRole("freelancer"), updateFreelancerProfile);
 router.route("/freelancers/all").get(getAllFreelancer);
 router.route("/freelancers/:id").get(getSingleFreelancer);
-router.route("/freelancer/verify/:id").put(Protect,authorizedRole("admin"),
+router.route("/freelancer/verify/:id").put(Protect,authorizedRole("admin"),verifiedFreelancer);
+
 
 export default router;
