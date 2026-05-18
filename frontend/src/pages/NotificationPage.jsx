@@ -28,6 +28,16 @@ const NotificationPage = () => {
           Your latest updates
         </p>
     </div>
+
+    {notifications.length === 0 && (
+        <div className="bg-white rounded-2xl shadow-md p-10 text-center">
+
+            <p className="text-gray-500">
+              No notifications yet
+            </p>
+
+          </div>
+    )}
    </div>
   )
 }
