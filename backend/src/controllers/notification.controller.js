@@ -20,8 +20,12 @@ export const getNotification = async (req, res) => {
 export const markAsRead = async(req,res)=>{
     try{
         await Notification.updateMany({
-            
+            user : req.user._id,
+            read : false,
+        },{
+            read : true,
         })
+        return res.status(200).json({message : "Notification mark as read",})
     }catch(err){
         return res.status(500).json({message : err.message})
     }
