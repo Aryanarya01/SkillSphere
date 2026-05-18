@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import clientServer from "../api/client.js";
 import { logoutUser } from "../redux/slices/authSlice.js";
 
 const Navbar = () => {
+  const [count, setCount] = useState(0);
+  
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
