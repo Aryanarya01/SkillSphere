@@ -4,7 +4,7 @@ export const getNotification = async (req, res) => {
   try {
     const notifications = await Notification.find({
       user: req.user._id,
-    }).sort({
+    }).sort({    //sabse phle naya ->descending
       createdAt: -1,
     });
     return res.status(200).json({
