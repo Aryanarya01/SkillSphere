@@ -68,7 +68,7 @@ const ManageUser = () => {
                   </button>
                 </td>
                 <td>
-                  <button className="bg-green-500 text-white px-4 py-2 rounded-lg mr-3">Verify</button>
+                  <button onClick={()=>handelVerify(user._id)} className="bg-green-500 text-white px-4 py-2 rounded-lg mr-3">Verify</button>
                 </td>
               </tr>
             ))}
