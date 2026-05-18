@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import clientServer from "../api/client.js";
 import { logoutUser } from "../redux/slices/authSlice.js";
+import { useEffect } from "react";
 
 const Navbar = () => {
   const [count, setCount] = useState(0);
@@ -31,6 +32,10 @@ const Navbar = () => {
       
     }
   }
+
+  useEffect(()=>{
+    fetchNotifications()
+  },[])
 
   return (
     <nav className="bg-black text-white px-6 py-4 flex justify-between items-center">
