@@ -1,5 +1,5 @@
  
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import clientServer from '../api/client.js'
 
@@ -8,12 +8,15 @@ const NotificationPage = () => {
 
     const fetchNotification = async ()=>{
         try{
-            const res = await clientServer.
+            const res = await clientServer.get("/notifications");
+            setNotifications(res.data.notifications);
         }catch(err){
             toast.error("Error")
         }
     }
-
+    useEffect(()=>{
+        fetchNotification()
+    },[])
   return (
     <div>NotificationPage</div>
   )
