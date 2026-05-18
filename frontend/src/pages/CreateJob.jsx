@@ -18,6 +18,7 @@ const [formData, setFormData] = useState({
   budget : "",
   skillsRequired : "",
   deadline : "",
+  category : "",
 })
 
 const handelChange = (e)=>{
@@ -91,6 +92,34 @@ const handelSubmit = async(e)=>{
         <label className='block mb-2 font-medium'>
            Category
         </label>
+         <select
+    name="category"
+    value={formData.category}
+    onChange={handleChange}
+    className="w-full border border-gray-300 rounded-xl p-4"
+  >
+
+    <option value="">
+      Select Category
+    </option>
+
+    <option value="Web Development">
+      Web Development
+    </option>
+
+    <option value="Mobile Development">
+      Mobile Development
+    </option>
+
+    <option value="UI/UX Design">
+      UI/UX Design
+    </option>
+
+    <option value="AI/ML">
+      AI/ML
+    </option>
+
+  </select>
       </div>
 
       <button className='w-full bg-black text-white py-4 rounded-xl font-semibold hover:opacity-90 transition' type='submit'>{isLoading ? "Creating Job..." : "Create Job"}</button>
