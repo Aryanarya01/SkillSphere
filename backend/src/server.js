@@ -10,9 +10,7 @@ import jobRoute from "./routes/job.route.js";
 import proposalRoute from "./routes/proposal.route.js";
 import reviweRoute from "./routes/review.route.js";
 import adminRoute from "./routes/admin.route.js";
-import notificationRoute from "./routes/notification.route.js"
-
-
+import notificationRoute from "./routes/notification.route.js";
 
 const app = express();
 const port = 9090;
@@ -36,11 +34,7 @@ app.use(reviweRoute);
 app.use(adminRoute);
 app.use(notificationRoute);
 
-
-app.use(
-  "/uploads",
-  express.static("uploads")
-);
+app.use("/uploads", express.static("uploads"));
 const startDB = async () => {
   const connect = await mongoose.connect(
     "mongodb+srv://aryanarya01:aryan5555@skillsphere.jcqnrhp.mongodb.net/?appName=SkillSphere",
