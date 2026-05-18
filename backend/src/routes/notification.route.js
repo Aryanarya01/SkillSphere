@@ -6,6 +6,6 @@ import { getNotification } from "../controllers/notification.controller.js";
 const router = Router();
 
 
-router.route("/").get(Protect,getNotification)
+router.route("/notifications").get(Protect,getNotification)
 
 export default router;
