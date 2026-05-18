@@ -39,7 +39,7 @@ const ManageUser = () => {
   const handelVerify = async (id)=>{
     try{
       const res = await clientServer.put(`/freelancer/verify/${id}`);
-      
+      toast.success(res.data.message)
     }catch(err){
       toast.error("Error verifying user!");
     }
