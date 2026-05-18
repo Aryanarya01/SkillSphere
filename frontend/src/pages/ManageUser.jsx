@@ -35,6 +35,15 @@ const ManageUser = () => {
       dispatch(setLoading(false));
     }
   };
+
+  const handelVerify = async (id)=>{
+    try{
+      
+    }catch(err){
+      toast.error("Error verifying user!");
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="mb-8">
