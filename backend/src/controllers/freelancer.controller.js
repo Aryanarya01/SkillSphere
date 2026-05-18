@@ -67,5 +67,8 @@ export const getSingleFreelancer = async (req, res) => {
 
 export const verifiedFreelancer = async (req, res) => {
   try {
-  } catch (err) {}
+    
+  } catch (err) {
+    return res.status(500).json({message : err.message})
+  }
 };
