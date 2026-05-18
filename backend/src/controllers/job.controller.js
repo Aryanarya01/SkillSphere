@@ -3,7 +3,7 @@ import User from "../models/user.model.js";
 
 export const createJob = async (req, res) => {
   try {
-    const { title, description, budget, skillsRequired, deadline } = req.body;
+    const { title, description, budget, skillsRequired, deadline,category } = req.body;
     if (!title || !description || !budget) {
       return res.status(400).json({
         message: "Required fields missing",
@@ -16,6 +16,7 @@ export const createJob = async (req, res) => {
       budget,
       skillsRequired,
       deadline,
+      category,
     });
 
     return res.status(201).json({
