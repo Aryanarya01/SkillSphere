@@ -65,12 +65,7 @@ export const getSingleFreelancer = async (req, res) => {
   }
 };
 
-
-
-export const verifiedFreelancer = async(req,res)=>{
-  try{
-
-  }catch(err){
-    
-  }
-}
+export const verifiedFreelancer = async (req, res) => {
+  try {
+  } catch (err) {}
+};
