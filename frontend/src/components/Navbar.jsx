@@ -68,7 +68,7 @@ const Navbar = () => {
                 <Link to="/profile">Profile</Link>
               </>
             )}
-            <p>{user.name}</p>
+             
             <button
               className="bg-white text-black px-4 py-2 rounded-lg"
               onClick={handelLogout}
