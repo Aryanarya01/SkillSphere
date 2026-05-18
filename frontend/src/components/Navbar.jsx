@@ -22,20 +22,19 @@ const Navbar = () => {
     }
   };
 
-  const fetchNotifications = async()=>{
-    try{
+  const fetchNotifications = async () => {
+    try {
       const res = await clientServer.get("/notifications");
-      const unread = res.data.notifications.filter((n)=>!n.read)
-      setCount(unread.length)
-    }catch(err){
+      const unread = res.data.notifications.filter((n) => !n.read);
+      setCount(unread.length);
+    } catch (err) {
       console.log(err);
-      
     }
-  }
+  };
 
-  useEffect(()=>{
-    fetchNotifications()
-  },[])
+  useEffect(() => {
+    fetchNotifications();
+  }, []);
 
   return (
     <nav className="bg-black text-white px-6 py-4 flex justify-between items-center">
@@ -59,12 +58,13 @@ const Navbar = () => {
                 <Link to="/saved-jobs">Saved Jobs</Link>
                 <Link to="/freelancer-dashboard">Dashboard</Link>
                 <Link to="/profile">Profile</Link>
-                <Link to="/notifications" className="relative">Notifications 
-                  {
-                    count > 0 && (
-                        <span className="absolute -top-2 -right-4 bg-red-500 text-white text-xs px-2 py-1 rounded-full">{count}</span>
-                    )
-                  }
+                <Link to="/notifications" className="relative">
+                  Notifications
+                  {count > 0 && (
+                    <span className="absolute -top-2 -right-4 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+                      {count}
+                    </span>
+                  )}
                 </Link>
               </>
             )}
@@ -74,7 +74,7 @@ const Navbar = () => {
                 <Link to="/profile">Profile</Link>
               </>
             )}
-             
+
             <button
               className="bg-white text-black px-4 py-2 rounded-lg"
               onClick={handelLogout}
