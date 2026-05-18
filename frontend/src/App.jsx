@@ -21,6 +21,7 @@ import EditProfile from "./pages/EditProfile.jsx";
 import SavedJobs from "./pages/SavedJobs.jsx";
 import ReviewForm from "./components/ReviewForm.jsx";
 import Reviews from "./components/Reviews.jsx";
+import Notifications from "./pages/NotificationPage.jsx";
 
 const App = () => {
   return (
@@ -126,7 +127,13 @@ const App = () => {
         <Route path="/reviews" element={<ProtectedRoutes>
           <Reviews/>
         </ProtectedRoutes>}/>
+
+
+        <Route path="/notifications" element={<ProtectedRoutes>
+          <Notifications/>
+        </ProtectedRoutes>} />
       </Routes>
+
     </BrowserRouter>
   );
 };
