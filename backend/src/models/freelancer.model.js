@@ -51,10 +51,6 @@ const freelancerSchema = new mongoose.Schema(
     resume: {
       type: String,
     },
-    isVerified: {
-      type: Boolean,
-      default: false,
-    },
   },
   { timestamps: true },
 );

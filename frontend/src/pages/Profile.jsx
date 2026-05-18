@@ -5,6 +5,8 @@ import Reviews from "../components/Reviews";
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
   console.log(user?._id);
+ 
+  
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
       <div className="w-full max-w-3xl bg-white rounded-2xl shadow-xl p-8">
@@ -27,17 +29,19 @@ const Profile = () => {
           <span className="mt-4 bg-black text-white px-4 py-2 rounded-full capitalize">
             {user?.role}
           </span>
-          {
-  user?.isVerified && (
+      {user?.role === "freelancer" && (
+  <div className="mt-6 bg-gray-100 rounded-xl p-5">
+    <h2 className="text-gray-500">
+      Verification Status
+    </h2>
 
-    <span className="mt-3 bg-blue-500 text-white px-4 py-2 rounded-full text-sm">
-
-      ✔ Verified Freelancer
-
-    </span>
-
-  )
-}
+    <p className="text-lg font-semibold mt-2">
+      {user?.isVerified
+        ? "✔ Verified Freelancer"
+        : "Not Verified"}
+    </p>
+  </div>
+)}
           <Link
             to="/edit-profile"
             className="mt-6 bg-black text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition"

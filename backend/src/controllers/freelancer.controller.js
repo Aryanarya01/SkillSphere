@@ -1,4 +1,5 @@
 import Freelancer from "../models/freelancer.model.js";
+import User from "../models/user.model.js";
 
 export const getMyFreelancerProfile = async (req, res) => {
   try {
@@ -67,7 +68,7 @@ export const getSingleFreelancer = async (req, res) => {
 
 export const verifiedFreelancer = async (req, res) => {
   try {
-    const freelancer = await Freelancer.findOne({user : req.params.id});
+    const freelancer = await User.findById(req.params.id);
     if (!freelancer) {
       return res.status(404).json({ message: "Freelancer not found!" });
     }
