@@ -66,8 +66,13 @@ export const getSingleFreelancer = async (req, res) => {
 };
 
 export const verifiedFreelancer = async (req, res) => {
-  try {
-    
+  try { 
+    const freelancer = await Freelancer.findById(req.params.id);
+    if(!freelancer){
+      return res.status(404).json({message : "Freelancer not found!"});
+    }
+    freelancer.isVerified = true;
+    await freelancer.save();
   } catch (err) {
     return res.status(500).json({message : err.message})
   }
