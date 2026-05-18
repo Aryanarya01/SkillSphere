@@ -16,3 +16,13 @@ export const getNotification = async (req, res) => {
 };
 
 
+
+export const markAsRead = async(req,res)=>{
+    try{
+        await Notification.updateMany({
+            
+        })
+    }catch(err){
+        return res.status(500).json({message : err.message})
+    }
+}
