@@ -10,6 +10,7 @@ const NotificationPage = () => {
         try{
             const res = await clientServer.get("/notifications");
             setNotifications(res.data.notifications);
+            await clientServer.put("/notifications/read");
         }catch(err){
             toast.error("Error")
         }
