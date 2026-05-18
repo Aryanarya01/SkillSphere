@@ -59,7 +59,7 @@ const Navbar = () => {
                 <Link to="/freelancer-dashboard">Dashboard</Link>
                 <Link to="/profile">Profile</Link>
                 <Link to="/notifications" className="relative">
-                  Notifications
+                  🔔
                   {count > 0 && (
                     <span className="absolute -top-2 -right-4 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
                       {count}
