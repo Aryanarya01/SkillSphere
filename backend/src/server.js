@@ -10,6 +10,9 @@ import jobRoute from "./routes/job.route.js";
 import proposalRoute from "./routes/proposal.route.js";
 import reviweRoute from "./routes/review.route.js";
 import adminRoute from "./routes/admin.route.js";
+import notificationRoute from "./routes/notification.route.js"
+
+
 
 const app = express();
 const port = 9090;
@@ -31,6 +34,7 @@ app.use(jobRoute);
 app.use(proposalRoute);
 app.use(reviweRoute);
 app.use(adminRoute);
+app.use
 app.use(
   "/uploads",
   express.static("uploads")
