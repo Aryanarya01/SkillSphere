@@ -36,16 +36,16 @@ const userSchema = new mongoose.Schema({
     enum: ["client", "freelancer", "admin"],
     default: "client",
   },
-  savedJobs : [
-        {
-          type : mongoose.Schema.Types.ObjectId,
-          ref : "Job",
-        }
-      ],
-      isVerified: {
-      type: Boolean,
-      default: false,
+  savedJobs: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Job",
     },
+  ],
+  isVerified: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const User = mongoose.model("User", userSchema);
