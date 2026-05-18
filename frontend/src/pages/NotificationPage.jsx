@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import client from "../api/client";
+import clientServer from "../api/client.js";
 
 const Notifications = () => {
 
@@ -18,7 +18,7 @@ const Notifications = () => {
       try {
 
         const res =
-          await client.get(
+          await clientServer.get(
             "/notifications"
           );
 
