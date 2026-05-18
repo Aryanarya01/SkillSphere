@@ -67,7 +67,7 @@ export const getSingleFreelancer = async (req, res) => {
 
 export const verifiedFreelancer = async (req, res) => {
   try {
-    const freelancer = await Freelancer.find({user : req.params.id});
+    const freelancer = await Freelancer.findOne({user : req.params.id});
     if (!freelancer) {
       return res.status(404).json({ message: "Freelancer not found!" });
     }
