@@ -95,7 +95,7 @@ const handelSubmit = async(e)=>{
          <select
     name="category"
     value={formData.category}
-    onChange={handleChange}
+    onChange={handelChange}
     className="w-full border border-gray-300 rounded-xl p-4"
   >
 
