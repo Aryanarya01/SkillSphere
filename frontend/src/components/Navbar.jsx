@@ -38,14 +38,12 @@ const Navbar = () => {
             {user.role === "freelancer" && (
               <>
                 <Link to="/jobs">Find Jobs</Link>
-                <Link to="/saved-jobs">
-  Saved Jobs
-</Link>
+                <Link to="/saved-jobs">Saved Jobs</Link>
                 <Link to="/freelancer-dashboard">Dashboard</Link>
                 <Link to="/profile">Profile</Link>
               </>
             )}
-             {user.role === "admin" && (
+            {user.role === "admin" && (
               <>
                 <Link to="/admin_dashboard">Dashboard</Link>
                 <Link to="/profile">Profile</Link>
