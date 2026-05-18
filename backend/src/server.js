@@ -34,7 +34,9 @@ app.use(jobRoute);
 app.use(proposalRoute);
 app.use(reviweRoute);
 app.use(adminRoute);
-app.use
+app.use(notificationRoute);
+
+
 app.use(
   "/uploads",
   express.static("uploads")
