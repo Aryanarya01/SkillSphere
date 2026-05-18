@@ -34,7 +34,7 @@ const Profile = () => {
             Edit Profile
           </Link>
         </div>
-
+ 
          {user?.role === "freelancer" && (
   <div className="mt-6 bg-gray-100 rounded-xl p-5">
     <h2 className="text-gray-500">Verification Status</h2>
