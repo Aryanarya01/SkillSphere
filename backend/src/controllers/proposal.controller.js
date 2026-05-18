@@ -1,4 +1,5 @@
 import Job from "../models/job.model.js";
+import Notification from "../models/notification.model.js";
 import Proposal from "../models/proposal.model.js";
 
 //apply job
@@ -56,7 +57,11 @@ export const acceptProposal = async (req, res) => {
     }
     proposal.status = "accepted";
     await proposal.save();
+    await Notification.create({
+      user : proposal.freelancer,
+      message : "Your Proposal was accepted",
 
+    })
     return res.status(200).json({ message: "Proposal accepted", proposal });
   } catch (err) {
     return res.status(500).json({ message: err.message });
