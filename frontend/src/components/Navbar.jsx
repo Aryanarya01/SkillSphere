@@ -41,9 +41,7 @@ const Navbar = () => {
                 <Link to="/saved-jobs">Saved Jobs</Link>
                 <Link to="/freelancer-dashboard">Dashboard</Link>
                 <Link to="/profile">Profile</Link>
-                <Link to="/notifications">
-  Notifications
-</Link>
+                <Link to="/notifications">Notifications</Link>
               </>
             )}
             {user.role === "admin" && (
