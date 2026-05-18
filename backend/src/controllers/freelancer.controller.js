@@ -73,8 +73,12 @@ export const verifiedFreelancer = async (req, res) => {
     }
     freelancer.isVerified = true;
     await freelancer.save();
-    return res.status(200).json({message : "Freelancer verified successfully!"});
+    return res
+      .status(200)
+      .json({ message: "Freelancer verified successfully!" });
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }
 };
+
+
