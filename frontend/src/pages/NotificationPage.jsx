@@ -18,7 +18,17 @@ const NotificationPage = () => {
         fetchNotification()
     },[])
   return (
-    <div>NotificationPage</div>
+   <div className="min-h-screen bg-gray-100 p-6">
+    <div className="mb-8">
+         <h1 className="text-4xl font-bold">
+          Notifications
+        </h1>
+
+        <p className="text-gray-500 mt-2">
+          Your latest updates
+        </p>
+    </div>
+   </div>
   )
 }
 
