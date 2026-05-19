@@ -16,14 +16,18 @@ import notificationRoute from "./routes/notification.route.js";
 
 const app = express();
 const port = 9090;
+const server = createServer(app);
 
 dotenv.config();
-app.use(
-  cors({
+
+
+const io = new Server(server,{ 
+  cors:{
     origin: "http://localhost:5173",
     credentials: true,
-  }),
-);
+  },
+  })
+
 app.use(express.json());
 app.use(cookieParser());
 
