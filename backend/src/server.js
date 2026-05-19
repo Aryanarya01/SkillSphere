@@ -3,8 +3,8 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
-import {createServer} from "http"
-import {Server} from "socket.io"
+import { createServer } from "http";
+import { Server } from "socket.io";
 
 import userRouter from "./routes/user.routes.js";
 import freelancerRouter from "./routes/freelancer.route.js";
@@ -20,13 +20,12 @@ const server = createServer(app);
 
 dotenv.config();
 
-
-const io = new Server(server,{ 
-  cors:{
+const io = new Server(server, {
+  cors: {
     origin: "http://localhost:5173",
     credentials: true,
   },
-  })
+});
 
 app.use(express.json());
 app.use(cookieParser());
