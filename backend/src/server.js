@@ -40,13 +40,22 @@ app.use(adminRoute);
 app.use(notificationRoute);
 
 app.use("/uploads", express.static("uploads"));
+
+io.on("connection",(socket)=>{
+  console.log("User Connected",socket.id);
+  socket.on("disconnect",()=>{
+    console.log('User disconnected');
+  })
+})
+
+
 const startDB = async () => {
   const connect = await mongoose.connect(
     "mongodb+srv://aryanarya01:aryan5555@skillsphere.jcqnrhp.mongodb.net/?appName=SkillSphere",
   );
   console.log("DB connected");
 
-  app.listen(port, () => {
+  server.listen(port, () => {
     console.log(`Server is listining to port ${port}`);
   });
 };
