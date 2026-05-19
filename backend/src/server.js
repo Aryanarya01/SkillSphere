@@ -3,6 +3,8 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
+import {createServer} from "http"
+import {Server} from "socket.io"
 
 import userRouter from "./routes/user.routes.js";
 import freelancerRouter from "./routes/freelancer.route.js";
