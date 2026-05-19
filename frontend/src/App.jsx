@@ -22,8 +22,17 @@ import SavedJobs from "./pages/SavedJobs.jsx";
 import ReviewForm from "./components/ReviewForm.jsx";
 import Reviews from "./components/Reviews.jsx";
 import Notifications from "./pages/NotificationPage.jsx";
+import { useEffect } from "react";
+import socket from "./socket.js";
 
 const App = () => {
+
+  useEffect(()=>{
+    socket.on("connect",()=>{
+      console.log("Connected :",socket.id)
+    })
+  },[])
+
   return (
     <BrowserRouter>
       <Navbar />
