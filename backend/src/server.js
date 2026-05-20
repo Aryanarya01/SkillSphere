@@ -56,6 +56,9 @@ io.on("connection",(socket)=>{
     users[userId] = socket.id;
     console.log(users)
   })
+  io.emit("onlineUser",
+    Object.keys(users)
+  )
   socket.on("disconnect",()=>{
     for(const userId in users){
       if(users[userId] === socket.id){
@@ -63,6 +66,9 @@ io.on("connection",(socket)=>{
       }
     }
     console.log('User disconnected');
+    io.emit("onlineUser",
+      Object.keys(users)
+    )
   })
 })
 
