@@ -9,6 +9,7 @@ const ViewProposals = () => {
   const { isLoading } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [proposals, setProposals] = useState([]);
+  const [onlineUsers, setOnlineUsers] = useState([]);
   const { JobId } = useParams();
   console.log(JobId);
 
@@ -82,7 +83,19 @@ const ViewProposals = () => {
             className="bg-white rounded-2xl shadow-md p-6"
           >
             <h2 className="text-2xl font-bold">{proposal.freelancer?.name}</h2>
+            {
+  onlineUsers.includes(
+    proposal.freelancer._id
+  ) && (
 
+    <span className="text-green-500 text-sm font-semibold">
+
+      ● Online
+
+    </span>
+
+  )
+}
             <p className="text-gray-500 mt-1">{proposal.freelancer?.email}</p>
 
             <div className="mt-5">
