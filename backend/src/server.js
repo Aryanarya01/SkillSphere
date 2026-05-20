@@ -48,6 +48,8 @@ app.use(notificationRoute);
 
 app.use("/uploads", express.static("uploads"));
 
+
+const users = {};
 io.on("connection",(socket)=>{
   console.log("User Connected",socket.id);
   socket.on("disconnect",()=>{
