@@ -1,7 +1,7 @@
 import Job from "../models/job.model.js";
 import Notification from "../models/notification.model.js";
 import Proposal from "../models/proposal.model.js";
-
+import { io } from "../server.js";
 //apply job
 export const applyJob = async (req, res) => {
   try {
