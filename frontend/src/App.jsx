@@ -25,7 +25,8 @@ import Notifications from "./pages/NotificationPage.jsx";
 import { useEffect } from "react";
 import socket from "./socket.js";
 import toast from "react-hot-toast";
-
+import { useSelector } from "react-redux";
+const {user} = useSelector((state)=>state.auth)
 const App = () => {
   useEffect(() => {
     socket.on("connect", () => {
