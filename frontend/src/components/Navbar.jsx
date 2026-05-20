@@ -50,10 +50,12 @@ const [onlineUsers, setOnlineUsers] = useState([]);
     );
   };
 
-  socket.on("onlineUser",(user)=>{
-
+  socket.on("onlineUser",(users)=>{
+    setOnlineUsers(users)
   })
-  
+  return ()=>{
+    socket.off("onlineUser")
+  }
   }, []);
 
   return (
