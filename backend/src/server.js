@@ -27,15 +27,13 @@ const io = new Server(server, {
   },
 });
 
- 
-
 app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
     origin: "http://localhost:5173",
     credentials: true,
-  })
+  }),
 );
 //routes
 app.use(userRouter);
@@ -48,30 +46,24 @@ app.use(notificationRoute);
 
 app.use("/uploads", express.static("uploads"));
 
-
 const users = {};
-io.on("connection",(socket)=>{
-  console.log("User Connected",socket.id);
-  socket.on("register",(userId)=>{
+io.on("connection", (socket) => {
+  console.log("User Connected", socket.id);
+  socket.on("register", (userId) => {
     users[userId] = socket.id;
-    console.log(users)
-  })
-  io.emit("onlineUser",
-    Object.keys(users)
-  )
-  socket.on("disconnect",()=>{
-    for(const userId in users){
-      if(users[userId] === socket.id){
+    console.log(users);
+  });
+  io.emit("onlineUser", Object.keys(users));
+  socket.on("disconnect", () => {
+    for (const userId in users) {
+      if (users[userId] === socket.id) {
         delete users[userId];
       }
     }
-    console.log('User disconnected');
-    io.emit("onlineUser",
-      Object.keys(users)
-    )
-  })
-})
-
+    console.log("User disconnected");
+    io.emit("onlineUser", Object.keys(users));
+  });
+});
 
 const startDB = async () => {
   const connect = await mongoose.connect(
@@ -84,4 +76,4 @@ const startDB = async () => {
   });
 };
 startDB();
-export {io,users};
+export { io, users };
