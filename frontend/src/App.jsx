@@ -37,7 +37,7 @@ const App = () => {
       toast.success(data.message);
     })
 
-    return
+    return ()=>{socket.off("newNotification")}
   },[])
 
   return (
