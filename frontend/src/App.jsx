@@ -26,11 +26,14 @@ import { useEffect } from "react";
 import socket from "./socket.js";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
-const {user} = useSelector((state)=>state.auth)
+ 
+
+
+
 const App = () => {
 
 
-
+const {user} = useSelector((state)=>state.auth)
 
   useEffect(() => {
     socket.on("connect", () => {
