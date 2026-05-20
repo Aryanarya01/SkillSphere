@@ -27,9 +27,16 @@ const io = new Server(server, {
   },
 });
 
+export {io};
+
 app.use(express.json());
 app.use(cookieParser());
-
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 //routes
 app.use(userRouter);
 app.use(freelancerRouter);
