@@ -27,18 +27,19 @@ import socket from "./socket.js";
 import toast from "react-hot-toast";
 
 const App = () => {
-
-  useEffect(()=>{
-    socket.on("connect",()=>{
-      console.log("Connected :",socket.id)
-    })
-    socket.on("newNotification",(data)=>{
+  useEffect(() => {
+    socket.on("connect", () => {
+      console.log("Connected :", socket.id);
+    });
+    socket.on("newNotification", (data) => {
       console.log(data);
       toast.success(data.message);
-    })
+    });
 
-    return ()=>{socket.off("newNotification")}
-  },[])
+    return () => {
+      socket.off("newNotification");
+    };
+  }, []);
 
   return (
     <BrowserRouter>
@@ -140,16 +141,24 @@ const App = () => {
             </ProtectedRoutes>
           }
         />
-        <Route path="/reviews" element={<ProtectedRoutes>
-          <Reviews/>
-        </ProtectedRoutes>}/>
+        <Route
+          path="/reviews"
+          element={
+            <ProtectedRoutes>
+              <Reviews />
+            </ProtectedRoutes>
+          }
+        />
 
-
-        <Route path="/notifications" element={<ProtectedRoutes>
-          <Notifications/>
-        </ProtectedRoutes>} />
+        <Route
+          path="/notifications"
+          element={
+            <ProtectedRoutes>
+              <Notifications />
+            </ProtectedRoutes>
+          }
+        />
       </Routes>
-
     </BrowserRouter>
   );
 };
