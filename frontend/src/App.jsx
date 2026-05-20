@@ -28,10 +28,18 @@ import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 const {user} = useSelector((state)=>state.auth)
 const App = () => {
+
+
+
+
   useEffect(() => {
     socket.on("connect", () => {
       console.log("Connected :", socket.id);
     });
+
+    if(user?._id){
+      socket.emit("register",user._id)
+    }
     socket.on("newNotification", (data) => {
       console.log(data);
       toast.success(data.message);
@@ -40,7 +48,9 @@ const App = () => {
     return () => {
       socket.off("newNotification");
     };
-  }, []);
+  }, [user]);
+
+
 
   return (
     <BrowserRouter>
