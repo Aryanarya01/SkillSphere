@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../redux/slices/authSlice.js";
 import ReviewForm from "../components/ReviewForm.jsx";
+import socket from "../socket.js";
 
 const ViewProposals = () => {
   const { isLoading } = useSelector((state) => state.auth);
