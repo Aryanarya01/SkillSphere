@@ -58,15 +58,15 @@ export const acceptProposal = async (req, res) => {
     proposal.status = "accepted";
     await proposal.save();
     await Notification.create({
-      user : proposal.freelancer,
-      message : "Your Proposal was accepted",
-    })
-     const socketId = users[proposal.freelancer.toString()];
-     if(socketId){
-      io.to(socketId).emit("newNotification",{
-        message : "Your proposal was accepted",
-      })
-     }
+      user: proposal.freelancer,
+      message: "Your Proposal was accepted",
+    });
+    const socketId = users[proposal.freelancer.toString()];
+    if (socketId) {
+      io.to(socketId).emit("newNotification", {
+        message: "Your proposal was accepted",
+      });
+    }
     return res.status(200).json({ message: "Proposal accepted", proposal });
   } catch (err) {
     return res.status(500).json({ message: err.message });
