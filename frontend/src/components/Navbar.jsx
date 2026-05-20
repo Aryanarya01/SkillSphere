@@ -4,8 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import clientServer from "../api/client.js";
 import { logoutUser } from "../redux/slices/authSlice.js";
 import { useEffect } from "react";
+import socket from "../socket.js";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
+
+  
   const [count, setCount] = useState(0);
 
   const navigate = useNavigate();
@@ -34,6 +38,18 @@ const Navbar = () => {
 
   useEffect(() => {
     fetchNotifications();
+    socket.on("newNotification",(data)=>{
+      toast.success(data.message);
+      setCount((prev)=>prev+1)
+    })
+     return () => {
+
+    socket.off(
+      "newNotification"
+    );
+
+  };
+  
   }, []);
 
   return (

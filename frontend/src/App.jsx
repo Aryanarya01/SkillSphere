@@ -43,14 +43,6 @@ const {user} = useSelector((state)=>state.auth)
     if(user?._id){
       socket.emit("register",user._id)
     }
-    socket.on("newNotification", (data) => {
-      console.log(data);
-      toast.success(data.message);
-    });
-
-    return () => {
-      socket.off("newNotification");
-    };
   }, [user]);
 
 
