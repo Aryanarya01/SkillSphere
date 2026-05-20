@@ -11,6 +11,7 @@ const Navbar = () => {
 
   
   const [count, setCount] = useState(0);
+const [onlineUsers, setOnlineUsers] = useState([]);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -50,7 +51,7 @@ const Navbar = () => {
   };
 
   socket.on("onlineUser",(user)=>{
-    
+
   })
   
   }, []);
