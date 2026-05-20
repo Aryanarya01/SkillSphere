@@ -60,7 +60,9 @@ export const acceptProposal = async (req, res) => {
     await Notification.create({
       user : proposal.freelancer,
       message : "Your Proposal was accepted",
-
+    })
+    io.emit("newNotification",{
+      message : "Your proposal was accepted",
     })
     return res.status(200).json({ message: "Proposal accepted", proposal });
   } catch (err) {
