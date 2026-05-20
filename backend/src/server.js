@@ -52,6 +52,10 @@ app.use("/uploads", express.static("uploads"));
 const users = {};
 io.on("connection",(socket)=>{
   console.log("User Connected",socket.id);
+  socket.on("register",(userId)=>{
+    users[userId] = socket.id;
+    console.log(users)
+  })
   socket.on("disconnect",()=>{
     console.log('User disconnected');
   })
