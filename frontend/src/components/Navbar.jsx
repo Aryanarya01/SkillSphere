@@ -49,13 +49,6 @@ const [onlineUsers, setOnlineUsers] = useState([]);
       "newNotification"
     );
   };
-
-  socket.on("onlineUser",(users)=>{
-    setOnlineUsers(users)
-  })
-  return ()=>{
-    socket.off("onlineUser")
-  }
   }, []);
 
   return (

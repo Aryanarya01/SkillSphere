@@ -25,6 +25,12 @@ const ViewProposals = () => {
 
   useEffect(() => {
     fetchPropsals();
+    socket.on("onlineUser",(users)=>{
+    setOnlineUsers(users)
+  })
+  return ()=>{
+    socket.off("onlineUser")
+  }
   }, []);
 
   const handelAccept = async (id) => {
