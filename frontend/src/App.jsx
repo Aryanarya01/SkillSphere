@@ -2,7 +2,7 @@ import React from "react";
 import Login from "./pages/Login.jsx";
 import "./index.css";
 import Register from "./pages/Register.jsx";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, data, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/Dashboard.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Home from "./pages/Home.jsx";
@@ -24,6 +24,7 @@ import Reviews from "./components/Reviews.jsx";
 import Notifications from "./pages/NotificationPage.jsx";
 import { useEffect } from "react";
 import socket from "./socket.js";
+import toast from "react-hot-toast";
 
 const App = () => {
 
@@ -31,6 +32,12 @@ const App = () => {
     socket.on("connect",()=>{
       console.log("Connected :",socket.id)
     })
+    socket.on("newNotification",(data)=>{
+      console.log(data);
+      toast.success(data.message);
+    })
+
+    return
   },[])
 
   return (
