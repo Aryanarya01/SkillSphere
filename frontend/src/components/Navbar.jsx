@@ -47,8 +47,11 @@ const Navbar = () => {
     socket.off(
       "newNotification"
     );
-
   };
+
+  socket.on("onlineUser",(user)=>{
+    
+  })
   
   }, []);
 
