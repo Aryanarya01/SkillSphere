@@ -1,7 +1,7 @@
 import Job from "../models/job.model.js";
 import Notification from "../models/notification.model.js";
 import Proposal from "../models/proposal.model.js";
-import { io } from "../server.js";
+import { io, users } from "../server.js";
 //apply job
 export const applyJob = async (req, res) => {
   try {
@@ -61,9 +61,12 @@ export const acceptProposal = async (req, res) => {
       user : proposal.freelancer,
       message : "Your Proposal was accepted",
     })
-    io.emit("newNotification",{
-      message : "Your proposal was accepted",
-    })
+     const socketId = users[proposal.freelancer.toString()];
+     if(socketId){
+      io.to(socketId).emit("newNotification",{
+        message : "Your proposal was accepted",
+      })
+     }
     return res.status(200).json({ message: "Proposal accepted", proposal });
   } catch (err) {
     return res.status(500).json({ message: err.message });

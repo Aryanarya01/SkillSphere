@@ -27,7 +27,7 @@ const io = new Server(server, {
   },
 });
 
-export {io};
+ 
 
 app.use(express.json());
 app.use(cookieParser());
@@ -78,3 +78,4 @@ const startDB = async () => {
   });
 };
 startDB();
+export {io,users};
