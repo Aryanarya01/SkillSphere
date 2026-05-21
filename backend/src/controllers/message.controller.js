@@ -59,7 +59,9 @@ export const getConversations = async (req, res) => {
       messages.forEach((msg)=>{
         const otherUser = msg.sender._id.toString() === userId.toString()
         ? msg.reciever : msg.sender;
-        if(!conversationMap.has())
+        if(!conversationMap.has(otherUser._id.toString())){
+          
+        }
       })
 
   } catch (err) {
