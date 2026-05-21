@@ -15,4 +15,10 @@ export const sendMessage = async (req, res) => {
 };
 
 
-export cosnt 
+export const getMessages = async(req,res)=>{
+    try{
+        const 
+    }catch(err){
+        return res.status(500).json({message : err.message});
+    }
+}
