@@ -66,7 +66,7 @@ const Chats = () => {
             <div
               key={msg._id}
               className={`flex ${
-                msg.sender === user._id ? "justify-end" : "justify-start"
+                msg.sender.toString() === user._id ? "justify-end" : "justify-start"
               }`}
             >
               <div
