@@ -9,7 +9,7 @@ const Chats = () => {
 
     const fetchMessages = async()=>{
         try{
-
+            const messages = await clientSer
         }catch(err){
             console.log(err)
         }
