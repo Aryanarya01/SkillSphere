@@ -50,7 +50,14 @@ export const getConversations = async (req, res) => {
           reciever : userId 
         }
       ]
+    }).populate("sender","name profilePicture").populate("reciever", "name profilePicture").sort({
+      updatedAt : -1
     })
+
+    // ->>>>>>>now we remove duplicates
+    const conversationMap = new Map();
+    
+
   } catch (err) {
     return res.status(500).json({
       message: err.message,
