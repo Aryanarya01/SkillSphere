@@ -42,6 +42,27 @@ const Chats = () => {
           </h1>
 
         </div>
+
+    {/* message box */}
+     <div className="flex-1 overflow-y-auto p-5 space-y-4">
+        {
+            messages.map((msg)=>(
+                <div key={msg._id}
+                 className={`flex ${
+                    msg.sender ===
+                    user._id
+
+                      ? "justify-end"
+
+                      : "justify-start"
+                  }`}
+                >
+
+                </div>
+            ))
+        }
+     </div>
+
     </div>
    </div>
   )
