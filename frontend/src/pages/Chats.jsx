@@ -32,6 +32,9 @@ const Chats = () => {
   }, []);
 
   const handleSend = async()=>{
+     if (!text.trim())
+        return;
+
     try{
         const res = await clientServer.post("/messages/send",{
             reciever : id,
