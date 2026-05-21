@@ -42,32 +42,36 @@ export const getConversations = async (req, res) => {
   try {
     const userId = req.user._id;
     const messages = await Message.find({
-      $or :[
-        { 
-          sender : userId
+      $or: [
+        {
+          sender: userId,
         },
         {
-          reciever : userId 
-        }
-      ]
-    }).populate("sender","name profilePicture").populate("reciever", "name profilePicture").sort({
-      updatedAt : -1
+          reciever: userId,
+        },
+      ],
     })
+      .populate("sender", "name profilePicture")
+      .populate("reciever", "name profilePicture")
+      .sort({
+        updatedAt: -1,
+      });
 
     // ->>>>>>>now we remove duplicates
     const conversationMap = new Map();
-      messages.forEach((msg)=>{
-        const otherUser = msg.sender._id.toString() === userId.toString()
-        ? msg.reciever : msg.sender;
-        if(!conversationMap.has(otherUser._id.toString())){
-            conversationMap.set(otherUser._id.toString(),otherUser)
-        }
-      });
-      const conversations = Array.from(conversationMap.values());
-      return res.status(200).json({
-        conversations
-      })
-
+    messages.forEach((msg) => {
+      const otherUser =
+        msg.sender._id.toString() === userId.toString()
+          ? msg.reciever
+          : msg.sender;
+      if (!conversationMap.has(otherUser._id.toString())) {
+        conversationMap.set(otherUser._id.toString(), otherUser);
+      }
+    });
+    const conversations = Array.from(conversationMap.values());
+    return res.status(200).json({
+      conversations,
+    });
   } catch (err) {
     return res.status(500).json({
       message: err.message,
