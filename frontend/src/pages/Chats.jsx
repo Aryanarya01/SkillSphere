@@ -75,10 +75,27 @@ const Chats = () => {
                 </div>
             ))
         }
+        </div>
          <div className="p-5 border-t flex gap-3">
-            
+             <input
+            type="text"
+            value={text}
+            onChange={(e) =>
+              setText(
+                e.target.value
+              )
+            }
+            placeholder="Type message..."
+            className="flex-1 border border-gray-300 rounded-xl px-4"
+          />
+           <button
+            onClick={handleSend}
+            className="bg-black text-white px-6 py-3 rounded-xl font-semibold"
+          >
+            Send
+          </button>
          </div>
-     </div>
+    
 
     </div>
    </div>
