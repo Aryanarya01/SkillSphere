@@ -10,6 +10,7 @@ const Chats = () => {
     const fetchMessages = async()=>{
         try{
             const messages = await clientServer.get(`/messages/${id}`)
+            setMessages(res.data.messages);
         }catch(err){
             console.log(err)
         }
