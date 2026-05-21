@@ -67,10 +67,10 @@ export const acceptProposal = async (req, res) => {
         message: "Your proposal was accepted",
       });
     }
-    io.to(socketId).emit("proposalUpdated",{
-        proposalId : proposal._id,
-        status : "accepted",
-    })
+    io.to(socketId).emit("proposalUpdated", {
+      proposalId: proposal._id,
+      status: "accepted",
+    });
     return res.status(200).json({ message: "Proposal accepted", proposal });
   } catch (err) {
     return res.status(500).json({ message: err.message });
