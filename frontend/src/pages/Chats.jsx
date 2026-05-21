@@ -3,7 +3,9 @@
 
 import React, { useEffect, useState } from 'react'
 import clientServer from "../api/client.js"
+import { useParams } from "react-router-dom";
 const Chats = () => {
+    const {id} = useParams()
     const [messages, setMessages] = useState([]);
     const [text,setText] = useState("");
 
