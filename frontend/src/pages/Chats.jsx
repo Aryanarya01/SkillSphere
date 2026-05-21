@@ -44,7 +44,7 @@ const Chats = () => {
             ...prev,res.data.message
         ]);
         socket.emit("recieveMessage",{
-            reciever : id,
+            recieverId : id,
             message : res.data.message
         })
         setText("")
@@ -71,7 +71,7 @@ const Chats = () => {
             >
               <div
                 className={`max-w-xs px-4 py-3 rounded-2xl ${
-                  msg.sender === user._id
+                  msg.sender.toString() === user._id
                     ? "bg-black text-white"
                     : "bg-gray-200"
                 }`}

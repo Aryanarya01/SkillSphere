@@ -53,15 +53,16 @@ io.on("connection", (socket) => {
   socket.on("register", (userId) => {
     users[userId] = socket.id;
     console.log(users);
+     io.emit("onlineUser", Object.keys(users));
   });
-  io.emit("onlineUser", Object.keys(users));
+  
 
   socket.on("recieveMessage",({recieverId, message})=>{
     const socketId = users[recieverId];
     if(socketId){
-      io.to(socketId).emit("recieveMessage",{
+      io.to(socketId).emit("recieveMessage",
         message
-      })
+      )
     }
   })
 
