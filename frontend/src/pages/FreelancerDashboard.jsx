@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import clientServer from "../api/client.js";
+import socket from "../socket.js";
 
 const FreelancerDashboard = () => {
   const [proposals, setProposals] = useState([]);
@@ -16,6 +17,14 @@ const FreelancerDashboard = () => {
 
   useEffect(() => {
     fetchPropsals();
+    socket.on("proposalUpdated",(data)=>{
+      setProposals((prev)=>prev.map((proposal)=>
+        proposal._id === data.proposalId ? {
+          ...proposal,status : data.status,
+        } : proposal
+      ))
+    })
+    return ()
   }, []);
 
   return (
