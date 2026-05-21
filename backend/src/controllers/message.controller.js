@@ -63,7 +63,10 @@ export const getConversations = async (req, res) => {
             conversationMap.set(otherUser._id.toString(),otherUser)
         }
       });
-      const conversations = Array.from(conversationMap.values())
+      const conversations = Array.from(conversationMap.values());
+      return res.status(200).json({
+        conversations
+      })
 
   } catch (err) {
     return res.status(500).json({
