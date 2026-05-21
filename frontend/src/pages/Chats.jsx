@@ -1,7 +1,7 @@
 
 
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import clientServer from "../api/client.js"
 const Chats = () => {
     const [messages, setMessages] = useState([]);
@@ -15,6 +15,9 @@ const Chats = () => {
             console.log(err)
         }
     }
+    useEffect(()=>{
+        fetchMessages();
+    },[id])
   return (
     <div>Chats</div>
   )
