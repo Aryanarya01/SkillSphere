@@ -40,6 +40,17 @@ export const getMessages = async (req, res) => {
 
 export const getConversations = async (req, res) => {
   try {
+    const userId = req.user._id;
+    const messages = await Message.find({
+      $or :[
+        { 
+          sender : userId
+        },
+        {
+          reciever : userId 
+        }
+      ]
+    })
   } catch (err) {
     return res.status(500).json({
       message: err.message,
