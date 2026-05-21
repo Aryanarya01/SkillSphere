@@ -17,7 +17,7 @@ const FreelancerDashboard = () => {
 
   useEffect(() => {
     fetchPropsals();
-    // for instant proposal status updating 
+    // for instant proposal status updating
     socket.on("proposalUpdated", (data) => {
       setProposals((prev) =>
         prev.map((proposal) =>
