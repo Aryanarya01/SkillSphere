@@ -17,14 +17,21 @@ const FreelancerDashboard = () => {
 
   useEffect(() => {
     fetchPropsals();
-    socket.on("proposalUpdated",(data)=>{
-      setProposals((prev)=>prev.map((proposal)=>
-        proposal._id === data.proposalId ? {
-          ...proposal,status : data.status,
-        } : proposal
-      ))
-    })
-    return ()=>{socket.off("proposalUpdated")}
+    socket.on("proposalUpdated", (data) => {
+      setProposals((prev) =>
+        prev.map((proposal) =>
+          proposal._id === data.proposalId
+            ? {
+                ...proposal,
+                status: data.status,
+              }
+            : proposal,
+        ),
+      );
+    });
+    return () => {
+      socket.off("proposalUpdated");
+    };
   }, []);
 
   return (
