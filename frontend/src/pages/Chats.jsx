@@ -31,27 +31,24 @@ const Chats = () => {
     };
   }, []);
 
-  const handleSend = async()=>{
-     if (!text.trim())
-        return;
+  const handleSend = async () => {
+    if (!text.trim()) return;
 
-    try{
-        const res = await clientServer.post("/messages/send",{
-            reciever : id,
-            text,
-        })
-        setMessages((prev)=>[
-            ...prev,res.data.message
-        ]);
-        socket.emit("recieveMessage",{
-            recieverId : id,
-            message : res.data.message
-        })
-        setText("")
-    }catch(err){
-        console.log(err)
+    try {
+      const res = await clientServer.post("/messages/send", {
+        reciever: id,
+        text,
+      });
+      setMessages((prev) => [...prev, res.data.message]);
+      socket.emit("recieveMessage", {
+        recieverId: id,
+        message: res.data.message,
+      });
+      setText("");
+    } catch (err) {
+      console.log(err);
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
@@ -66,7 +63,9 @@ const Chats = () => {
             <div
               key={msg._id}
               className={`flex ${
-                msg.sender.toString() === user._id ? "justify-end" : "justify-start"
+                msg.sender.toString() === user._id
+                  ? "justify-end"
+                  : "justify-start"
               }`}
             >
               <div
