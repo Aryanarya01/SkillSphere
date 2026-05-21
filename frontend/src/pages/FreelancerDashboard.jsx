@@ -24,7 +24,7 @@ const FreelancerDashboard = () => {
         } : proposal
       ))
     })
-    return ()
+    return ()=>
   }, []);
 
   return (
