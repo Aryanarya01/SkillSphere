@@ -22,7 +22,10 @@ const Chats = () => {
     }
     useEffect(()=>{
         fetchMessages();
-    },[id])
+    },[id]);
+
+    
+
   return (
     <div>Chats</div>
   )
