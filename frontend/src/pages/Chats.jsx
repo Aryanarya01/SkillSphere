@@ -57,10 +57,27 @@ const Chats = () => {
                       : "justify-start"
                   }`}
                 >
+                      <div
+                    className={`max-w-xs px-4 py-3 rounded-2xl ${
+                      msg.sender ===
+                      user._id
+
+                        ? "bg-black text-white"
+
+                        : "bg-gray-200"
+                    }`}
+                  >
+
+                    {msg.text}
+
+                  </div>
 
                 </div>
             ))
         }
+         <div className="p-5 border-t flex gap-3">
+            
+         </div>
      </div>
 
     </div>
