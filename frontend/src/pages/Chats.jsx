@@ -33,7 +33,18 @@ const Chats = () => {
 
   const handleSend = async()=>{
     try{
-
+        const res = await clientServer.post("/messages/send",{
+            reciever : id,
+            text,
+        })
+        setMessages((prev)=>[
+            ...prev,res.data.message
+        ]);
+        socket.emit("recieveMessage",{
+            reciever : id,
+            message : res.data.message
+        })
+        setText("")
     }catch(err){
         console.log(err)
     }
