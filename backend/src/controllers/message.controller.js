@@ -34,6 +34,9 @@ export const getMessages = async(req,res)=>{
         }).sort({
           createdAt : 1
         })
+          return res.status(200).json({
+        messages,
+      });
     }catch(err){
         return res.status(500).json({message : err.message});
     }
