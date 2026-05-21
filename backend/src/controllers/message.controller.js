@@ -22,9 +22,15 @@ export const getMessages = async(req,res)=>{
         const messages = await Message.find({
           $or : [
             {
-              sender :
+              sender : req.user._id,
+              reciever : receiverId
+            },
+            {
+              sender : receiverId,
+              reciever : req.user._id,
             }
-          ]
+          ],
+          
         })
     }catch(err){
         return res.status(500).json({message : err.message});
