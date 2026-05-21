@@ -56,7 +56,11 @@ export const getConversations = async (req, res) => {
 
     // ->>>>>>>now we remove duplicates
     const conversationMap = new Map();
-    
+      messages.forEach((msg)=>{
+        const otherUser = msg.sender._id.toString() === userId.toString()
+        ? msg.reciever : msg.sender;
+        if()
+      })
 
   } catch (err) {
     return res.status(500).json({
