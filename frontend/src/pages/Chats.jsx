@@ -29,7 +29,7 @@ const Chats = () => {
             setMessages((prev)=>[...prev,message])
         });
 
-        socket.off("recieveMessage")
+       return ()=>{ socket.off("recieveMessage")}
     },[])
 
   return (
