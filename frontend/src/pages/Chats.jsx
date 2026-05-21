@@ -4,7 +4,7 @@
 import React, { useEffect, useState } from 'react'
 import clientServer from "../api/client.js"
 import { useParams } from "react-router-dom";
-
+import socket from "../socket.js"
 import { useSelector } from "react-redux";
 const Chats = () => {
     const {id} = useParams();
@@ -24,7 +24,13 @@ const Chats = () => {
         fetchMessages();
     },[id]);
 
-    
+    useEffect(()=>{
+        socket.on("recieveMessage",(message)=>{
+            setMessages((prev)=>[...prev,message])
+        });
+
+        socket.off("recieveMessage")
+    },[])
 
   return (
     <div>Chats</div>
