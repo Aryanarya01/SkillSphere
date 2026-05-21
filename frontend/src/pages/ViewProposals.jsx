@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import clientServer from "../api/client.js";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../redux/slices/authSlice.js";
 import ReviewForm from "../components/ReviewForm.jsx";
