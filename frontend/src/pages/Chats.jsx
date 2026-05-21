@@ -4,8 +4,11 @@
 import React, { useEffect, useState } from 'react'
 import clientServer from "../api/client.js"
 import { useParams } from "react-router-dom";
+
+import { useSelector } from "react-redux";
 const Chats = () => {
-    const {id} = useParams()
+    const {id} = useParams();
+    const {user} = useSelector((state)=>state.auth)
     const [messages, setMessages] = useState([]);
     const [text,setText] = useState("");
 
