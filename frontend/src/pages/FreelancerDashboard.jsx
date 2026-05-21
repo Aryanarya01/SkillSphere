@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import clientServer from "../api/client.js";
 import socket from "../socket.js";
+import { Link } from "react-router-dom";
 
 const FreelancerDashboard = () => {
   const [proposals, setProposals] = useState([]);
@@ -80,6 +81,18 @@ const FreelancerDashboard = () => {
                 {proposal.status}
               </span>
             </div>
+            {
+              proposal.status === "accepted" && (
+                  <div className="mt-5">
+      <Link
+        to={`/chat/${proposal.job?.client}`}
+        className="bg-black text-white px-4 py-2 rounded-lg inline-block"
+      >
+        Message Client
+      </Link>
+    </div>
+              )
+            }
           </div>
         ))}
       </div>

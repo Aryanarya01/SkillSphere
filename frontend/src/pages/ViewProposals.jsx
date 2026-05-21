@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import clientServer from "../api/client.js";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../redux/slices/authSlice.js";
 import ReviewForm from "../components/ReviewForm.jsx";
@@ -118,6 +118,14 @@ const ViewProposals = () => {
                 {proposal.status}
               </span>
             </div>
+            <div className="mt-5">
+  <Link
+    to={`/chat/${proposal.freelancer._id}`}
+    className="bg-black text-white px-4 py-2 rounded-lg inline-block"
+  >
+    Message
+  </Link>
+</div>
 
             {/* Buttons */}
             {

@@ -1,5 +1,5 @@
-import { Message } from "../models/message.model.js";
-
+ 
+import Message from "../models/message.model.js"
 export const sendMessage = async (req, res) => {
   try {
     const { reciever, text } = req.body;
