@@ -14,30 +14,27 @@ export const sendMessage = async (req, res) => {
   }
 };
 
-
-export const getMessages = async(req,res)=>{
-    try{
-      const receiverId =
-        req.params.id;
-        const messages = await Message.find({
-          $or : [
-            {
-              sender : req.user._id,
-              reciever : receiverId
-            },
-            {
-              sender : receiverId,
-              reciever : req.user._id,
-            }
-          ],
-
-        }).sort({
-          createdAt : 1
-        })
-          return res.status(200).json({
-        messages,
-      });
-    }catch(err){
-        return res.status(500).json({message : err.message});
-    }
-}
+export const getMessages = async (req, res) => {
+  try {
+    const receiverId = req.params.id;
+    const messages = await Message.find({
+      $or: [
+        {
+          sender: req.user._id,
+          reciever: receiverId,
+        },
+        {
+          sender: receiverId,
+          reciever: req.user._id,
+        },
+      ],
+    }).sort({
+      createdAt: 1,
+    });
+    return res.status(200).json({
+      messages,
+    });
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+};
