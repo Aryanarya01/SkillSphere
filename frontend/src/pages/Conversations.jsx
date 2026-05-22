@@ -38,8 +38,8 @@ const Conversations = () => {
             />
             {/* information */}
             <div>
-              <h3>{user.name}</h3>
-              <p>Open Chat</p>
+              <h3 className="font-semibold">{user.name}</h3>
+              <p className="text-sm text-gray-500">Open Chat</p>
             </div>
           </Link>
         ))}
