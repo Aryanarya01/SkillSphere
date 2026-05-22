@@ -33,12 +33,12 @@ const ManageJobs = () => {
     }
   }
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className="min-h-screen bg-gray-100 p-4 md:p-6">
 
       {/* Heading */}
       <div className="mb-8">
 
-        <h1 className="text-4xl font-bold">
+        <h1 className="text-3xl md:text-4xl font-bold">
           Manage Jobs
         </h1>
 
@@ -51,7 +51,7 @@ const ManageJobs = () => {
       {/* Jobs Table */}
       <div className="bg-white rounded-2xl shadow-md overflow-hidden">
 
-        <table className="w-full">
+        <table className="w-full min-w-700px">
 
           <thead className="bg-black text-white">
 
@@ -95,7 +95,7 @@ const ManageJobs = () => {
                     {job.title}
                   </td>
 
-                  <td className="p-4">
+                  <td className="p-4 break-all">
                     {
                       job.client?.name
                     }
@@ -117,7 +117,7 @@ const ManageJobs = () => {
                           job._id
                         )
                       }
-                      className="bg-red-500 text-white px-4 py-2 rounded-lg"
+                      className="bg-red-500 text-white px-4 py-2 rounded-lg text-sm md:text-base"
                     >
                       {isLoading ? "Deleting..." : "Delete"}
                     </button>
