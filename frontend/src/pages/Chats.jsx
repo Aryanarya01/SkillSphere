@@ -97,7 +97,7 @@ const Chats = () => {
             />
             <button
               onClick={handleSend}
-              className="bg-black text-white px-6 py-3 rounded-xl font-semibold"
+              className="bg-black text-white px-4 md:px-6 py-3 rounded-xl font-semibold"
             >
               Send
             </button>
