@@ -53,55 +53,54 @@ const Chats = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
-   <div className="w-full max-w-6xl bg-white rounded-2xl shadow-xl flex h-[85vh] overflow-hidden">
+      <div className="w-full max-w-6xl bg-white rounded-2xl shadow-xl flex h-[85vh] overflow-hidden">
+        <Conversations />
 
-  <Conversations />
+        {/* CHAT AREA */}
+        <div className="flex-1 flex flex-col">
+          <div className="p-5 border-b">
+            <h1 className="text-2xl font-bold">Chat</h1>
+          </div>
 
-  {/* CHAT AREA */}
-  <div className="flex-1 flex flex-col"> 
-        <div className="p-5 border-b">
-          <h1 className="text-2xl font-bold">Chat</h1>
-        </div>
-        
-        {/* message box */}
-        <div className="flex-1 overflow-y-auto p-5 space-y-4">
-          {messages.map((msg) => (
-            <div
-              key={msg._id}
-              className={`flex ${
-                msg.sender.toString() === user._id
-                  ? "justify-end"
-                  : "justify-start"
-              }`}
-            >
+          {/* message box */}
+          <div className="flex-1 overflow-y-auto p-5 space-y-4">
+            {messages.map((msg) => (
               <div
-                className={`max-w-xs px-4 py-3 rounded-2xl ${
+                key={msg._id}
+                className={`flex ${
                   msg.sender.toString() === user._id
-                    ? "bg-black text-white"
-                    : "bg-gray-200"
+                    ? "justify-end"
+                    : "justify-start"
                 }`}
               >
-                {msg.text}
+                <div
+                  className={`max-w-xs px-4 py-3 rounded-2xl ${
+                    msg.sender.toString() === user._id
+                      ? "bg-black text-white"
+                      : "bg-gray-200"
+                  }`}
+                >
+                  {msg.text}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          <div className="p-5 border-t flex gap-3">
+            <input
+              type="text"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              placeholder="Type message..."
+              className="flex-1 border border-gray-300 rounded-xl px-4"
+            />
+            <button
+              onClick={handleSend}
+              className="bg-black text-white px-6 py-3 rounded-xl font-semibold"
+            >
+              Send
+            </button>
+          </div>
         </div>
-        <div className="p-5 border-t flex gap-3">
-          <input
-            type="text"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            placeholder="Type message..."
-            className="flex-1 border border-gray-300 rounded-xl px-4"
-          />
-          <button
-            onClick={handleSend}
-            className="bg-black text-white px-6 py-3 rounded-xl font-semibold"
-          >
-            Send
-          </button>
-        </div>
-      </div>
       </div>
     </div>
   );
