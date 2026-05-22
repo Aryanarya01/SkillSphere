@@ -117,7 +117,7 @@ const Navbar = () => {
           SkillSphere
         </Link>
 
-        {/* MOBILE BUTTON */}
+     
         <button
           className="md:hidden text-2xl"
           onClick={() =>
@@ -127,7 +127,7 @@ const Navbar = () => {
           ☰
         </button>
 
-        {/* DESKTOP MENU */}
+         
         <div className="hidden md:flex items-center gap-5">
 
           {user ? (
