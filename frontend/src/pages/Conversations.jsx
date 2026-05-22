@@ -15,8 +15,13 @@ const Conversations = () => {
         <div >
             {
                 conversations.map((user)=>(
-                    <Link>
-                        
+                    <Link key={user._id} to={`/chat/${user._id}`}>
+                        <img src="" alt="" />
+                        {/* information */}
+                        <div>
+                            <h3>{user.name}</h3>
+                            <p>Open Chat</p>
+                        </div>
                     </Link>
                 ))
             }
