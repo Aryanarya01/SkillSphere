@@ -53,12 +53,18 @@ const Chats = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
-      <div className="w-full max-w-6xl bg-white rounded-2xl shadow-xl flex h-[85vh] overflow-hidden">
+   <div className="w-full max-w-6xl bg-white rounded-2xl shadow-xl flex h-[85vh] overflow-hidden">
 
-  <Conversations/>
+  <Conversations />
 
   {/* CHAT AREA */}
-  <div className="flex-1 flex flex-col">
+  <div className="flex-1 flex flex-col"> 
+        <div className="p-5 border-b">
+          <h1 className="text-2xl font-bold">Chat</h1>
+        </div>
+        
+        {/* message box */}
+        <div className="flex-1 overflow-y-auto p-5 space-y-4">
           {messages.map((msg) => (
             <div
               key={msg._id}
@@ -95,6 +101,7 @@ const Chats = () => {
             Send
           </button>
         </div>
+      </div>
       </div>
     </div>
   );
