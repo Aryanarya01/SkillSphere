@@ -52,18 +52,20 @@ const Chats = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
-      <div className="w-full max-w-6xl bg-white rounded-2xl shadow-xl flex h-[85vh] overflow-hidden">
+    <div className="min-h-screen bg-gray-100 flex justify-center items-center p-2 md:p-6">
+      <div className="w-full max-w-6xl bg-white rounded-2xl shadow-xl flex h-[90vh] md:h-[85vh] overflow-hidden">
+         <div className="hidden md:block">
         <Conversations />
+      </div>
 
         {/* CHAT AREA */}
         <div className="flex-1 flex flex-col">
-          <div className="p-5 border-b">
-            <h1 className="text-2xl font-bold">Chat</h1>
+          <div className="p-4 md:p-5 border-b">
+            <h1 className="text-xl md:text-2xl font-bold">Chat</h1>
           </div>
 
           {/* message box */}
-          <div className="flex-1 overflow-y-auto p-5 space-y-4">
+          <div className="flex-1 overflow-y-auto p-3 md:p-5 space-y-4">
             {messages.map((msg) => (
               <div
                 key={msg._id}
@@ -74,7 +76,7 @@ const Chats = () => {
                 }`}
               >
                 <div
-                  className={`max-w-xs px-4 py-3 rounded-2xl ${
+                  className={`max-w-[80%] md:max-w-xs px-4 py-3 rounded-2xl ${
                     msg.sender.toString() === user._id
                       ? "bg-black text-white"
                       : "bg-gray-200"
@@ -85,13 +87,13 @@ const Chats = () => {
               </div>
             ))}
           </div>
-          <div className="p-5 border-t flex gap-3">
+          <div className="p-3 md:p-5 border-t flex gap-3">
             <input
               type="text"
               value={text}
               onChange={(e) => setText(e.target.value)}
               placeholder="Type message..."
-              className="flex-1 border border-gray-300 rounded-xl px-4"
+              className="flex-1 border border-gray-300 rounded-xl px-4 py-3 outline-none"
             />
             <button
               onClick={handleSend}
