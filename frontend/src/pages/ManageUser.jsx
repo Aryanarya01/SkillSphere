@@ -46,14 +46,14 @@ const ManageUser = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className="min-h-screen bg-gray-100 p-4 md:p-6">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold">Manage Users</h1>
+        <h1 className=" text-3xl md:text-4xl font-bold">Manage Users</h1>
         <p className="text-gray-500 mt-2">Admin user management panel</p>
       </div>
 
       <div className="bg-white rounded-2xl shadow-md overflow-hidden">
-        <table className="w-full">
+        <table className="w-full min-w-700px">
           <thead className="bg-black text-white">
             <tr>
               <th className="p-4 text-left">Name</th>
@@ -67,20 +67,20 @@ const ManageUser = () => {
             {users.map((user) => (
               <tr key={user._id} className="border-b">
                 <td className="p-4">{user.name}</td>
-                <td className="p-4">{user.email}</td>
+                <td className="p-4 break-all">{user.email}</td>
                 <td className="p-4 capitalize">{user.role}</td>
                 <td className="p-4">
                   <button
-                    className="bg-red-500 text-white px-4 py-2 rounded-lg"
+                    className="bg-red-500 text-white px-4 py-2 rounded-lg text-sm md:text-base"
                     onClick={() => handelDelete(user._id)}
                   >
                     {isLoading ? "Deleting..." : "Delete"}
                   </button>
                 </td>
-                <td>
+                <td className="p-4">
                   <button
                     onClick={() => handelVerify(user._id)}
-                    className="bg-green-500 text-white px-4 py-2 rounded-lg mr-3"
+                    className="bg-green-500 text-white px-4 py-2 rounded-lg  text-sm md:text-base"
                   >
                     Verify
                   </button>
