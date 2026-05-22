@@ -1,12 +1,14 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
+import clientServer from '../api/client.js';
 
 const Conversations = () => {
     const [conversations, setConversations] = useState([]);
     const fetchConversations = async()=>{
         try{
-            
+            const res = await clientServer.get("/messages/conversations/all");
+            setConversations(res.data.conversations)
         }catch(err){
             console.log(err)
         }
