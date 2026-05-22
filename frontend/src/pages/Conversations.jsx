@@ -24,11 +24,11 @@ const Conversations = () => {
         </div>
 
         {/* users */}
-        <div >
+        <div className='space-y-2 p-3' >
             {
                 conversations.map((user)=>(
-                    <Link key={user._id} to={`/chat/${user._id}`}>
-                        <img src="" alt="" />
+                    <Link key={user._id} to={`/chat/${user._id}`} className='flex items-center gap-4 p-3 hover:bg-gray-100 rounded-xl transition'>
+                        <img src={`http://localhost:9090${user.profilePicture}`} alt="profile" className='w-12 h-12 rounded-full object-cover' />
                         {/* information */}
                         <div>
                             <h3>{user.name}</h3>
