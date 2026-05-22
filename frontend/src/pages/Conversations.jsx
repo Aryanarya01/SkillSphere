@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import clientServer from '../api/client.js';
+import { useEffect } from 'react';
 
 const Conversations = () => {
     const [conversations, setConversations] = useState([]);
@@ -13,6 +14,9 @@ const Conversations = () => {
             console.log(err)
         }
     }
+    useEffect(()=>{
+        fetchConversations();
+    },[])
   return (
     <div className='w-80 bg-white border-r h-full overflow-y-auto'>
         <div className='p-5 border-b'>
