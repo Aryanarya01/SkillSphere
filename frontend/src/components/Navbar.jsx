@@ -11,7 +11,7 @@ const Navbar = () => {
 
   
   const [count, setCount] = useState(0);
- 
+  const [isOpen, setIsOpen] = useState(false)
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
