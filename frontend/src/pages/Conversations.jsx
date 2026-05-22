@@ -4,7 +4,13 @@ import { Link } from 'react-router-dom';
 
 const Conversations = () => {
     const [conversations, setConversations] = useState([]);
-
+    const fetchConversations = async()=>{
+        try{
+            
+        }catch(err){
+            console.log(err)
+        }
+    }
   return (
     <div className='w-80 bg-white border-r h-full overflow-y-auto'>
         <div className='p-5 border-b'>
