@@ -3,6 +3,7 @@ import clientServer from "../api/client.js";
 import { useParams } from "react-router-dom";
 import socket from "../socket.js";
 import { useSelector } from "react-redux";
+import Conversations from "./Conversations.jsx";
 const Chats = () => {
   const { id } = useParams();
   const { user } = useSelector((state) => state.auth);
@@ -52,13 +53,12 @@ const Chats = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
-      <div className="w-full max-w-3xl bg-white rounded-2xl shadow-xl flex flex-col h-[85vh]">
-        <div className="p-5 border-b">
-          <h1 className="text-2xl font-bold">Chat</h1>
-        </div>
+      <div className="w-full max-w-6xl bg-white rounded-2xl shadow-xl flex h-[85vh] overflow-hidden">
 
-        {/* message box */}
-        <div className="flex-1 overflow-y-auto p-5 space-y-4">
+  <Conversations/>
+
+  {/* CHAT AREA */}
+  <div className="flex-1 flex flex-col">
           {messages.map((msg) => (
             <div
               key={msg._id}
