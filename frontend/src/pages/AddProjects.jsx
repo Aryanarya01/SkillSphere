@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import clientServer from "../api/client.js";
 
 const AddProjects = () => {
   const [formData, setFormData] = useState({
@@ -26,7 +27,14 @@ const AddProjects = () => {
   const handelSubmit = async(e)=>{
     e.preventDefault();
     try{
-
+      const data = new FormData();
+      data.append("title",formData.title);
+      data.append("description",formData.description);
+      data.append("technology",formData.technology);
+      data.append("githubLink",formData.githubLink);
+      data.append("liveLink",formData.liveLink);
+      data.append("image",image);
+      await clientServer.post()
     }catch(err){
       console.log(err)
     }
