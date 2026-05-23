@@ -28,7 +28,7 @@ const AddProjects = () => {
             <textarea name="" id="" name='description' placeholder='Project Description'/>
             <input type="text" name='technology'  placeholder="React, Node.js, MongoDB" />
             <input type="text" name='githubLink' placeholder="Github Link" />
-            <input type="text" name='liveLink' />
+            <input type="text" name='liveLink'  placeholder="Live Project Link" />
             <input type="file" />
             <button></button>
         </form>
