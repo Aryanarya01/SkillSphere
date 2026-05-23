@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Reviews from "../components/Reviews";
 import PortfolioProjects from "../components/PortfolioProjects";
-const Profile = () => {
+const UserProfile = () => {
   const { user } = useSelector((state) => state.auth);
   console.log(user?._id);
  
@@ -93,4 +93,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default UserProfile;
