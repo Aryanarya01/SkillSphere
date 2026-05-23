@@ -13,13 +13,14 @@ const UserProfile = () => {
         const res = await clientServer.get(`/user/${id}`);
         setInspectedUser(res.data.user);
 
-        console.log(inspectedUser?.role)
+         
     }catch(err){
         console.log(err)
     }
  }
  useEffect(()=>{
-    fetchUser()
+    fetchUser();
+console.log(inspectedUser)
  },[])
 
   return (
@@ -57,12 +58,7 @@ const UserProfile = () => {
     </p>
   </div>
 )}
-          <Link
-            to="/edit-profile"
-            className="mt-6 bg-black text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition"
-          >
-            Edit Profile
-          </Link>
+          
         </div>
 
         
@@ -76,11 +72,21 @@ const UserProfile = () => {
             <p className="text-lg font-semibold mt-2">{inspectedUser?.email}</p>
           </div>
 
-          <Reviews userId={inspectedUser?._id} />
+          {
+  inspectedUser?._id && (
+    <Reviews
+      userId={inspectedUser._id}
+    />
+  )
+}
 
-           
-              <PortfolioProjects userId={inspectedUser?._id}/>
-            
+{
+  inspectedUser?._id && (
+    <PortfolioProjects
+      userId={inspectedUser._id}
+    />
+  )
+}
 
           {/* Account Status */}
           <div className="bg-gray-100 rounded-xl p-5">
