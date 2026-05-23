@@ -7,7 +7,7 @@ export const createProject = async (req, res) => {
       user: req.user._id,
       title,
       description,
-      technology: technologies.split(","),
+      technology: technology.split(","),
       githubLink,
       liveLink,
       image: req.file ? `/uploads/${req.file.filename}` : "",
