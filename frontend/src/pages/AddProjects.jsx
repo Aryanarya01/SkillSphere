@@ -25,8 +25,10 @@ const AddProjects = () => {
 
         <form >
             <input type="text" />
-            <textarea name="" id=""></textarea>
+            <textarea name="" id=""/>
             <input type="text" />
+            <input type="text" />
+            
         </form>
 
          </div>
