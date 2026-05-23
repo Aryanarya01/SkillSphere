@@ -83,8 +83,11 @@ const ViewProposals = () => {
             key={proposal._id}
             className="bg-white rounded-2xl shadow-md p-6"
           >
-            <h2 className="text-2xl font-bold">{proposal.freelancer?.name}</h2>
-            {
+            <Link to={`/user/${proposal.freelancer._id}`}>
+              <h2 className="text-2xl font-bold">{proposal.freelancer?.name}</h2>
+               </Link>
+              {
+            
   onlineUsers.includes(
     proposal.freelancer._id
   ) && (

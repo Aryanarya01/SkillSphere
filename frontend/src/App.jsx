@@ -176,7 +176,7 @@ const {user} = useSelector((state)=>state.auth)
               <AddProjects/>
             </ProtectedRoutes>
           } />
-      <Route path="/user-profile" element={<ProtectedRoutes>
+      <Route path="/user/:id" element={<ProtectedRoutes>
         <UserProfile/>
       </ProtectedRoutes>} />
 

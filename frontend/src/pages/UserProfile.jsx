@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import Reviews from "../components/Reviews";
@@ -10,13 +10,16 @@ const UserProfile = () => {
     const {id} = useParams();
  const fetchUser = async()=>{
     try{
-        const res = await clientServer.get(`/freelancers/${id}`);
-        setInspectedUser(res.data.freelancer);
+        const res = await clientServer.get(`/user/${id}`);
+        setInspectedUser(res.data.user);
+        console.log(inspectedUser)
     }catch(err){
         console.log(err)
     }
  }
- 
+ useEffect(()=>{
+    fetchUser()
+ },[])
 
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
