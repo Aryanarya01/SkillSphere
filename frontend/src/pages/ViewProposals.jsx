@@ -27,12 +27,12 @@ const ViewProposals = () => {
 
   useEffect(() => {
     fetchPropsals();
-    socket.on("onlineUser",(users)=>{
-    setOnlineUsers(users)
-  })
-  return ()=>{
-    socket.off("onlineUser")
-  }
+    socket.on("onlineUser", (users) => {
+      setOnlineUsers(users);
+    });
+    return () => {
+      socket.off("onlineUser");
+    };
   }, []);
 
   const handelAccept = async (id) => {
@@ -84,22 +84,15 @@ const ViewProposals = () => {
             className="bg-white rounded-2xl shadow-md p-6"
           >
             <Link to={`/user/${proposal.freelancer._id}`}>
-              <h2 className="text-2xl font-bold">{proposal.freelancer?.name}</h2>
-               </Link>
-              {
-            
-  onlineUsers.includes(
-    proposal.freelancer._id
-  ) && (
-
-    <span className="text-green-500 text-sm font-semibold">
-
-      ● Online
-
-    </span>
-
-  )
-}
+              <h2 className="text-2xl font-bold">
+                {proposal.freelancer?.name}
+              </h2>
+            </Link>
+            {onlineUsers.includes(proposal.freelancer._id) && (
+              <span className="text-green-500 text-sm font-semibold">
+                ● Online
+              </span>
+            )}
             <p className="text-gray-500 mt-1">{proposal.freelancer?.email}</p>
 
             <div className="mt-5">
@@ -122,43 +115,39 @@ const ViewProposals = () => {
               </span>
             </div>
             <div className="mt-5">
-  <Link
-    to={`/chat/${proposal.freelancer._id}`}
-    className="bg-black text-white px-4 py-2 rounded-lg inline-block"
-  >
-    Message
-  </Link>
-</div>
+              <Link
+                to={`/chat/${proposal.freelancer._id}`}
+                className="bg-black text-white px-4 py-2 rounded-lg inline-block"
+              >
+                Message
+              </Link>
+            </div>
 
             {/* Buttons */}
-            {
-              proposal.status === "pending" && (
-            
-            <div className="flex gap-4 mt-6">
-              <button
-                onClick={() => handelAccept(proposal._id)}
-                className="flex-1 bg-green-500 text-white py-3 rounded-xl font-semibold"
-              >
-                {isLoading ? "Accepting..." : "Accept"}
-              </button>
+            {proposal.status === "pending" && (
+              <div className="flex gap-4 mt-6">
+                <button
+                  onClick={() => handelAccept(proposal._id)}
+                  className="flex-1 bg-green-500 text-white py-3 rounded-xl font-semibold"
+                >
+                  {isLoading ? "Accepting..." : "Accept"}
+                </button>
 
-              <button
-                onClick={() => handelReject(proposal._id)}
-                className="flex-1 bg-red-500 text-white py-3 rounded-xl font-semibold"
-              >
-                {isLoading ? "Rejecting... " : "Reject"}
-              </button>
-            </div>
-              )}
-  <hr className="mt-6"/>
-  {
-    proposal.status === "accepted" && (
-                 <ReviewForm
-  receiverId={proposal.freelancer?._id}
-  jobId={proposal.job?._id}
-/>
-    )
-  }
+                <button
+                  onClick={() => handelReject(proposal._id)}
+                  className="flex-1 bg-red-500 text-white py-3 rounded-xl font-semibold"
+                >
+                  {isLoading ? "Rejecting... " : "Reject"}
+                </button>
+              </div>
+            )}
+            <hr className="mt-6" />
+            {proposal.status === "accepted" && (
+              <ReviewForm
+                receiverId={proposal.freelancer?._id}
+                jobId={proposal.job?._id}
+              />
+            )}
           </div>
         ))}
       </div>
