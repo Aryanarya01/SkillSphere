@@ -17,20 +17,19 @@ const AddProjects = () => {
         <h1 className="text-3xl font-bold mb-8">Add Project</h1>
 
         <form>
-          <input type="text" name="title" placeholder="Project Title" />
+          <input type="text" value={formData.title} name="title" placeholder="Project Title" />
           <textarea
-            name=""
             id=""
-            name="description"
+            name="description" value={formData.description}
             placeholder="Project Description"
           />
           <input
-            type="text"
+            type="text" value={formData.technology}
             name="technology"
             placeholder="React, Node.js, MongoDB"
           />
-          <input type="text" name="githubLink" placeholder="Github Link" />
-          <input type="text" name="liveLink" placeholder="Live Project Link" />
+          <input type="text" value={formData.githubLink} name="githubLink" placeholder="Github Link" />
+          <input type="text" value={formData.liveLink} name="liveLink" placeholder="Live Project Link" />
           <input type="file" />
           <button type="submit"></button>
         </form>
