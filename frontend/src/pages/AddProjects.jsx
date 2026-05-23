@@ -12,8 +12,13 @@ const AddProjects = () => {
 
   const [image, setImage] = useState(null);
 
-  const handelChange = async () => {
+  const handelChange = async (e) => {
     try {
+      setFormData({
+        ...formData,
+        [e.target.name] : e.target.value
+      })
+
     } catch (err) {
       console.log(err);
     }
