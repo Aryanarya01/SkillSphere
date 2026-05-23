@@ -12,15 +12,12 @@ const AddProjects = () => {
 
   const [image, setImage] = useState(null);
 
-
-  const handelChange = async()=>{
-    try{
-
-    }catch(err){
-      console.log(err)
+  const handelChange = async () => {
+    try {
+    } catch (err) {
+      console.log(err);
     }
-  }
-
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
@@ -32,33 +29,38 @@ const AddProjects = () => {
             type="text"
             value={formData.title}
             name="title"
-            placeholder="Project Title" onChange={handelChange}
+            placeholder="Project Title"
+            onChange={handelChange}
           />
           <textarea
             id=""
             name="description"
             value={formData.description}
-            placeholder="Project Description" onChange={handelChange}
+            placeholder="Project Description"
+            onChange={handelChange}
           />
           <input
             type="text"
             value={formData.technology}
             name="technology"
-            placeholder="React, Node.js, MongoDB" onChange={handelChange}
+            placeholder="React, Node.js, MongoDB"
+            onChange={handelChange}
           />
           <input
             type="text"
             value={formData.githubLink}
             name="githubLink"
-            placeholder="Github Link" onChange={handelChange}
+            placeholder="Github Link"
+            onChange={handelChange}
           />
           <input
             type="text"
             value={formData.liveLink}
             name="liveLink"
-            placeholder="Live Project Link" onChange={handelChange}
+            placeholder="Live Project Link"
+            onChange={handelChange}
           />
-          <input type="file" onChange={(e)=>setImage(e.target.files[0])} />
+          <input type="file" onChange={(e) => setImage(e.target.files[0])} />
           <button type="submit"></button>
         </form>
       </div>
