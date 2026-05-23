@@ -56,7 +56,7 @@ export const getAllFreelancer = async (req, res) => {
 
 export const getSingleFreelancer = async (req, res) => {
   try {
-    const freelancer = await Freelancer.findById(req.params.id);
+    const freelancer = await Freelancer.findById(req.params.id).select("-password");
     if (!freelancer) {
       return res.status(404).json({ message: "freelancer not found!" });
     }
