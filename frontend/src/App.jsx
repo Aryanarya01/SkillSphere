@@ -171,7 +171,7 @@ const {user} = useSelector((state)=>state.auth)
         </ProtectedRoutes>} />
 
           <Route path="/add-project" element={
-            <ProtectedRoutes>
+            <ProtectedRoutes role="freelancer">
               <AddProjects/>
             </ProtectedRoutes>
           } />

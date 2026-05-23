@@ -71,9 +71,13 @@ const Profile = () => {
               {user?.active ? "Active" : "Inactive"}
             </p>
           </div>
-          <Link to="/add-project"  className="mt-4 bg-black text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition">
+          {
+            user.role === "freelancer" && (
+               <Link to="/add-project"  className="mt-4 bg-black text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition">
             Add Projects
           </Link>
+            )
+          }
         </div>
       </div>
     </div>
