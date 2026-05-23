@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Reviews from "../components/Reviews";
+import PortfolioProjects from "../components/PortfolioProjects";
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
   console.log(user?._id);
@@ -63,6 +64,12 @@ const Profile = () => {
 
           <Reviews userId={user?._id} />
 
+          {
+            user.role === "freelancer" && (
+              <PortfolioProjects userId={user?._id}/>
+            )
+          }
+
           {/* Account Status */}
           <div className="bg-gray-100 rounded-xl p-5">
             <h2 className="text-gray-500">Account Status</h2>
@@ -79,6 +86,7 @@ const Profile = () => {
             )
           }
         </div>
+        
       </div>
     </div>
   );

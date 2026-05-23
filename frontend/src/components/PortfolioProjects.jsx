@@ -19,7 +19,15 @@ const PortfolioProjects = ({userId}) => {
         fetchProjects()
     },[userId])
   return (
-    <div>PortfolioProjects</div>
+    <div className="mt-10">
+         <h2 className="text-3xl font-bold mb-6">
+
+        Portfolio Projects
+
+      </h2>
+
+      
+    </div>
   )
 }
 
