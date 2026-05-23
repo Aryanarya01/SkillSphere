@@ -23,12 +23,16 @@ const AddProjects = () => {
     }
   };
 
+  const handelSubmit = async(e)=>{
+    
+  }
+
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
       <div className="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-8">
         <h1 className="text-3xl font-bold mb-8">Add Project</h1>
 
-        <form>
+        <form className="" onSubmit={handelSubmit}>
           <input
             type="text"
             value={formData.title}
