@@ -2,8 +2,11 @@ import React from "react";
 import { useState } from "react";
 import clientServer from "../api/client.js";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AddProjects = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -37,9 +40,12 @@ const AddProjects = () => {
       data.append("image",image);
       await clientServer.post("/portfolio/create",data);
       toast.success("Project added successfully!");
-      
+      navigate("/profile")
     }catch(err){
-      console.log(err)
+      console.log(err);
+       toast.error(
+          "Something went wrong"
+        );
     }
   }
 
