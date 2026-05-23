@@ -37,41 +37,42 @@ const AddProjects = () => {
       <div className="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-8">
         <h1 className="text-3xl font-bold mb-8">Add Project</h1>
 
-        <form className="" onSubmit={handelSubmit}>
+        <form className="space-y-5" onSubmit={handelSubmit}>
           <input
             type="text"
             value={formData.title}
             name="title"
             placeholder="Project Title"
             onChange={handelChange}
+            className="w-full border border-gray-300 rounded-xl p-4"
           />
           <textarea
             id=""
             name="description"
             value={formData.description}
             placeholder="Project Description"
-            onChange={handelChange}
+            onChange={handelChange} className="w-full border border-gray-300 rounded-xl p-4"
           />
           <input
             type="text"
             value={formData.technology}
             name="technology"
             placeholder="React, Node.js, MongoDB"
-            onChange={handelChange}
+            onChange={handelChange} className="w-full border border-gray-300 rounded-xl p-4"
           />
           <input
             type="text"
             value={formData.githubLink}
             name="githubLink"
             placeholder="Github Link"
-            onChange={handelChange}
+            onChange={handelChange} className="w-full border border-gray-300 rounded-xl p-4"
           />
           <input
             type="text"
             value={formData.liveLink}
             name="liveLink"
             placeholder="Live Project Link"
-            onChange={handelChange}
+            onChange={handelChange} className="w-full border border-gray-300 rounded-xl p-4"
           />
           <input type="file" onChange={(e) => setImage(e.target.files[0])} />
           <button type="submit"></button>
