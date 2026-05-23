@@ -32,7 +32,7 @@ const AddProjects = () => {
           <input type="text" name="githubLink" placeholder="Github Link" />
           <input type="text" name="liveLink" placeholder="Live Project Link" />
           <input type="file" />
-          <button></button>
+          <button type="submit"></button>
         </form>
       </div>
     </div>
