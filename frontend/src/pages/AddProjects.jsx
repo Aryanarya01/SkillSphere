@@ -16,9 +16,8 @@ const AddProjects = () => {
     try {
       setFormData({
         ...formData,
-        [e.target.name] : e.target.value
-      })
-
+        [e.target.name]: e.target.value,
+      });
     } catch (err) {
       console.log(err);
     }
