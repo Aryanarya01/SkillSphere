@@ -8,7 +8,7 @@ import {
 const router = Router();
 
 router
-  .route("portfolio/create")
+  .route("/portfolio/create")
   .post(Protect, upload.single("image"), createProject);
-router.route("portfolio/:id").get(getUserProjects);
+router.route("/portfolio/:id").get(getUserProjects);
 export default router;

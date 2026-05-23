@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import clientServer from "../api/client.js";
+import toast from "react-hot-toast";
 
 const AddProjects = () => {
   const [formData, setFormData] = useState({
@@ -34,7 +35,9 @@ const AddProjects = () => {
       data.append("githubLink",formData.githubLink);
       data.append("liveLink",formData.liveLink);
       data.append("image",image);
-      await clientServer.post()
+      await clientServer.post("/portfolio/create",data);
+      toast.success("Project added successfully!");
+      
     }catch(err){
       console.log(err)
     }
