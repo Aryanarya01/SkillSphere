@@ -8,14 +8,16 @@ const AddProjects = () => {
 
       title: "",
       description: "",
-      technologies: "",
+      technology: "",
       githubLink: "",
       liveLink: "",
     });
 
     const [image, setImage] = useState(null)
   return (
-    <div>AddProjects</div>
+    <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
+        
+    </div>
   )
 }
 
