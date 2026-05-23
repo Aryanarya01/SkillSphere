@@ -58,6 +58,40 @@ const PortfolioProjects = ({userId}) => {
                     ))
                   }
                   </div>
+                  
+                  <div className='flex gap-4 mt-5'>
+                    {
+                      project.githubLink && (
+                                                <a
+                          href={project.githubLink}
+                          target="_blank"
+                          className="bg-black text-white px-4 py-2 rounded-lg"
+                        >
+
+                          Github
+
+                        </a>
+
+                      )
+                    }
+                     {
+                      project.liveLink && (
+
+                        <a
+                          href={project.liveLink}
+                          target="_blank"
+                          className="border border-black px-4 py-2 rounded-lg"
+                        >
+
+                          Live Demo
+
+                        </a>
+
+                      )
+                    }
+
+                  </div>
+
               </div>
 
 
