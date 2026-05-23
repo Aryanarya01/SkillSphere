@@ -7,9 +7,9 @@ export const createProject = async(req,res)=>{
         const portfolio = await Portfolio.create({
             title,
             description,
-            technology,
+            technology : technologies.split(","),,
             githubLink,
-            
+            liveLink,
         })
     }catch(err){
         return res.status(500).json({message : "Server Error"})
