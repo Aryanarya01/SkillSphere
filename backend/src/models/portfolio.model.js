@@ -28,5 +28,8 @@ const portfolioSchema = new mongoose.Schema({
         type : String,
         default : "",
     },
-    
+    image : {
+        type: String,
+        default : "",
+    }
 })
