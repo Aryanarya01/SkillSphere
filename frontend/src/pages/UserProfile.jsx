@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
@@ -6,22 +5,20 @@ import Reviews from "../components/Reviews.jsx";
 import PortfolioProjects from "../components/PortfolioProjects.jsx";
 import clientServer from "../api/client.js";
 const UserProfile = () => {
-    const [inspectedUser, setInspectedUser] = useState(null);
-    const {id} = useParams();
- const fetchUser = async()=>{
-    try{
-        const res = await clientServer.get(`/user/${id}`);
-        setInspectedUser(res.data.user);
-
-         
-    }catch(err){
-        console.log(err)
+  const [inspectedUser, setInspectedUser] = useState(null);
+  const { id } = useParams();
+  const fetchUser = async () => {
+    try {
+      const res = await clientServer.get(`/user/${id}`);
+      setInspectedUser(res.data.user);
+    } catch (err) {
+      console.log(err);
     }
- }
- useEffect(()=>{
+  };
+  useEffect(() => {
     fetchUser();
-console.log(inspectedUser)
- },[])
+    console.log(inspectedUser);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
@@ -45,23 +42,18 @@ console.log(inspectedUser)
           <span className="mt-4 bg-black text-white px-4 py-2 rounded-full capitalize">
             {inspectedUser?.role}
           </span>
-      {inspectedUser?.role === "freelancer" && (
-  <div className="mt-6 bg-gray-100 rounded-xl p-5">
-    <h2 className="text-gray-500">
-      Verification Status
-    </h2>
+          {inspectedUser?.role === "freelancer" && (
+            <div className="mt-6 bg-gray-100 rounded-xl p-5">
+              <h2 className="text-gray-500">Verification Status</h2>
 
-    <p className="text-lg font-semibold mt-2">
-      {inspectedUser?.isVerified
-        ? "✔ Verified Freelancer"
-        : "Not Verified"}
-    </p>
-  </div>
-)}
-          
+              <p className="text-lg font-semibold mt-2">
+                {inspectedUser?.isVerified
+                  ? "✔ Verified Freelancer"
+                  : "Not Verified"}
+              </p>
+            </div>
+          )}
         </div>
-
-        
 
         {/* User Info */}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -72,21 +64,11 @@ console.log(inspectedUser)
             <p className="text-lg font-semibold mt-2">{inspectedUser?.email}</p>
           </div>
 
-          {
-  inspectedUser?._id && (
-    <Reviews
-      userId={inspectedUser._id}
-    />
-  )
-}
+          {inspectedUser?._id && <Reviews userId={inspectedUser._id} />}
 
-{
-  inspectedUser?._id && (
-    <PortfolioProjects
-      userId={inspectedUser._id}
-    />
-  )
-}
+          {inspectedUser?._id && (
+            <PortfolioProjects userId={inspectedUser._id} />
+          )}
 
           {/* Account Status */}
           <div className="bg-gray-100 rounded-xl p-5">
@@ -96,10 +78,7 @@ console.log(inspectedUser)
               {inspectedUser?.active ? "Active" : "Inactive"}
             </p>
           </div>
-          
-          
         </div>
-        
       </div>
     </div>
   );
