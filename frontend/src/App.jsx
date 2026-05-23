@@ -27,6 +27,7 @@ import socket from "./socket.js";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import Chats from "./pages/Chats.jsx";
+import AddProjects from "./pages/AddProjects.jsx";
  
 
 
@@ -168,6 +169,14 @@ const {user} = useSelector((state)=>state.auth)
         <Route path="chat/:id" element={<ProtectedRoutes>
           <Chats/>
         </ProtectedRoutes>} />
+
+          <Route path="/add-project" element={
+            <ProtectedRoutes>
+              <AddProjects/>
+            </ProtectedRoutes>
+          } />
+
+
       </Routes>
     </BrowserRouter>
   );
