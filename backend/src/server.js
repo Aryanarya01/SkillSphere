@@ -14,6 +14,10 @@ import reviweRoute from "./routes/review.route.js";
 import adminRoute from "./routes/admin.route.js";
 import notificationRoute from "./routes/notification.route.js";
 import messageRoute from "./routes/message.route.js";
+import portfolioRoute from "./routes/portfolio.route.js"
+
+
+
 const app = express();
 const port = 9090;
 const server = createServer(app);
@@ -44,6 +48,8 @@ app.use(reviweRoute);
 app.use(adminRoute);
 app.use(notificationRoute);
 app.use(messageRoute);
+app.use(portfolioRoute)
+
 
 app.use("/uploads", express.static("uploads"));
 
