@@ -13,7 +13,7 @@ export const createProject = async(req,res)=>{
             liveLink,
             image : req.file  ? `/uploads/${req.file.filename}` : ""
         });
-        
+        return res.status(201).json({portfolio})
     }catch(err){
         return res.status(500).json({message : "Server Error"})
     }
