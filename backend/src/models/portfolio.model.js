@@ -32,3 +32,7 @@ const portfolioSchema = new mongoose.Schema({
     default: "",
   },
 });
+
+
+const Portfolio = mongoose.model("Portfolio",portfolioSchema);
+export default Portfolio;
