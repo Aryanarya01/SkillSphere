@@ -1,4 +1,4 @@
-import Portfolio from "../models/portfolio.model";
+import Portfolio from "../models/portfolio.model.js";
 
 export const createProject = async (req, res) => {
   try {
