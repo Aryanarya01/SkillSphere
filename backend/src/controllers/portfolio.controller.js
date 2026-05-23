@@ -17,3 +17,12 @@ export const createProject = async (req, res) => {
     return res.status(500).json({ message: "Server Error" });
   }
 };
+
+
+
+
+export const getUserProjects = async(req,res)=>{
+    try{
+        
+    }
+}
