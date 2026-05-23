@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
 import clientServer from '../api/client.js';
 
@@ -14,6 +14,10 @@ const PortfolioProjects = ({userId}) => {
             toast.error("Error fetching projects.")
         }
     }
+
+    useEffect(()=>{
+        fetchProjects()
+    },[userId])
   return (
     <div>PortfolioProjects</div>
   )
