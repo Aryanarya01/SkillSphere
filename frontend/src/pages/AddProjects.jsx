@@ -24,7 +24,12 @@ const AddProjects = () => {
   };
 
   const handelSubmit = async(e)=>{
-    
+    e.preventDefault();
+    try{
+
+    }catch(err){
+      console.log(err)
+    }
   }
 
   return (
