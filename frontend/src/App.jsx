@@ -29,26 +29,19 @@ import { useSelector } from "react-redux";
 import Chats from "./pages/Chats.jsx";
 import AddProjects from "./pages/AddProjects.jsx";
 import UserProfile from "./pages/UserProfile.jsx";
- 
-
-
 
 const App = () => {
-
-
-const {user} = useSelector((state)=>state.auth)
+  const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
     socket.on("connect", () => {
       console.log("Connected :", socket.id);
     });
 
-    if(user?._id){
-      socket.emit("register",user._id)
+    if (user?._id) {
+      socket.emit("register", user._id);
     }
   }, [user]);
-
-
 
   return (
     <BrowserRouter>
@@ -167,19 +160,31 @@ const {user} = useSelector((state)=>state.auth)
             </ProtectedRoutes>
           }
         />
-        <Route path="chat/:id" element={<ProtectedRoutes>
-          <Chats/>
-        </ProtectedRoutes>} />
-
-          <Route path="/add-project" element={
-            <ProtectedRoutes role="freelancer">
-              <AddProjects/>
+        <Route
+          path="chat/:id"
+          element={
+            <ProtectedRoutes>
+              <Chats />
             </ProtectedRoutes>
-          } />
-      <Route path="/user/:id" element={<ProtectedRoutes>
-        <UserProfile/>
-      </ProtectedRoutes>} />
+          }
+        />
 
+        <Route
+          path="/add-project"
+          element={
+            <ProtectedRoutes role="freelancer">
+              <AddProjects />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/user/:id"
+          element={
+            <ProtectedRoutes>
+              <UserProfile />
+            </ProtectedRoutes>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
