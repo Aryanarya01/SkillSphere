@@ -26,7 +26,46 @@ const PortfolioProjects = ({userId}) => {
 
       </h2>
 
-      
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+        {
+          projects.map((project)=>(
+            <div key={project._id} className='bg-white rounded-2xl shadow-lg overflow-hidden'>
+
+              {
+                project.image && (
+                   <img src={`http://localhost:9090${project.image}`} alt="project" className='w-full h-52 object-cover' />
+                )
+              }
+
+              <div className='p-5'>
+                  <h3 className="text-2xl font-bold">
+
+                    {project.title}
+
+                  </h3>
+
+                  <p className="text-gray-600 mt-3">
+
+                    {project.description}
+
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mt-4">
+                  {
+                    project.technology.map((tech,index)=>(
+                      <span  key={index}
+                            className="bg-gray-200 px-3 py-1 rounded-full text-sm">{tech}</span>
+                    ))
+                  }
+                  </div>
+              </div>
+
+
+
+            </div>
+          ))
+        }
+      </div>
     </div>
   )
 }
