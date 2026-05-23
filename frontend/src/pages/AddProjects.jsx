@@ -74,8 +74,8 @@ const AddProjects = () => {
             placeholder="Live Project Link"
             onChange={handelChange} className="w-full border border-gray-300 rounded-xl p-4"
           />
-          <input type="file" onChange={(e) => setImage(e.target.files[0])} />
-          <button type="submit"></button>
+          <input type="file" onChange={(e) => setImage(e.target.files[0])} className="w-full" />
+          <button type="submit" className="w-full bg-black text-white p-4 rounded-xl font-semibold hover:opacity-90 transition">Add Project</button>
         </form>
       </div>
     </div>
