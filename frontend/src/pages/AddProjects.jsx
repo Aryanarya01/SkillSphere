@@ -24,8 +24,8 @@ const AddProjects = () => {
         </h1>
 
         <form >
-            <input type="text" />
-            <textarea name="" id=""/>
+            <input type="text" name='title' />
+            <textarea name="" id="" name='description'/>
             <input type="text" />
             <input type="text" />
             <input type="text" />
