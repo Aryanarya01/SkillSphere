@@ -13,7 +13,7 @@ const router = Router();
 router.route("/register").post(Register);
 router.route("/login").post(Login);
 router.route("/logout").get(Protect, Logout);
-router.route("/user/:id").get(Protect,getSingleUser)
+router.route("/user/:id").get(Protect,getSingleUser);
 router
   .route("/update-profile")
   .put(Protect, upload.single("profilePicture"), updateProfile);
