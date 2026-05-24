@@ -39,7 +39,7 @@ const ViewProposals = () => {
     dispatch(setLoading(true));
     try {
       const res = await clientServer.put(`/proposal/accept/${id}`);
-      alert(res.data.proposal);
+      
       fetchPropsals();
     } catch (err) {
       console.log(err);
