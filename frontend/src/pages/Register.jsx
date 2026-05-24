@@ -32,13 +32,9 @@ const Register = () => {
     try{
         dispatch(setLoading(true));
         const res = await clientServer.post("/register",formData);
-        dispatch(setUser(res.data.user));
-         if(res.data.user.role === "client"){
-        navigate("/client-dashboard");
-      }else if(res.data.user.role === "freelancer"){
-        navigate("/freelancer-dashboard")
-      }
-        toast.success("Registration Successful")
+        
+        toast.success("Registration Successful");
+          navigate("/login");
     }catch(err){
         console.log(err);
         toast.error("Registration Failed");
