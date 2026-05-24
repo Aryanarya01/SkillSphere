@@ -183,7 +183,7 @@ const Navbar = () => {
                   </Link>
                 </>
               )}
-
+     {user.role === "admin" && ( <> <Link to="/admin_dashboard">Dashboard</Link> <Link to="/profile">Profile</Link> </> )}
               <button
                 onClick={handelLogout}
                 className="bg-white text-black px-4 py-2 rounded-lg"
