@@ -10,7 +10,7 @@ const Profile = () => {
   
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
-      <div className="w-full max-w-3xl bg-white rounded-2xl shadow-xl p-8">
+      <div className="w-full max-w-5xl bg-white rounded-2xl shadow-xl p-8">
         {/* Profile Header */}
         <div className="flex flex-col items-center">
           {/* Avatar */}
