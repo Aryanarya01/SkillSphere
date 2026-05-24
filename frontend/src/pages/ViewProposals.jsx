@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../redux/slices/authSlice.js";
 import ReviewForm from "../components/ReviewForm.jsx";
 import socket from "../socket.js";
+import toast from "react-hot-toast";
 
 const ViewProposals = () => {
   const { isLoading } = useSelector((state) => state.auth);
@@ -39,8 +40,8 @@ const ViewProposals = () => {
     dispatch(setLoading(true));
     try {
       const res = await clientServer.put(`/proposal/accept/${id}`);
-      
       fetchPropsals();
+      toast.success("Proposal accepted")
     } catch (err) {
       console.log(err);
     } finally {
@@ -52,7 +53,7 @@ const ViewProposals = () => {
     dispatch(setLoading(true));
     try {
       const res = await clientServer.put(`/proposal/reject/${id}`);
-      alert(res.data.message);
+     toast.success("Proposal rejected")
       fetchPropsals();
     } catch (err) {
       console.log(err);
