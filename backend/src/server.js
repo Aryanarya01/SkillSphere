@@ -17,14 +17,13 @@ import messageRoute from "./routes/message.route.js";
 import portfolioRoute from "./routes/portfolio.route.js";
 
 const app = express();
-const port = 9090;
 const server = createServer(app);
 
 dotenv.config();
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: process.env.CLIENT_URL,
     credentials: true,
   },
 });
@@ -33,7 +32,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.CLIENT_URL,
     credentials: true,
   }),
 );
@@ -79,12 +78,12 @@ io.on("connection", (socket) => {
 
 const startDB = async () => {
   const connect = await mongoose.connect(
-    "mongodb+srv://aryanarya01:aryan5555@skillsphere.jcqnrhp.mongodb.net/?appName=SkillSphere",
+    process.env.MONGO_URI
   );
   console.log("DB connected");
 
-  server.listen(port, () => {
-    console.log(`Server is listining to port ${port}`);
+  server.listen(process.env.PORT, () => {
+    console.log(`Server is listining to port ${process.env.PORT}`);
   });
 };
 startDB();
