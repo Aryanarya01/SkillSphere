@@ -79,6 +79,7 @@ io.on("connection", (socket) => {
 app.get("/", (req, res) => {
   res.send("Backend running");
 });
+console.log("CLIENT_URL =", process.env.CLIENT_URL);
 const startDB = async () => {
   const connect = await mongoose.connect(
     process.env.MONGO_URI
