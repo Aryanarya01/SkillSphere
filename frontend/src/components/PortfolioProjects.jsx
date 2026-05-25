@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import clientServer from "../api/client.js";
+import clientServer, { BASE_URL } from "../api/client.js";
 
 const PortfolioProjects = ({ userId }) => {
   const [projects, setProjects] = useState([]);
@@ -29,7 +29,7 @@ const PortfolioProjects = ({ userId }) => {
           >
             {project.image && (
               <img
-                src={`http://localhost:9090${project.image}`}
+                src={`${BASE_URL}${project.image}`}
                 alt="project"
                 className="w-full h-52 object-cover"
               />

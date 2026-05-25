@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Reviews from "../components/Reviews";
 import PortfolioProjects from "../components/PortfolioProjects";
+import { BASE_URL } from "../api/client.js";
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
   console.log(user?._id);
@@ -15,7 +16,7 @@ const Profile = () => {
         <div className="flex flex-col items-center">
           {/* Avatar */}
           <img
-            src={`http://localhost:9090${user?.profilePicture}`}
+            src={`${BASE_URL}${user?.profilePicture}`}
             alt="profile"
             className="w-32 h-32 rounded-full object-cover border-4 border-black"
           />
