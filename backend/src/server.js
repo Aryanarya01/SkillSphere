@@ -76,6 +76,9 @@ io.on("connection", (socket) => {
   });
 });
 
+app.get("/", (req, res) => {
+  res.send("Backend running");
+});
 const startDB = async () => {
   const connect = await mongoose.connect(
     process.env.MONGO_URI
