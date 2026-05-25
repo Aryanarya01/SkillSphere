@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import clientServer from "../api/client.js";
+import clientServer, { BASE_URL } from "../api/client.js";
 import { useEffect } from "react";
 
 const Conversations = () => {
@@ -32,7 +32,7 @@ const Conversations = () => {
             className="flex items-center gap-4 p-3 hover:bg-gray-100 rounded-xl transition"
           >
             <img
-              src={`http://localhost:9090${user.profilePicture}`}
+              src={`${BASE_URL}${user.profilePicture}`}
               alt="profile"
               className="w-12 h-12 rounded-full object-cover"
             />
