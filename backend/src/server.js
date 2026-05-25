@@ -29,6 +29,7 @@ const io = new Server(server, {
 });
 
 app.use(express.json());
+console.log("CLIENT_URL =", process.env.CLIENT_URL);
 app.use(cookieParser());
 app.use(
   cors({
@@ -79,7 +80,7 @@ io.on("connection", (socket) => {
 app.get("/", (req, res) => {
   res.send("Backend running");
 });
-console.log("CLIENT_URL =", process.env.CLIENT_URL);
+ 
 const startDB = async () => {
   const connect = await mongoose.connect(
     process.env.MONGO_URI
