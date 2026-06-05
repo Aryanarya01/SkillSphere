@@ -73,7 +73,6 @@ cd SkillSphere
 - Typing Indicator
 - Advanced Search & Filters
 - Pagination
-- Saved Jobs
 - Better Analytics Dashboard
 
 ##👨‍💻 Author
